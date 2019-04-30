@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		#galerie {
+			width: 400px;
+			height: 300px;
+			margin: auto;
+			border: 1px solid black;
+			overflow: hidden
+		}
+		#galerie img {
+			width: 400px
+		}
+	</style>
+</head>
+<body>
+ 
+ <div id="galerie">
+	<img src="images/Koala.jpg" />
+	<img src="images/Lighthouse.jpg" />
+	<img src="images/Desert.jpg" />
+ </div>
+ <button>prev</button>
+ <button>next</button>
+ 
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+ <script>
+	$('button:eq(0)').click(function(){
+		$('#galerie').prepend($('#galerie img:last-child'));
+	});
+	
+	$('button:eq(1)').click(function(){
+		$('#galerie').append($('#galerie img:eq(0)'));
+	});
+ </script>
+</body>
+</html>

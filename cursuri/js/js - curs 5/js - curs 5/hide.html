@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+ <h1>Titlu 1</h1>
+ <button>hide</button>
+ <button>show</button>
+ <br />
+  <h2>Titlu 2</h2>
+ <button>fadeOut</button>
+ <button>fadeIn</button>
+  <br />
+  <h3>Titlu 3</h3>
+ <button>slideUp</button>
+ <button>slideDown</button>
+ 
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+ <script>
+	$('button:eq(0)').click(function(){
+		$('h1').hide();
+	});
+	$('button:eq(1)').click(function(){
+		$('h1').show();
+	});
+	
+	$('button:eq(2)').click(function(){
+		$('h2').fadeOut(1000);
+	});
+	$('button:eq(3)').click(function(){
+		$('h2').fadeIn(1000);
+	});
+	
+	$('button:eq(4)').click(function(){
+		$('h3').slideUp();
+	});
+	$('button:eq(5)').click(function(){
+		$('h3').slideDown(1000);
+	});
+ </script>
+</body>
+</html>

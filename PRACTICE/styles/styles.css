@@ -1,0 +1,19 @@
+#minusButton {
+    color: white;
+    background-color: red;
+}
+
+#plusButton {
+    color: white;
+    background-color: green;
+}
+
+#numberSpan {
+    text-decoration: underline;
+}
+
+.hidden-element {
+    /* display: none;*/
+
+    visibility: hidden;
+}

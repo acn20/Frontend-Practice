@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+</head>
+<body>
+    
+    
+    <textarea maxlength="50" onkeyup="numara()"></textarea>
+    <p><span>50</span> caractere ramase</p>
+    
+    <input type="text" placeholder="username" onkeyup="user()" />
+    <p></p>
+    
+    <input type="text" placeholder="email" onkeyup="mail()" />
+    <p></p>
+    
+    
+    <script>
+        var x = document.getElementsByTagName('textarea')[0];
+        var y = document.getElementsByTagName('input')[0];
+        var z = document.getElementsByTagName('input')[1];
+        
+       function numara(){
+           var nrMax = x.getAttribute('maxlength');
+            document.getElementsByTagName('span')[0].innerHTML = nrMax - x.value.length;    
+       }
+       
+       function user(){
+           if( y.value.length < 3 ){
+               document.getElementsByTagName('p')[1].innerHTML = 'Minim 3 caractere';
+           } else {
+               document.getElementsByTagName('p')[1].innerHTML = '';
+           }
+       }
+        
+        function mail(){
+            if(
+                z.value.indexOf('@') != z.value.lastIndexOf('@') ||
+                z.value.indexOf('@') < 2 ||
+                z.value.lastIndexOf('.') > z.value.length - 3 ||
+                z.value.lastIndexOf('.') <= z.value.indexOf('@') + 3
+                 
+              ){
+                document.getElementsByTagName('p')[2].innerHTML = 'E-mail incorect';
+            } else {
+                document.getElementsByTagName('p')[2].innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>

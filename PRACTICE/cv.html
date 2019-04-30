@@ -1,0 +1,222 @@
+﻿<!--
+Vei folosi border acolo
+
+Andreea-Corina Nisipeanu
+andreea.nisipeanu@gmail.com
++40725090314
+
+Address
+Cal. Ferentari Nr. 6, Bl. 70, Sc. 1, Et. 7, Ap. 37
+Sector 5
+Bucuresti
+Romania
+
+Andreea-Corina Nisipeanu
+Software Engineer
+
+About Me
+I am a very energic person with vast interests and tendancy towards science, but also human relationships. I have many skills and I love working with a team.
+
+Education
+2010-2012, Universitatea Spiru Haret
+Facultatea de Jurnalism si Stiintele Comunicarii
+2017-2018
+Universitatea Politehnica Bucuresti
+Facultatea de Inginerie Aerospatiala
+Glider Pilot License
+Ballet School (Piano included)
+
+Experience
+Dance Instructor (2017-present)
+Survey Call Center
+Sales Call Center
+Stock Market Call Center (pe bursa)
+Waitress
+Model Recruitor
+Voluntary Work
+
+Communication Skills
+
+Software Development Skills
+Programming
+Javascript
+HTML
+CSS
+C++ (very little)
+
+cod culori: from rgb to hex
+primul albastru 0 101 188
+celalalt albastru 14 103 163
+setez width la divul din stanga 30%, iar la celalalt 70%
+solutia moderna: flexbox (pot sa setez un div sa aiba randuri/coloane)
+-->
+<html>
+
+<head>
+
+    <style>
+        /* 
+			try this if nothing else works  */
+        #container {
+            display: flex;
+        }
+
+        #personalData {
+            /*display: flex;
+            flex-direction: column;*/
+            /*float: right;
+            padding: 30px;
+        }
+
+        ul.alignedToTheRight>li {
+            text-align: right;
+            float: right;
+            clear: both;
+        }
+
+        .alignedToTheRight {
+            float: right;
+            clear: both;
+        }
+
+        #main {
+            /*display: flex;
+            flex-direction: column;
+            border-block-start: 10px;
+            border-block-end: 10px;
+            border-block-start-color: #0065BC;
+            border-inline-start: 10px;
+            border-inline-end: 10px;
+            border-inline-start-color: #0065BC;*/
+            border-left: 2px dotted #0065BC;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #0065BC;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0px;
+        }
+
+        #programmingLanguages {
+            padding-left: 20px;
+            list-style-type: circle;
+        }
+
+        #experienceList {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        .cv-item-title {
+            color: #0E67A3;
+        }
+
+        .sections {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        #mainTitle {
+            margin-top: 10px;
+        }
+
+        #name {
+            margin-bottom: 10px;
+        }
+
+        #aboutMeTitle {
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+
+        <div id="personalData">
+            <h4 class="alignedToTheRight">Andreea-Corina Nisipeanu</h4>
+            <span class="alignedToTheRight">andreea.nisipeanu@gmail.com</span>
+            <span class="alignedToTheRight">+40725090314</span>
+            <ul class="alignedToTheRight">
+                <h5 class="alignedToTheRight">Address</h5>
+                <li>Cal. Ferentari Nr. 6, Bl. 70, Sc. 1, Et. 7, Ap. 37</li>
+                <li>Sector 5</li>
+                <li>Bucuresti</li>
+                <li>Romania</li>
+            </ul>
+        </div>
+
+        <div id="main">
+
+            <section id="nameAndTitle" class="sections">
+                <div id="name">
+                    <h1>Andreea-Corina Nisipeanu</h1>
+                </div>
+                <div id="mainTitle">
+                    <h2 class="cv-item-title">Software Engineer</h2>
+                </div>
+            </section>
+
+            <section id="aboutMe" class="sections">
+                <p>
+                    <span class="cv-item-title" id="aboutMeTitle">About me&nbsp</span>
+                    I am an aspiring front end developer with an interest in unit testing. With the help of my strong passion and background in engineering, physics and aerospace, I became a very fast learner in the field of computer science in general, and I am very excited to experience new challenges and broaden my skills.
+
+                </p>
+            </section>
+
+            <section id="education" class="sections">
+                <h2 class="cv-section-title">Education</h2>
+                <ul>
+                    <li class="cv-item-title">2018 - 2019 JavaScript & Web Design, Avantaj Consulting</li>
+                    <li class="cv-item-title">2017 - Present, Facultatea de Inginerie Aerospatiala, Universitatea Politehnica Bucuresti, </li>
+                    <li class="cv-item-title">Glider Pilot License</li>
+                    <li class="cv-item-title">2010 - 2012, Facultatea de Jurnalism si Stiintele Comunicarii,  Universitatea Spiru Haret
+                    </li>
+                    <li class="cv-item-title">Math High School - Intensive Programming</li><!--atestat in informatica-->
+                    <li class="cv-item-title">Cisco Course (IT)</li>
+                    <li class="cv-item-title">Ballet School (Piano included)</li>
+                </ul>
+            </section>
+
+            <section id="experience" class="sections">
+                <h2 class="cv-section-title">Experience</h2>
+                <ul id="experienceList">
+                    <li class="cv-item-title">Dance Instructor (2017 - present) - Salsa Stars</li>
+                    <li class="cv-item-title">Survey Call Center Agent - CSOP</li>
+                    <li class="cv-item-title">Sales Call Center Agent - Studio Moderna</li>
+                    <li class="cv-item-title">Stock Market Call Center Agent - Investment & Business Center</li>
+                    <li class="cv-item-title">Model Recruitor - World Media Casting</li>
+                    <li class="cv-item-title">Voluntary Work</li>
+                </ul>
+            </section>
+
+            <section id="communicationSkills" class="sections">
+                <h2 class="cv-section-title">Communication Skills</h2>
+                <ul>
+                    <li class="cv-item-title">
+                        LMT (Leaders Of The Third Millenium)
+                    </li>
+                </ul>
+            </section>
+
+            <section id="Software Development Skills" class="sections">
+                <h2 class="cv-section-title">Software Development Skills</h2>
+                <ul id="programmingLanguages">
+                    <li class="cv-item-title">JavaScript</li>
+                    <li class="cv-item-title">HTML</li>
+                    <li class="cv-item-title">NodeJS</li>
+                    <li class="cv-item-title">unit testing</li>
+                    <li class="cv-item-title">GIT</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

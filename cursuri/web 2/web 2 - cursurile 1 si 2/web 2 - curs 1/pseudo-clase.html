@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<style>
+		#patrat {
+			width: 200px;
+			height: 200px;
+			background: black
+		}
+		#patrat:hover {
+			background: red
+		}
+		#patrat:active {
+			background: lightblue
+		}
+		input:focus {
+			outline: none;
+			background: #555555;
+			border: 1px solid black;
+			color: white
+		}
+		a:focus {
+			text-decoration: line-through;
+			letter-spacing: 3px
+		}
+		li.auri:first-child {
+			list-style-type: none;
+			font-weight: bold;
+			/*text-transform: uppercase;*/
+			color: blue
+		}
+		li:nth-child(even) {
+			text-decoration: underline;
+			color: white;
+			background: black
+		}
+		li.auri:last-child:hover {
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+	<div id="patrat"></div>
+	
+	<input type="text" /><br />
+	<input type="text" /><br />
+	<input type="submit" value="send" /><br />
+	<a href="">link</a>
+	
+	<ul>
+		<li class="auri">aaa</li>
+		<li class="auri">aaa</li>
+		<li class="auri">aaa</li>
+		<li class="auri">aaa</li>
+		<li class="auri">aaa</li>
+		<li class="auri">aaa</li>
+		<li class="auri">aaa</li>
+		<li class="auri">aaa</li>
+		<li class="auri">aaa</li>
+	</ul>
+	
+	<ol>
+		<li>bbb</li>
+		<li>bbb</li>
+		<li>bbb</li>
+		<li>bbb</li>
+	</ol>
+</body>
+</html>

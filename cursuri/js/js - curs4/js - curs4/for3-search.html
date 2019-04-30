@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<input type="text" id="cauta" onkeyup="search()" />
+		<ul>
+			<li>mere</li>
+			<li>pere</li>
+			<li>struguri</li>
+			<li>banane</li>
+			<li>portocale</li>
+			<li>lamai</li>
+			<li>gutui</li>
+			<li>bame</li>
+			<li>mandarine</li>
+			<li>prejksf</li>
+			<li>meaasdasd</li>
+		</ul>
+		
+		<script>
+			function search(){
+				var text = document.getElementById('cauta').value;
+				var toateLi = document.getElementsByTagName('li');
+				for(var i = 0; i < toateLi.length; i++){
+					if(toateLi[i].innerHTML.indexOf(text) == -1){
+						toateLi[i].style.display = 'none';
+					} else {
+						toateLi[i].style.display = 'list-item'; // block ar fi ascus bullet-urile
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

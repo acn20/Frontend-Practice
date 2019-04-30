@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <div>Un div</div>
+    <button onclick="adaugaCss()">adauga css</button>
+    <button onclick="citesteCss()">citeste css</button>
+    
+    <script>
+        var el = document.getElementsByTagName('div')[0];
+        function adaugaCss(){
+            el.style.border = '1px solid black';
+            el.style.width = '200px';
+            el.style.height = '200px';
+            el.style.textAlign = 'center';
+        }
+        function citesteCss(){
+            el.innerHTML = 'text-align: <b>' + el.style.textAlign + '</b>';
+        }
+    </script>
+</body>
+</html>

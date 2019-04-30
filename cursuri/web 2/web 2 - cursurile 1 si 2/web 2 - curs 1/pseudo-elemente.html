@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<style>
+		#articol::first-line {
+			font-weight: bold;
+			font-size: 22px
+		}
+		#articol::first-letter {
+			font-size: 40px;
+			color: lightgrey;
+			font-family: cursive
+		}
+		li {
+			list-style-type: none
+		}
+		li:first-child:hover {
+			background: #85e239
+		}
+		li:first-child::before {
+			content: url('images/home.png');
+			margin-right: 10px
+		}
+		li:first-child:hover::before {
+			content: url('images/home2.png')
+		}
+		li:last-child:hover::after {
+			content: ' 07xx xxx xxx';
+			font-size: 20px;
+			line-height: 16px;
+			font-weight: bold
+		}
+	</style>
+</head>
+<body>
+	<p id="articol">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>  Integer egestas consequat suscipit. Sed volutpat aliquet laoreet. Nulla nec scelerisque ante. Nullam dignissim luctus elit nec fringilla. Integer lacinia, orci sed sodales lacinia, mauris felis placerat nisi, ut efficitur felis dolor in eros. Aliquam in tempus massa. Praesent mauris nunc, lacinia sed elementum sit amet, dictum ut nibh. Nulla sed dolor vitae ante placerat facilisis in non mi. Vestibulum eu placerat arcu, eu suscipit risus. Ut condimentum faucibus gravida. Mauris hendrerit urna id orci tincidunt, quis maximus nunc sagittis. Pellentesque tincidunt risus a metus molestie facilisis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+	
+	<ul>
+		<li>home</li>
+		<li>about</li>
+		<li>contact</li>
+	</ul>
+</body>
+</html>

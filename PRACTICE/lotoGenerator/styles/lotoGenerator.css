@@ -1,0 +1,27 @@
+#generateButton {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#generatedNumbers {
+    font-size: 45px;
+    color: #28a745;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+h2 {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #28a745;
+}
+
+.number {
+    margin-right: 25px;
+}

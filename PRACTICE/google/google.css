@@ -1,0 +1,144 @@
+
+/*@media screen and (min-width: 1000px) {
+
+}
+
+@media screen and (max-width: 800px) {
+
+}
+
+@media screen and (min-width:600px) and (max-width: 800px) {
+body {
+		background-color: #f00;
+	}
+}
+
+@media screen and (min-width: 801px) and (max-width: 999px) {
+
+}*/
+
+#container {
+    top: 50%;
+    left: 50%;
+    position: fixed;/*prin aceasta valoare tu scoti elementul din pozitia obisnuita (adica un element dupa celalalt) si il poti pozitiona relativ la pagina*/
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;/*doua mari tipuri de elemente: elemente de tip block si elemente de tip inline. Acest text-align se aplica pe toate elementele de tip inline care sunt continute in buttons container (b, i, span, button)*/
+}
+/*aceste transformari se fac relativ la coltul din stanga sus al elementului respectiv*/
+
+/* @media screen and (max-width: 851px) {
+	#query {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+}
+
+@media screen and (min-width: 852px) and (max-width: 1000px) {
+	#query {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1251px) {
+	#query {
+		padding-left: 150px;
+		padding-right: 150px;
+	}
+}
+
+@media screen and (min-width: 1252px) {
+	#query {
+		padding-left: 200px;
+		padding-right: 200px;
+	}
+}
+
+these are called MEDIA QUERIES (NOTHING TO DO WITH YOUR #QUERY selector)
+*/
+
+#inputContainer { /* TODO adapt width for other screen sizes */
+    padding-top: 12;
+    padding-bottom: 12px;
+    border: 1px solid rgba(153, 153, 153, 1);
+    margin: 20px;
+    box-shadow: 1px 2px rgba(153, 153, 153, 1);
+    width: 632px;
+    /*box-shadow este la div-ul cu id-ul sfdiv*/
+}
+
+#query {
+    border: 0;
+    padding: 0;
+}
+
+
+.button {
+    padding: 10px 20px;
+    border: 0;
+    margin: 20px 2px;
+    background: #f2f2f2;
+    font-weight: bold;
+    color: #757575;
+    border: 1px solid #f2f2f2;
+}
+
+.button:hover {
+    /*padding: 10px 20px;
+    border: 0px;
+    margin: 20px 2px;
+    background: #f2f2f2;
+    font-weight: bold;*/
+    color: #000;
+    border: 1px solid rgba(153, 153, 153, 1);
+}
+
+#buttonsContainer {
+    /*text-align: center;*/
+}
+
+#google {
+    margin: 20px;
+}
+
+#microphone {
+    margin: 0px 20px;
+    font-size: 17px;
+}
+
+#footerCountry {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: #f2f2f2;
+    border-top: 1px solid rgba(153, 153, 153, 1);
+}
+
+#footerItems {
+    padding-top: 10px;
+
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: #f2f2f2;
+    border-top: 1px solid rgba(153, 153, 153, 1);
+}
+
+.footerButton {
+    border: 0;
+    background-color: #f2f2f2;
+}
+
+
+.footerButton:hover {
+    text-decoration: underline;
+}
+
+.rightSide {
+    float: right;
+}
+
+footer {
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+}

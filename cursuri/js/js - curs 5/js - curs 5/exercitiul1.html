@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        ul {
+            float: left;
+            margin: 10px;
+        }
+        li {
+            list-style: none;
+            background: burlywood;
+            color: forestgreen;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-bottom: 1px solid brown
+        }
+        li:first-child {
+            cursor: pointer;
+            border-bottom:2px solid brown;
+        }
+        li:hover {
+            background: palegreen
+        }
+        p {
+            clear: both
+        }
+    </style>
+</head>
+<body>
+    <ul id="bulgaria">
+        <li>Bulgaria</li>
+        <li>Albena</li>
+        <li>Balchik</li>
+        <li>Bansko</li>
+        <li>Golden Sands</li>
+    </ul>
+    
+    <ul id="grecia">
+        <li>Grecia</li>
+        <li>Zakynthos</li>
+        <li>Thassos</li>
+        <li>Santorini</li>
+        <li>Mykonos</li>
+    </ul>
+    
+    <p>
+        Avand listele de mai sus trebuie sa creati urmatoarea functionalitate, folosind jQuery:<br/>
+        In urma click-ului pe Bulgaria si pe Grecia statiunile corespunzatoare trebuie sa se restranga sau sa se desfasoare in functie de situatie. (folositi un efect cu toggle).
+    </p>
+</body>
+</html>

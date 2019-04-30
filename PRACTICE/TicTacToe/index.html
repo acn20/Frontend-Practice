@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Tic Tac Toe</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="scripts/tictactoe.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/tictactoe.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="newGameContainer">
+        <div class="form-group">
+            <label for="player1Name">Player 1</label>
+            <input class="form-control-sm" type="text" name="player1Name" id="player1Name" />
+        </div>
+        <div class="form-group">
+            <label for="player2Name">Player 2</label>
+            <input class="form-control-sm" type="text" name="player2Name" id="player2Name" />
+        </div>
+        <button class="btn btn-success" id="startBtn">Start</button>
+    </div>
+
+    <div id="gameContainer" class="hidden">
+        <table class="board">
+            <tr>
+                <td class="square"></td>
+                <td class="square"></td>
+                <td class="square"></td>
+            </tr>
+            <tr>
+                <td class="square"></td>
+                <td class="square"></td>
+                <td class="square"></td>
+            </tr>
+            <tr>
+                <td class="square"></td>
+                <td class="square"></td>
+                <td class="square"></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

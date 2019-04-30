@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="gym.js"></script>
+    <link href="gym.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- 
+	write an input and a button than submits a gym PIN to the Register endpoint
+	then use a new input and a button to enter the gym
+	then another input and a button to exit the gym
+
+-->
+
+    <section id="register">
+        <h2>Register PIN</h2>
+
+        <div>
+            <input type="text" id="registerPin" size="10" />
+            <button id="registerBtn">Register</button>
+        </div>
+
+        <div>
+            <span id="successRegister" class="success hidden">Ok</span>
+            <span id="errorRegister" class="error hidden">Error</span>
+        </div>
+    </section>
+
+    <section id="enter">
+        <h2>Enter</h2>
+
+        <div>
+            <input type="text" id="enterWithPin" size="10" />
+            <button id="enterBtn">Enter</button>
+        </div>
+
+        <div>
+            <span id="successEnter" class="success hidden">Ok</span>
+            <span id="errorEnter" class="error hidden">Error</span>
+        </div>
+    </section>
+
+    <section id="exit">
+        <h2>Exit</h2>
+
+        <div>
+            <input type="text" id="exitWithPin" size="10" />
+            <button id="exitBtn">Exit</button>
+        </div>
+
+        <div>
+            <span id="successExit" class="success hidden">Ok</span>
+            <span id="errorExit" class="error hidden">Error</span>
+        </div>
+    </section>
+
+</body>
+
+</html>

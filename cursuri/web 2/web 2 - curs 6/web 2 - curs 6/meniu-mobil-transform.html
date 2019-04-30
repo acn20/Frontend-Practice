@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			ul, input {
+				display: none
+			}
+		
+			label {
+				border: 1px solid black;
+				border-radius: 3px;
+				width: 30px;
+				padding: 5px 0;				
+				display: block
+				
+			}
+			label div {
+				width: 20px;
+				height: 2px;
+				margin: 3px 5px;
+				background: black;
+				transition: all .2s
+			}
+			
+			input:checked + label + ul {
+				display: block
+			}
+			
+			input:checked + label div:first-child {
+				transform: translate(0,5px) rotate(45deg)
+			}
+			input:checked + label div:nth-child(2) {
+				transform: scale(0)
+			}
+			input:checked + label div:last-child {
+				transform: translate(0,-5px) rotate(-45deg)
+			}
+		</style>
+	</head>
+	<body>
+
+		<input type="checkbox" id="abc" />
+		<label for="abc">
+			<div></div>
+			<div></div>
+			<div></div>
+		</label>
+		<ul>
+			<li>home</li>
+			<li>home</li>
+			<li>home</li>
+		</ul>
+	</body>
+</html>

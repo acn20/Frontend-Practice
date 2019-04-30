@@ -1,0 +1,31 @@
+#searchControls {
+    text-align: center;
+}
+
+#searchButton {
+    background-color: rgb(51, 113, 227);
+    padding-left: 25px;
+    padding-right:25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid;
+    border-color: #3371e3;
+    border-radius: 7px;
+    margin: 10px;
+    color: white;
+    font-family: roboto, sans-serif;/*cum ii pun height*/
+}
+
+/*#searchButton:hover
+{
+    background-color: #03A9F4;
+    padding-left: 22px;
+    padding-right:22px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 2px solid;
+    border-radius: 7px;
+    margin: 10px;
+    color: white;
+    font-family: roboto, sans-serif;
+}*/

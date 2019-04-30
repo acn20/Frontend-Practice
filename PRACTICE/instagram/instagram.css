@@ -1,0 +1,192 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #fafafa;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.small-font {
+    font-size: 12px;
+    color: rgba(153, 153, 153, 1);
+}
+
+.smaller-font {
+    font-size: 10px;
+    color: rgba(153, 153, 153, 1);
+}
+
+#headerWrapper {
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #efefef;
+    padding: 20px 0;
+    align-items: center;
+    margin: auto;
+    background-color: #fff;
+    height: 40px;
+}
+
+#insta {
+    display: flex;
+    align-items: center;
+}
+
+#instagramIcon {
+    padding-right: 20px;
+}
+
+#instagram {
+    padding-left: 20px;
+    border-left: 1px solid #000;
+}
+
+#search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #efefef;
+    height: 25px;
+    width: 205px;
+    justify-content: center;
+    background-color: #fafafa;
+    border-radius: 3px;
+}
+
+input {
+    border: 0;
+    background-color: #fafafa;
+    outline: none;
+}
+
+.headerIcon {
+    padding: 0 20px;
+}
+
+#post {
+    margin-top: 50px;
+    border: 1px solid #efefef;
+    width: 637px;
+    background: #fff;
+}
+
+#iconAndName {
+    display: flex;
+    align-items: center;
+    margin: 13px 10px;
+}
+
+#user, .user {
+    margin-bottom: 3px;
+}
+
+#name, .story-time {
+    margin-top: 3px;
+}
+
+.icon {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.like-or-comm-icons {
+    padding: 10px;
+}
+
+.ribbon-icon {
+    background-image: url('pictures/83cd94a92a43.png');
+    background-repeat: no-repeat;
+	background-position: -156px -167px;
+	height: 104px;
+	width: 24px;
+}
+
+.numberOfLikes {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.comment {
+    padding: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#mainContainer {
+    display: flex;
+    margin: auto;
+    width: 900px;
+    padding-top: 75px;
+}
+
+#stories {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #efefef;
+}
+
+#storiesUp {
+    display: flex;
+    justify-content: space-between;
+    height: 43px;
+    align-items: center;
+    color: rgba(153, 153, 153, 1);
+}
+
+#storiesMain {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 190px;
+}
+
+#side {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 280px;
+    position: fixed;
+    z-index: 1;
+    right: 13%;
+    margin-top: 40px;
+}
+
+#mainIconAndName {
+    display: flex;
+    align-items: center;
+    padding: 23px 10px;
+    background: #fafafa;
+}
+
+.storyIconAndName {
+    display: flex;
+    align-items: center;
+    margin: 23px 10px;
+}
+
+.story-time {
+    text-transform: uppercase;
+}
+
+.post-time {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#watchAll {
+    color: #262626;
+    margin-right: 15px;
+}
+
+#storiesTitle {
+    margin-left: 15px;
+}

@@ -1,0 +1,42 @@
+:checked -> Formateaza elementele bifate (checkbox si radio de la formulare)
+
+
+
+selector1 + selector2 { ... } -> Formateaza selectorul 2 aflat IMEDIAT DUPA selectorul 1
+
+ex: <div>...</div>	div + p		P+P (SAU div + p + p) -> P-ul de dupa P (SAU P-ul de dupa div si P)
+    <p>...</p>		  V		 X
+    <p>...</p>		  X		 V
+
+
+
+
+<input type="..." id="abc"/> <- ID-ul este obligatoriu
+<label for="abc">...</label> - in label se poate adauga orice (text, poza, div etc.)
+
+-La click pe label se declanseaza click pe input
+
+
+
+
+Transition:
+
+-Se poate aplica doar pe proprietati cu valori numerice (sau culori)
+-In general, transition se aplica pe starea default a elementului
+
+
+ex: div{ transition:opacity 1s;
+		       |    |
+	      proprietatea  durata
+
+	transition:all .5s;
+
+
+	transition:all 1s, width .5s 1s;
+				     |
+				   delay(optional)
+
+
+	transition:width .5s, height 1s .5s, opacity 1s cubic-bezier(...)
+								|
+								animatie      cubic-bezier.com

@@ -1,0 +1,184 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="gmail.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="gmail.css" rel="stylesheet" />
+    <link href="gmail.dev.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <div id="gmailIconAndHeading">
+                <div id="iconNextToGmail" class="round-padding">
+                    <div class="fas fa-bars"></div>
+                </div>
+                <div id="gmailHeading" class="cursor-pointer">Gmail</div>
+            </div>
+            <div id="topBar">
+                <div id="searchMail">
+                    <div>
+                        <div class="cursor-pointer fas fa-search"></div>
+                        <input type="text" placeholder="Search mail" />
+                    </div>
+                    <div class="cursor-pointer fas fa-angle-down"></div>
+                </div>
+                <div id="iconsAndAccount">
+                    <div class="cursor-pointer black-on-hover fas fa-th"></div>
+                    <div class="cursor-pointer black-on-hover far fa-bell"></div>
+                    <div id="accountInfo" class="cursor-pointer">V</div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div id="categories">
+                <div id="compose" class="cursor-pointer">
+                    <div id="plusIcon" class="fas fa-plus"></div>
+                    <div>Compose</div>
+                </div>
+                <div id="inbox" class="category">
+                    <div class="icon messages-icon far fa-square"></div>
+                    <div>Inbox</div>
+                </div>
+                <div class="category">
+                    <div class="icon messages-icon fas fa-star"></div>
+                    <div>Starred</div>
+                </div>
+                <div class="category">
+                    <div class="icon messages-icon fas fa-clock"></div>
+                    <div>Snoozed</div>
+                </div>
+                <div class="category">
+                    <div class="icon messages-icon fab fa-firstdraft"></div>
+                    <div>Sent</div>
+                </div>
+                <div class="category">
+                    <div class="icon messages-icon fas fa-sign-in-alt"></div>
+                    <div id="drafts">Drafts</div>
+                </div>
+            </div>
+            <div id="mailsSection">
+                <div id="tools">
+                    <div id="refreshAndOptions">
+                        <div id="squareDropdown">
+                            <div class="icon cursor-pointer-plus-background far fa-square"></div>
+                            <div class="icon cursor-pointer-plus-background fas fa-angle-down"></div>
+                        </div>
+                        <div class="icon cursor-pointer-plus-background round-padding">
+                            <div class="fas fa-redo-alt"></div>
+                        </div>
+                        <div class="icon cursor-pointer-plus-background round-padding">
+                            <div class="fas fa-ellipsis-v"></div>
+                        </div>
+                    </div>
+                    <div id="arrowsAndSettings">
+                        <div class="cursor-pointer-plus-background">
+                            <div>1-4</div>
+                        </div>
+                        <div class="icon">
+                            <div class="fas fa-angle-left"></div>
+                        </div>
+                        <div class="icon cursor-pointer-plus-background round-padding">
+                            <div class="fas fa-angle-right"></div>
+                        </div>
+                        <div class="icon cursor-pointer-plus-background">
+                            <div class="fas fa-keyboard"></div>
+                        </div>
+                        <div class="icon cursor-pointer-plus-background">
+                            <div class="fas fa-angle-down"></div>
+                        </div>
+                        <div class="icon cursor-pointer-plus-background round-padding">
+                            <div class="fas fa-cog"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="titles">
+                    <div id="primary" class="section cursor-pointer-plus-background">
+                        <div class="titles-icon icon far fa-square"></div>
+                        <div>Primary</div>
+                    </div>
+                    <div class="section cursor-pointer-plus-background">
+                        <div class="titles-icon icon fas fa-user-friends"></div>
+                        <div>Social</div>
+                    </div>
+                    <div class="section cursor-pointer-plus-background">
+                        <div class="titles-icon icon fas fa-tag"></div>
+                        <div>Promotions</div>
+                    </div>
+                </div>
+                <div id="mails">
+                    <div class="mail cursor-pointer">
+                        <div class="contact">
+                            <div class="icon round-padding far fa-square"></div>
+                            <div class="icon round-padding fas fa-star"></div>
+                            <div>Duolingo</div>
+                        </div>
+                        <div class="mail-content">Hi it’s Duo! It’s time for your daily Italian lesson. Take 5 minutes
+                            now to complete it. -Daily Italian Reminder- Hi vio..</div>
+                        <div class="time">20:55</div>
+                        <div class="hover-buttons">
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-clock"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-file-download"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-trash"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-envelope-open"></div>
+                        </div>
+                    </div>
+                    <div class="seen-mail cursor-pointer">
+                        <div class="contact">
+                            <div class="icon round-padding far fa-square"></div>
+                            <div class="icon round-padding fas fa-star"></div>
+                            <div>Pinterest</div>
+                        </div>
+                        <div class="mail-content">14 Pinuri pe care să le vezi astăzi</div>
+                        <div class="time">13:19</div>
+                        <div class="hover-buttons">
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-clock"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-file-download"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-trash"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-envelope-open"></div>
+                        </div>
+                    </div>
+                    <div class="seen-mail cursor-pointer">
+                        <div class="contact">
+                            <div class="icon round-padding far fa-square"></div>
+                            <div class="icon round-padding fas fa-star"></div>
+                            <div>Duolingo</div>
+                        </div>
+                        <div class="mail-content">Your weekly progress report</div>
+                        <div class="time">27 sept.</div>
+                        <div class="hover-buttons">
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-clock"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-file-download"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-trash"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-envelope-open"></div>
+                        </div>
+                    </div>
+                    <div class="seen-mail cursor-pointer">
+                        <div class="contact">
+                            <div class="icon round-padding far fa-square"></div>
+                            <div class="icon round-padding fas fa-star"></div>
+                            <div>Pinterest</div>
+                        </div>
+                        <div class="mail-content">18 Pinuri pe care să le vezi astăzi</div>
+                        <div class="time">24 sept.</div>
+                        <div class="hover-buttons">
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-clock"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-file-download"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-trash"></div>
+                            <div class="icon hover-button round-padding cursor-pointer-plus-background black-on-hover fas fa-envelope-open"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sideIcons">
+                <div class="side-icon round-padding icon cursor-pointer-plus-background fas fa-plus"></div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

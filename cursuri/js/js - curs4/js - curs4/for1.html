@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<div id="ceva">div</div>
+		<button onclick="adauga()"> adauga mult text </button>
+		<script>
+			var el = document.getElementById('ceva');
+			function adauga(){
+				for (var x = 10; x <= 1000; x+=10){
+					el.innerHTML += ' mult text' ;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<p id="a" onclick="abc('a','blue')">adsd as</p>
+    <p id="b" onclick="abc('b')">adsd as</p>
+<script>
+   function abc(x, y='green'){
+       /* if(y == undefined) {
+            y = 'green';
+        }*/
+       document.getElementById(x).style.background = y;
+   } 
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			label {
+				float: left;
+				padding: 10px 20px;
+				background: lightblue;
+				border-radius: 4px;
+				margin-right: 4px;
+				cursor: pointer
+			}
+			label[for="t2"] {
+				background: lightgreen;
+			}
+			label[for="t3"] {
+				background: pink;
+			}
+			div.continut-tab {
+				width: 400px;
+				height: 200px;
+				clear: both;
+				text-align: center;
+				line-height: 200px;
+				font-weight: bold;
+				background: lightblue;
+				border-radius: 4px;
+				position: relative;
+				top: 5px
+			}
+			#t2 + div.continut-tab {
+				background: lightgreen;
+			}
+			#t3 + div.continut-tab {
+				background: pink
+			}
+		
+			input, div.continut-tab {
+				display: none
+			}
+			input:checked + div.continut-tab {
+				display: block
+			}
+		</style>
+	</head>
+	<body>
+		<label for="t1">Tab 1</label>
+		<label for="t2">Tab 2</label>
+		<label for="t3">Tab 3</label>
+		
+		
+		<input checked type="radio" id="t1" name="taburi" />
+		<div class="continut-tab">CONTINUT TAB 1</div>
+		<input type="radio" id="t2" name="taburi" />
+		<div class="continut-tab">CONTINUT TAB 2</div>
+		<input type="radio" id="t3" name="taburi" />
+		<div class="continut-tab">CONTINUT TAB 3</div>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+@font-face {
+	font-family: 'Astina';
+	src: url('fonts/astina-webfont.ttf'), 
+		 url('fonts/astina-webfont.woff'), 
+		 url('fonts/astina-webfont.woff2');
+}
+@font-face {
+	font-family: 'West Hood';
+	src: url('fonts/West Hood DEMO.ttf'), 
+		 url('fonts/west_hood_demo-webfont.woff'), 
+		 url('fonts/west_hood_demo-webfont.woff2');
+}
+body{
+	font-family: 'West Hood';
+	letter-spacing: 2px;
+}
+h1 {
+	font-family: 'Astina';
+}
+#abc {
+	font-family: 'Josefin Sans';
+	letter-spacing: 1px;
+}

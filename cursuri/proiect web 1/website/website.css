@@ -1,0 +1,104 @@
+body {
+    background: #000;
+    color: #fff;
+}
+
+#container {
+    width: 1150px;
+    margin: auto;
+}
+
+#header0 {
+    background-image: url('images/leopard.jpg');
+    margin: auto;
+    height: 500px;
+}
+
+#header1 {
+    background-image: url('images/lion.jpg');
+    margin: auto;
+    height: 500px;
+}
+
+#header2 {
+    background-image: url('images/tiger.jpg');
+    margin: auto;
+    height: 500px;
+}
+
+#header3 {
+    background-image: url('images/cheetah.jpg');
+    margin: auto;
+    height: 500px;
+}
+
+#title {
+    text-align: center;
+    font-size: 100px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#menu {
+    float: right;
+    margin-top: 240px;
+    width: 630px;
+}
+
+.menuOption {
+    float: left;
+    padding: 15px 45px;
+    background: #888888;
+    border: 1px solid #666666;
+    font-size: 24px;
+}
+
+#mainContainer {
+    width: 850px;
+    margin: auto;
+}
+
+#sideEl {
+    width: 275px;
+    float: left;
+    padding-top: 75px;
+}
+
+.img {
+    margin-bottom: 70px;
+}
+
+#main {
+    width: 575px;
+    float: left;
+    text-align: justify;
+    padding: 75px 0;
+}
+
+#textContainer {
+    width: 450px;
+    margin: auto;
+    padding-left: 40px;
+}
+
+footer {
+    clear: both;
+    margin: auto;
+    width: 850px;
+}
+
+.social-link {
+    float: right;
+    padding: 0 8px;
+}
+
+a {
+    text-decoration: none;
+    color: orange;
+}
+
+/*a:visited {
+    color: orange;
+}*/

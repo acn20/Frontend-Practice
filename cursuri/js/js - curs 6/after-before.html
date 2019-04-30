@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+   <h1>continut</h1>
+   <button>prepend</button>
+   <button>before</button>
+	
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('button:eq(0)').click(function(){
+				$('h1').prepend('<u>la inceput </u>');
+			});
+			
+			$('button:eq(1)').click(function(){
+				$('h1').before('<u>inainte </u>');
+			});
+		});
+	</script>
+</body>
+</html>

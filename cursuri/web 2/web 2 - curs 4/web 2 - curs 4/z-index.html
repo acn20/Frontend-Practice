@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#a {
+				width: 200px;
+				height: 200px;
+				background: black;
+				z-index: 1;
+				position: relative
+			}
+			#b {
+				width: 200px;
+				height: 200px;
+				background: blue;
+				margin: -100px 0 0 100px;
+				position: relative;
+				z-index: 30;
+				font-size: 70px;
+				line-height: 200px;
+				text-align: center;
+				color: white;
+				font-weight: bold;
+				cursor: pointer;
+			}
+			#b:active {
+				/*background: rgba(0,0,255,.4);*/
+				opacity: .4
+			}
+		</style>
+	</head>
+	<body>
+		<div id="a"></div>
+		<div id="b">TEXT</div>
+	
+	
+	</body>
+</html>

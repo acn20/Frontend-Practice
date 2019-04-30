@@ -1,0 +1,282 @@
+<!--fa o pagina asemanatoare cu Twitter 🙂
+sus de tot ai un element in care poti sa scrii ceva si apoi un button, Tweet
+si cand dai click pe Tweet, creezi un "tweet" pe pagina
+si bineinteles stergi textul din acel element 😀 ca sa poti sa scrii altul
+si cand dai click iar pe Tweet, o sa creezi inca un "tweet" pe pagina
+primul tweet va fi mai jos, iar cele mai recente tweets vor fi mai sus
+:)
+deocamdata nu e nevoie sa verifici dimensiunea tweetului etc
+deci html iti pune elementele pe pagina in ordinea in care le-ai pus tu in js, nu?
+dap
+dar prin magia CSS-ului... poti schimba ordinea etc
+pozitia
+etc
+Butonul de Tweet sa il fac aceeasi culoare ca pe twitter (albastru) si textul aceeasi culoare ca pe twitter
+sa scot bulinutele (bullets) (cu css)
+sa centrez tot
+sa fac ca dupa ce apas tweet sa se puna din nou cursorul in textarea singur (focus)
+pe fiecare tweet acum adaugă button de delete
+Care șterge acel tweet
+Și adaugă padding pe fiecare tweet ca să fie mai mare
+Și pune și border pe fiecare tweet
+La pagina cu Twitter trb să faci validare
+Înainte să salvezi fiecare tweet, verifici să aibă sub 160 de caractere
+Dacă are peste, afișezi în text rosu pe ecran când apeși pe buton și NU salvezi tweetul
+Apoi vei face un counter: la fel ca pe Twitter, sub textarea afișezi ce lungime are textul în momentul de față
+:)
+Când apeși un caracter se va modifica și acel counter
+:)
+
+Când îl afișezi pe ecran
+
+La fiecare tweet vei avea un buton de Like (sau ♥)
+
+Pe care poți da click să dai like și apoi încă o dată să dai unlike
+Apoi la fiecare tweet trebuie să pui alt button de comment
+La butonul de Like fă-l cu <img >
+:)
+E un element pentru imagini
+Cauta o inimă roșie pe net
+Și pune-o într-un element img
+Și pe acel element poți pune click listener
+Si îți trebuie și o inima goala
+Aia o pui by default
+Și când dai click o  pe aia roșie
+Și invers când dai click iar
+-->
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<style>
+		#tweetTemplate {
+			display: none;
+		}
+
+		.yourComment {
+			display: none;
+		}
+
+		.submitComm {
+			display: none;
+		}
+
+		#tweet {
+			background-color: #4267b2;
+			color: #e9ebee;
+		}
+
+		.tweetContent {
+			color: #ee6bb7;
+		}
+
+		ul {
+			list-style-type: none;
+			padding: 0;
+			text-align: center;
+		}
+
+		textarea {
+			display: block;
+			/*imi ia toata latimea ecranului (pune margine elementului, care va ocupa toata latimea)*/
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		button {
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+			/*block inseamna spatiu inainte si spatiu dupa si forma de block*/
+		}
+
+		#counter {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		/*#tweetsContainer {
+            display: block; block inseamna spatiu inainte si spatiu dupa si forma de block
+			margin: 0 auto;
+			same as:
+			margin-top: 0;
+			margin-right: auto;
+			margin-bottom: 0;
+			margin-left: auto;
+            
+        }*/
+
+		.tweet {
+			padding: 20px;
+			border: 15px solid rgb(19, 71, 114);
+			/*solid-linie continua si culoarea borderului*/
+		}
+
+		/*
+
+		high: 0-60
+		medium: 60-120
+		low: 120-139		
+		negative: >= 140 characters
+
+		*/
+
+		.high {
+			color: black;
+		}
+
+		.medium {
+			color: blue;
+		}
+
+		.low {
+			color: orange;
+		}
+
+		.negative {
+			color: red;
+		}
+
+		.dislike {
+			display: none;
+		}
+
+	</style>
+
+	<script>
+		var maxCount = 140;
+		$(function () {
+			$('#tweet').click(function () {
+				var value = $('#tweetText').val();
+				var tweetElement = $('#tweetTemplate').clone();
+				tweetElement.attr('id', null);
+				tweetElement.find('p').html(value);//din clona mea gasesc elementele din interior de tip paragraf si le bag value
+				$('#tweetText').val('');
+
+				tweetElement.find('.deleteTweet').click(function () {
+					$(this).closest('.tweet').remove();//sterge parintele (closest parent) (adica elementul in care se afla butonul pe care am apasat)
+				});
+
+				/*/tweetElement.find('.like').click(function whenHitLike() {
+					$(this).attr('src', "..\\resources\\fullheart.png");//Atentie backslashurile trebuie dublate! altfel s-ar putea confunda cu o comanda, de exemplu \t adica tab
+					//de cate ori vrei sa iesi in afara folderului pentru adresa relativa pui ..\\ inainte
+				})*/
+
+				tweetElement.find(".like").click(function() {
+					$(this).hide();
+					tweetElement.find(".dislike").show();
+				})
+
+				tweetElement.find(".dislike").click(function() {
+					$(this).hide();
+					tweetElement.find(".like").show();
+				})
+
+				tweetElement.find(".comment").click(function () {
+					var textarea1 = tweetElement.find(".yourComment");
+					var submitComment = tweetElement.find(".submitComm");
+					textarea1.show();
+					submitComment.show();
+					submitComment.click(function () {
+						var yourComment = textarea1.val();
+						//var listItem = $("<li>" + yourComment + "</li>"); varianta cu concatenare de stringuri
+						var listItem = $("<li></li>");
+						listItem.html(yourComment);
+
+						tweetElement.find(".tweetComments").append(listItem);
+						//$(".tweetComments").append($("<li value=textarea1.val()>"));
+						textarea1.hide();
+						submitComment.hide();
+						textarea1.val("");
+					})
+				})
+
+
+
+				$("#counter").html("140");
+
+				$('#tweetList').prepend(tweetElement);//adauga deasupra (append adauga dedesubt)
+				$('textarea').focus(); //selecteaza toate textarea de pe ecran
+			})
+
+			$("#tweetText").on("input", function () {//alte eventuri "change onKeyUp paste"
+				//cand fac update la span trebuie in primul rand sa afisez in acel span cate caractere mai are tweetul
+				//sa pun clasa potrivita in timp ce se modifica lungimea textului (de exemplu sterg high si pun medium)
+				//daca am depasit dezactivez butonul de tweet
+				var text = $(this).val();
+				var textLength = text.length;
+				$("#counter").html(140 - textLength);
+
+				if (textLength < 60) {
+					$("#counter").removeClass();
+					$("#counter").addClass("high");
+				}
+
+				if (textLength >= 60 && textLength < 120) {
+					$("#tweet").prop("disabled", null);
+					$("#counter").removeClass();
+					$("#counter").addClass("medium");
+				}
+
+				if (textLength >= 120 && textLength < 140) {
+					$("#tweet").prop("disabled", null);
+					$("#counter").removeClass();
+					$("#counter").addClass("low");
+
+				}
+				if (textLength >= 140) {
+					$("#counter").removeClass();
+					$("#counter").addClass("negative");
+					$("#tweet").prop("disabled", true);
+				}
+
+
+			})
+
+		})
+	</script>
+
+</head>
+
+<body>
+
+	<div>
+		<textarea id="tweetText" placeholder="What's on your mind?"></textarea>
+		<!--<input type="text" id="tweetText" placeholder="What's on your mind?" size="200" />-->
+		<span id="counter" class="high">140</span>
+		<button id="tweet">Tweet</button>
+	</div>
+
+	<div id="tweetsContainer">
+		<ul id="tweetList">
+			<!--unordered list-->
+			<!-- TODO: Cauta pe net cum sa se afiseze elementele fara bullet point (cu CSS) -->
+		</ul>
+	</div>
+
+	<div id="templates">
+		<li id="tweetTemplate" class="tweet">
+			<!--list item - astea intra in unordered list-->
+
+			<div>
+				<p class="tweetContent"></p>
+				<button class="deleteTweet">Delete</button>
+				<img src="..\\resources\\hollowheart.png" width="21" height="21" class="like">
+				<img src="..\\resources\\fullheart.png" width="21" height="21" class="dislike">
+				<button class="comment">Comment</button>
+			</div>
+
+			<div>
+				<textarea class="yourComment"></textarea>
+				<button class="submitComm">Submit your comment</button>
+
+				<ul class="tweetComments">
+				</ul>
+			</div>
+		</li>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!--la calculator.html adaugă alt element pe pagină
+Și în timp ce apeși cifre tu faci o sumă și schimbi acel element sa afișeze mereu suma
+Și când apesi pe C, se resetează suma-->
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="calculator.js"></script>
+
+		<link href="calculator.css" rel="stylesheet" />
+
+		<script>
+			
+		</script>
+
+		<style>
+			#display {
+                margin: 25px auto;
+                max-width: 115px;
+                text-align: center;
+			}
+
+			.container {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
+                margin: 25px auto 0;
+                max-width: 115px;
+            }
+
+            .container > .digit {
+                font-size: 15px;
+                margin-bottom: 5px;
+                padding: 10px;
+			}
+			
+			#digitText {
+				display: none;/*am ascuns spanul initial, pentru ca, desi nu avea text, mai tarziu cineva ar fi putut modifica/adauga un stil (background color, position, size) si ar fi aparut aiurea pe ecran. Noi vrem afisate doar clonele ulterioare.*/
+			}
+
+			#operatorText {
+				display: none;
+			}
+
+			.displayDigit {
+				color: blue;
+				font-weight: bolder;
+			}
+
+			.displayOperator {
+				color: red;
+				font-weight: lighter;
+			}
+
+			#displaySum {
+				background-color: aqua;
+			}
+
+			#sumText {
+				background-color: blueviolet;
+			}
+		</style>
+
+		<script>
+			$(function() {
+				$('.digit').click(function() {
+					// this - se refera la contextul in care te afli. in this case, it is the button that was clicked
+					// we need to be able to use jQuery, thus we are transforming that JS variable into a jQuery object - using $
+					var value = $(this).html();
+
+					var digitElement = $('#digitText').clone();
+					digitElement.attr('id', null);//atributului id de pe elementul nostru vrem sa-i dam valoarea null
+					digitElement.html(value);
+					//functi
+					$('#display').append(digitElement);//adauga un element in elementul display
+
+					// .html() .val() - functii din jquerya html seteaza o valoare daca are parametru si returneaza daca nu are
+
+					console.log('clicked ' + value);
+				})
+
+				$('.tools.clear').click(function() {
+					$('#display').empty();
+					$('#sumText').html('');//schimba valoarea care e in acest span cu empty string (daca voiam sa ADAUG ceva in plus luam valoarea din span si concatenam cu ce vreau sa adaug)
+				})
+
+				$('.operator').click(function() {
+					var value = $(this).html();
+
+					var operatorElement = $('#operatorText').clone();
+					operatorElement.attr('id', null);
+					operatorElement.html(value);
+
+					$('#display').append(operatorElement);
+				});
+
+				$('.digit').click(function() {
+					var sum = 0;
+					var currentSum = $('#sumText').html().trim();//trim sterge toate spatiile de dinainte si de dupa text, dar parseInt ignora spatiile
+															
+					if(currentSum != '') {
+						sum = parseInt(currentSum);
+					}
+
+					//if(sum == NaN) {}//!!!a se incerca in consola: aceasta expresie va fi intotdeauna falsa, desi nu are sens!!!
+
+					sum += parseInt($(this).html());
+					$('#sumText').html(sum);
+				});
+
+			})
+
+			// function $(func) {
+			// 	// bla bla
+
+			// 	func();
+			// }
+		</script>
+	</head>
+
+	<body>
+		<div id="display">
+			
+		</div>
+
+		<div id="displaySum">
+		<span id="sumText"></span>
+		</div>
+
+		<div class="container">
+			<button class="digit">7</button>
+			<button class="digit">8</button>
+			<button class="digit">9</button>
+		
+			<button class="digit">4</button>
+			<button class="digit">5</button>
+			<button class="digit">6</button>
+		
+			<button class="digit">1</button>
+			<button class="digit">2</button>
+			<button class="digit">3</button>
+		
+			<button class="digit">0</button>
+		</div>
+
+		<div id="toolbox">
+			<button class="operator plus">+</button>
+			<button class="operator minus">-</button>
+			<button class="operator product">*</button>
+			<button class="operator division">/</button>
+			<button class="operator equals">=</button>
+			<button class="tools clear">C</button>
+		</div>
+
+		<div id="templates">
+			
+			<span id="digitText" class="displayDigit"></span>
+			<!-- cand apesi o cifra pe ecran se adauga un nou span (care practic inseamna doar o cifra) cu aceasta clasa
+			(adica il clonam de mai multe ori) (dupa mai multe clickuri, pe ecran vor fi mai multe cifre, fiecre reprezentand cate un span, si toate aceste spanuri avand aceeasi clasa (pt ca am clonat structura spanului)-->
+			<!-- clonez acest element (prin clonat intelegem ca toate cifrelor le punem clasa "displayDigit"), apoi pun cifra care vreau sa fie in el si il afisez pe ecran -->
+			<span id="operatorText" class="displayOperator">USE THIS TO CLONE DIGITS</span>
+		</div>
+
+	</body>
+
+</html>

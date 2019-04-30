@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		.galerie {
+			position: relative;
+			margin: auto
+		}
+		.prev, .next {
+			position: absolute;
+			z-index: 2;
+			/*top: 52.5px;*/
+			/*top: calc(50% - 45px / 2);*/
+			top: 50%;
+			transform: translate(0, -50%);
+			cursor: pointer;
+			transition: all .3s;
+			opacity: .4
+		}
+		.next {
+			right: 0
+		}
+		
+		.prev:hover, .next:hover {
+			opacity: 1
+		}
+		.bullet {
+			width: 15px;
+			height: 15px;
+			background: black;
+			border-radius: 50%;
+			float: left;
+			margin: 3px;
+			cursor: pointer;
+			color: #fff;
+			line-height: 15px;
+			text-align: center;
+			font-size: 12px
+		}
+		.bullet:hover {
+			background: #888
+		}
+		</style>
+	</head>
+	<body>
+
+
+	<div class="galerie">
+		<img class="prev" src="img/prev.png" />
+		<img class="next" src="img/next.png" />
+		<ul>
+			<li><img src="img/adrian_dobrescu_1.jpg" /></li>
+			<li><img src="img/adrian_dobrescu_2.jpg" /></li>
+			<li><img src="img/dascaliu_catalin_4.jpg" /></li>
+			<li><img src="img/dascaliu_catalin_2.jpg" /></li>
+			<li><h3>Titlu Produs</h3>
+			<p>Lorem ipsum</p></li>
+			<li><img src="img/corina_iosub_1.jpg" /></li>
+		</ul>
+	</div>
+	<div class="a bullet">1</div>
+	<div class="b bullet">2</div>
+	<div class="c bullet">3</div>
+	<div class="d bullet">4</div>
+	<div class="e bullet">5</div>
+	
+	
+	<script src="jquery-1.4.2.js"></script>
+	<script src="jcarousellite_1.0.1.js"></script>
+	<script src="jquery.easing.1.1.js"></script>
+	<script src="jquery.mousewheel.min.js"></script>
+	<script>
+	$(function() {
+		$(".galerie").jCarouselLite({
+			btnNext: ".next",
+			btnPrev: ".prev",
+			btnGo: [".a", ".b", ".c", ".d", ".e"],
+			mouseWheel: true,
+			auto: 1200, // ms
+			speed: 500, //ms
+			//easing: "backin",
+			//vertical: true,
+			//circular: false,
+			//visible: 1,
+			//start: 2,
+			 scroll: 3
+		});
+	});
+	</script>
+	</body>
+</html>

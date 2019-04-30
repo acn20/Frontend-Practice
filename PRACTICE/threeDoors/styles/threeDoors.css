@@ -1,0 +1,14 @@
+#doors {
+    width: 60%;
+    margin: 125px auto 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.door:hover {
+    cursor: pointer;
+}
+
+#message {
+    text-align: center;
+}

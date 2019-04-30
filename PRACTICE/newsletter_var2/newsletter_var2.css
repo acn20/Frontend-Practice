@@ -1,0 +1,44 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+#upperMain {
+    display: flex;
+}
+
+#upperContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.upperPhotoAndTitle {
+    margin: 20px 0;
+    display: flex;
+}
+
+#lowerContent {
+    display: flex;
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+}
+
+.lowerPhotoAndTitle {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#links {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+#emptyDiv {
+    height: 15px;
+}

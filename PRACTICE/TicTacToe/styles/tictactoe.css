@@ -1,0 +1,31 @@
+#newGameContainer {
+    width: 250px;
+    margin: auto;
+}
+
+#startBtn {
+    float: right;
+}
+
+#gameContainer {
+    width: 200px;
+    margin: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.board {
+    width: 200px;
+    height: 200px;
+}
+
+.square {
+    border: 1px solid black;
+}
+
+.square:hover {
+    cursor: pointer;
+}
+

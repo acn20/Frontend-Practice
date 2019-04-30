@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        
+    </style>
+</head>
+<body>
+   Alege tara
+    <select id="tari" onchange="alegeTara()">
+    	<option>Romania</option>
+    	<option>Franta</option>
+    	<option>Italia</option>
+    </select>
+    <br/>
+    Alege un oras din tara aleasa
+    <select id="orase">
+    	<option>Oras</option>
+    	<option data-tara="Italia">Florenta</option>
+    	<option data-tara="Romania">Bucuresti</option>
+    	<option data-tara="Italia">Milano</option>
+    	<option data-tara="Franta">Paris</option>
+    	<option data-tara="Romania">Cluj</option>
+    	<option data-tara="Franta">Lyon</option>
+    	<option data-tara="Franta">Bordeaux</option>
+    	<option data-tara="Romania">Timisoara</option>
+    	<option data-tara="Italia">Roma</option>
+    </select>
+    
+    <p>
+    	Creati o functie javascript care la onchange pe primul select (#tari) sa:
+    	 <br/>- preia valoarea selectata (.value - exact ca la input)
+    	 <br/>- parcurga toate tag-urile option din selectul cu #orase (for)
+    	 <br/>- verifice pentru fiecare option parcurs daca valaoarea atributului data-tara este egal cu valoarea preluata din primul select (if)
+    	 <br/> &nbsp; &nbsp; &nbsp;  -> sa afiseze tag-urile option din #orase care au valoarea atributului data-tara egala cu valoarea preluata din primul select (daca if returneaza true)
+    	 <br/> &nbsp; &nbsp;  &nbsp;  -> sa ascunda tag-urile option din #orase care au valoarea atributului data-tara egala cu valoarea preluata din primul select (else)
+    </p>
+    <p>
+    	Obtinand astfel un filtru care sa afiseze doar orasele din tara selectata
+    </p>
+    <script>
+		function alegeTara(){
+			var tara = document.getElementById('tari').value;
+			var orase = document.getElementById('orase').getElementsByTagName('option');
+			var nrOrase = orase.length;
+			
+			for(var i = 0; i<nrOrase; i++){
+				if(tara == orase[i].getAttribute('data-tara')){
+					orase[i].style.display = 'block';
+				} else {
+					orase[i].style.display = 'none';
+				}
+			}
+		}
+	</script>
+ 
+</body>
+</html>

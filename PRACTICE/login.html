@@ -1,0 +1,31 @@
+<!--fa un ecran de login
+username, password si un button pe care scrie Log in
+si cand apesi pe button, acel button devine disabled si i se schimba textul in "Logging in..."-->
+
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script>
+		$(function () {
+			$('#logIn').click(function () {
+				//document.getElementById("logIn").disabled = true;
+				$('#logIn').prop("disabled", true);
+				$('#logIn').attr("value", 'Loging in...');
+			})
+		})
+	</script>
+</head>
+
+<body>
+	<form><!--element special care cand are un submit in el ia valorile din username si password si le trimite la server, fara javascript-->
+		<div>
+			<input type="text" id="loginusername" placeholder="Username" size="20" />
+			<input type="password" id="loginpassword" placeholder="Password" size="20" />
+			<input type="submit" id="logIn" value="Log in" />
+		</div>
+	</form>
+</body>
+
+</html>

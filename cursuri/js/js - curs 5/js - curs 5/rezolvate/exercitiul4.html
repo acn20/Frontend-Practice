@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body onload="medie()">
+<p>Avand array-ul [[1,2,3], [65,7, 8], [10, 2, 54], [2,6]], creati o functie javascript astfel incat:<br/>
+- sa parcurgeti valorile din array-ul principal (for)<br/>   
+- pentru fiecare valoare din array-ul principal, care este tot un array, sa parcurgeti elementele (inca un for)<br/> 
+- sa afisati, in console.log(), media aritmetica pentru fiecare array de numere  
+</p>
+    <script>
+		function medie(){
+			var arrayInitial = [[1,2,3], [65,7, 8], [10, 2, 54], [2, 6]];
+			var valoriArrayInitial = arrayInitial.length;
+			for(var x = 0; x < valoriArrayInitial; x++){
+				var suma = 0;
+				for(var y = 0; y < arrayInitial[x].length; y++){
+					suma += arrayInitial[x][y];
+				}
+				console.log(suma / arrayInitial[x].length);
+			}
+		}
+	</script>
+ 
+</body>
+</html>

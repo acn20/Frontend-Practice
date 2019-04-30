@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body onload="numaraColoreaza()">
+   <ul>
+       <li>3</li>
+       <li>6</li>
+       <li>12</li>
+       <li>8</li>
+       <li>64</li>
+       <li>35</li>       
+       <li>7</li>       
+   </ul>
+    
+    
+    
+    <p>
+    Creati o functie javascript care sa se declanseze la incarcarea paginii (onload aplicat pe tag-ul &lt;body&gt;) cu ajutorul careia sa parcurgeti toate tag-urile &lt;li&gt; si sa adaugati culoare de fundal doar pentru li-urile care au valori mai mici decat 10
+    </p>
+	<script>
+		function numaraColoreaza(){
+			var toateLi = document.getElementsByTagName('li').length;
+			for(var x = 0; x < toateLi; x++){
+				if(document.getElementsByTagName('li')[x].innerHTML < 10){
+					document.getElementsByTagName('li')[x].style.background = 'gray';
+				}
+			}
+		}
+	
+	</script>
+ 
+</body>
+</html>

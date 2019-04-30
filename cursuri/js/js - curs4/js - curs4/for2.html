@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<div>div </div>
+		<div>div </div>
+		<div>div </div>
+		<div>div </div>
+		<div>div </div>
+		<div>div </div>
+		<div>div </div>
+		
+		<button onclick="adauga()"> adauga mult text </button>
+		<script>
+			var toateDiv = document.getElementsByTagName('div');
+			function adauga(){
+			//numaram div-urile manual
+				/*for (var x = 0; x < 9; x++){
+					document.getElementsByTagName('div')[x].innerHTML += ' mult text';
+				}*/
+				
+			//numaram toate div-urile automat
+				for(var x = 0; x < toateDiv.length; x++){
+					//document.getElementsByTagName('div')[x].innerHTML += '-ul al ' + (x + 1);
+					toateDiv[x].innerHTML += ' mult text';
+				}
+			}
+		</script>
+	</body>
+</html>

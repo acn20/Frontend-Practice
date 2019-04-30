@@ -1,0 +1,42 @@
+<!--
+o pagina HTML cu 3 butoane
+fiecare cu un text diferit
+si cand dai click pe oricare din butoane
+scrii in consola textul butonului, urmat de pozitia butonului
+de exemplu daca primul buton are textul OK
+afisezi in consola
+OK 0
+0 pt ca e primul buton, adica are "indexul" 0
+apoi de exemplu
+Cancel 1
+dar textul de pe buton trb sa zica doar OK
+nu OK 0-->
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <style>
+
+        </style>
+
+        <script>
+            $(function() {
+                $('.choice').click(function() {
+                    var value = $(this).html();
+					var id = $(this).attr('id');
+
+                	console.log(value + ' ' + id);
+                })
+            })
+        </script>
+    </head>
+
+    <body>
+
+        <button class="choice" id="0">Choose Beauty</button>
+        <button class="choice" id="1">Choose Happiness</button>
+        <button class="choice" id="2">Choose Money</button>
+
+    </body>
+
+</html>

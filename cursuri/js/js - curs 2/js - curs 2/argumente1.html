@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <p>Un div</p>
+    <button onclick="dimensiuneFont('12px')">12px</button>
+    <button onclick="dimensiuneFont('30px')">30px</button>
+    <button onclick="dimensiuneFont('10px')">10px</button>
+    <button onclick="dimensiuneFont('40px')">40px</button>
+    <button onclick="dimensiuneFont('16px')">16px</button>
+    
+    <script>
+        function dimensiuneFont(y){
+            document.getElementsByTagName('p')[0].style.fontSize = y;
+        }
+        
+    </script>
+</body>
+</html>

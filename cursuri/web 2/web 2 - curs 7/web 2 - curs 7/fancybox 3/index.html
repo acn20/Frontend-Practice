@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="jquery.fancybox.css" />
+		<style>
+		#ceva {
+			display: none;
+			height: 80%;
+			width: 90%;
+			border-radius: 30px;
+			background: lightblue
+		}
+		</style>
+	</head>
+	<body>
+
+	<a data-fancybox="abc" data-type="iframe" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11394.538233572292!2d26.037452698794997!3d44.44065793126706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b2004acc19c8dd%3A0x6dd9b540746edea5!2sAdobe+Romania!5e0!3m2!1sro!2sro!4v1545072044694">
+		<img src="img/adrian_dobrescu_1.jpg">
+	</a>
+	
+	<a data-fancybox="abc" href="https://www.youtube.com/watch?v=46bxYR2vMJ8">
+		<img src="img/adrian_dobrescu_2.jpg">
+	</a>
+	<a data-fancybox="abc" href="#ceva">
+		<img src="img/adrian_dobrescu_3.jpg">
+	</a>
+	<a data-fancybox="abc" href="img/adrian_dobrescu_4_m.jpg">
+		<img src="img/adrian_dobrescu_4.jpg">
+	</a>
+	
+	
+	<div id="ceva">
+		<h1>Text</h1>
+		
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sJXZ9Dok7u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Loren asdjbasjk dM</p>
+<h1>Text</h1>
+		
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sJXZ9Dok7u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+	</div>
+	
+
+	<script src="jquery-3.3.1.min.js"></script>
+	<script src="jquery.fancybox.js"></script>
+	<script>
+	$('[data-fancybox="abc"]').fancybox({
+		// Options will go here
+		loop: true,
+		  buttons: [
+			//"zoom",
+			"share",
+			"slideShow",
+			//"fullScreen",
+			"download",
+			"thumbs",
+			"close"
+		  ],
+		  animationEffect: "zoom-in-out",
+		  animationDuration: 600,
+		  transitionEffect: "circular",
+		  transitionDuration: 366,
+	});
+	</script>
+	</body>
+</html>

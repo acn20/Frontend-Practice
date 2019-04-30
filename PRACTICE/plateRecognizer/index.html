@@ -1,0 +1,19 @@
+<!--fă o pagină care poate detecta de unde vine un număr de înmatriculare și dacă e valid sau nu
+De exemplu la AB 999 EXS afisezi că e valid, și că e din județul alba-->
+<html>
+    <head>
+        <link href="styles/plateRecognizer.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <p>Enter a plate number</p>
+        <input id="region" type="text" name="region"/>
+        <input id="number" type="text" name="number"/>
+        <input id="letters" type="text" name="letters"/>
+
+        <button id="check">Check number</button>
+        <p id="message"></p>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="scripts/plateRecognizer.js"></script>
+    </body>
+</html> 

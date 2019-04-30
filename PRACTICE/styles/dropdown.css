@@ -1,0 +1,7 @@
+.my-option {
+	color: blue;
+}
+
+.my-option:selected {
+	color: red;
+}

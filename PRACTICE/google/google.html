@@ -1,0 +1,59 @@
+<!--font awesome
+E un fel de library de css
+Plin de iconițe de toate felurile
+Dacă vrei să adaugi un microfon undeva, va trebui sa pui ceva de genul
+<span class="fa fa-microphone"></span>
+Pe acel span font aweosme va pune un background cu microfon
+Nush dacă e 100	% corect așa ca asigurate
+:)
+
+Containerul trb sa fie în mijloc
+Apoi aranjezi lucrurile în container
+
+elemente importante: main, header si footer
+
+deci pe #inputContainer pui shadow
+-->
+
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	 crossorigin="anonymous"><!--acel string din integrity reprezinta codul original, nemalitios (sha384 e un algoritm care comprima o chestie gigantica intr-un string micut)-->
+	<link href="google.css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<main id="container">
+		<img id="google" src="google.png" />
+		<div id="searchContainer">
+			<div id="inputContainer">
+				<input type="text" id="query" />
+				<span class="fas fa-microphone" id="microphone"></span>
+			</div>
+			<div id="buttonsContainer">
+				<button id="search" class="button">Google Search</button>
+				<button id="feelingLucky" class="button">I'm Feeling Lucky</button>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div id="footerCountry">
+			<span>Romania</span>
+		</div>
+		<div id="footerItems">
+			<button class="footerButton">Advertising</button>
+			<button class="footerButton">Business</button>
+			<button class="footerButton">About</button>
+			<button class="footerButton" class="rightSide">Privacy</button>
+			<button class="footerButton" class="rightSide">Terms</button>
+			<button class="footerButton" class="rightSide">Settings</button>
+		</div>
+		<!-- TODO: add links from bottom of page -->
+	</footer>
+
+</body>
+
+</html>

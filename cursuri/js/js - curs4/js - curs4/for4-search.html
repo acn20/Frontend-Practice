@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<input type="text" id="cauta" onkeyup="search()" />
+		<ul>
+			<li>mere</li>
+			<li>pere</li>
+			<li>struguri</li>
+			<li>banane</li>
+			<li>portocale</li>
+			<li>lamai</li>
+			<li>gutui</li>
+			<li>bame</li>
+			<li>mandarine</li>
+			<li>prejksf</li>
+			<li>meaasdasd</li>
+		</ul>
+		
+		<script>
+            // pentru a nu scrie atributul data-text manual, putem face un alt for pe toate li-urile si atunci sa cream automat aceste atribute
+            // acest for trebuie sa fie in afara functiei pentru ca vrem ca data-text sa se creeze o singura data la incarcare
+				var toateLi = document.getElementsByTagName('li');
+				for(var i = 0; i < toateLi.length; i++){  
+                    toateLi[i].setAttribute('data-text', toateLi[i].innerHTML);
+                }
+			function search(){                
+                
+				var text = document.getElementById('cauta').value;
+				for(var i = 0; i < toateLi.length; i++){                    
+                    // avem nevoie sa pastram textul initial undeva unde sa il mai putem analiza
+                    // de asta avem nevoie sa punem continutul intr-un atribut custom (inventat) data-text
+                    // logica este sa cautam pe textul original nemodificat si sa modificam textul care se afla efectiv in element
+                    // acesta ar fi motivul pentru care in loc de .innerHTML vom folosi .getAttribute('data-text') in majoritatea situatiilor
+					if(toateLi[i].getAttribute('data-text').indexOf(text) == -1){
+						toateLi[i].style.display = 'none';
+					} else {
+						toateLi[i].style.display = 'list-item'; // block ar fi ascus bullet-urile
+					}
+					var pozText = toateLi[i].getAttribute('data-text').indexOf(text);
+						toateLi[i].innerHTML = toateLi[i].getAttribute('data-text').substring(0, pozText) + '<span style="background: yellow">' + text + '</span>' + toateLi[i].getAttribute('data-text').substring(pozText + text.length);
+				}
+			}
+		</script>
+	</body>
+</html>

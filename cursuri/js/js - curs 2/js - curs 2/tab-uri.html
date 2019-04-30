@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        } 
+        li {
+            padding: 10px 20px;
+            float: left;
+            margin: 0 1px;
+            background: #ddd;
+            cursor: pointer
+        }
+        li:first-child {
+            background: #bbb
+        }
+        div {
+            width: 400px;
+            height: 300px;
+            background: #bbb;
+            position: absolute;
+            top: 50px;
+            font-size: 40px;
+            text-align: center;
+            line-height: 300px;
+            display: none
+        }
+        #t1 {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+   <ul>
+       <li onclick="tab_uri('t1', 0)">tab 1</li>
+       <li onclick="tab_uri('t2', 1)">tab 2</li>
+       <li onclick="tab_uri('t3', 2)">tab 3</li>
+       <li onclick="tab_uri('t4', 3)">tab 4</li>
+   </ul>
+    <div id="t1">continut TAB 1</div>
+    <div id="t2">continut TAB 2</div>
+    <div id="t3">continut TAB 3</div>
+    <div id="t4">continut TAB 4</div>
+    
+    
+    <script> 
+        function tab_uri(a, b){
+            //ascundem toate div-urile
+            document.getElementById('t1').style.display = 'none';
+            document.getElementById('t2').style.display = 'none';
+            document.getElementById('t3').style.display = 'none';
+            document.getElementById('t4').style.display = 'none';
+            
+            //afisam div-ul dorit
+            document.getElementById(a).style.display = 'block';
+            
+            //'decoloram' toate li-urile
+            document.getElementsByTagName('li')[0].style.background = "#ddd";
+            document.getElementsByTagName('li')[1].style.background = "#ddd";
+            document.getElementsByTagName('li')[2].style.background = "#ddd";
+            document.getElementsByTagName('li')[3].style.background = "#ddd";
+            
+            //coloram li-ul activ (apasat)
+            document.getElementsByTagName('li')[b].style.background = '#bbb';
+        }
+    </script>
+</body>
+</html>

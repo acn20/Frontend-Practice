@@ -1,0 +1,294 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: rgba(153, 153, 153, 1);
+    font-size: 15px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(153, 153, 153, 1);
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#categories {
+    display: flex;
+    flex-direction: column;
+    resize: vertical;
+}
+
+#mailsSection {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(153, 153, 153, 1);
+    width: 100%;
+}
+
+#tools {
+    display: flex;
+    border-bottom: 1px solid rgba(153, 153, 153, 1);
+    padding: 20px 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#titles {
+    display: flex;
+    border-bottom: 1px solid rgba(153, 153, 153, 1);
+}
+
+#mails {
+    display: flex;
+    flex-direction: column;
+}
+
+#sideIcons {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.mail {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(153, 153, 153, 1);
+    padding: 10px 10px;
+    color: #000;
+    font-weight: bold;
+}
+
+.mail:hover {
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    z-index: 1;
+}
+
+.seen-mail {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(153, 153, 153, 1);
+    padding: 10px 10px;
+    background-color: #f5f6f7;
+}
+
+.seen-mail:hover {
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    z-index: 1;
+}
+
+.mail:hover .hover-buttons {
+    display: flex;
+    z-index: 2;
+    position: absolute;
+    /*element pozitionat fata de containerul in care se afla*/
+    right: 0;
+    /*pune centrul elementul pozitionat la dreapta de tot*/
+    transform: translateX(-50%);
+    /*muta elementul 50% din el insusi mai la stanga*/
+    background-color: #fff;
+}
+
+.seen-mail:hover .hover-buttons {
+    display: flex;
+    z-index: 2;
+    position: absolute;
+    right: 0;
+    transform: translateX(-50%);
+    background-color: #fff;
+}
+
+.mail:hover .time {
+    display: none;
+}
+
+.seen-mail:hover .time {
+    display: none;
+}
+
+input {
+    border: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 300px;
+    background-color: #f5f6f7;
+}
+
+input:focus {
+    outline: none;
+}
+
+#iconsAndAccount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+}
+
+#accountInfo {
+    text-align: center;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding: 5 10px;
+    background-color: #1B5E20;
+    border: 1px solid #1B5E20;
+    border-radius: 100px;
+}
+
+#compose {
+    padding: 12px 17px;
+    border: 1px solid rgba(153, 153, 153, 1);
+    border-radius: 24px;
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+}
+
+#plusIcon {
+    padding: 0 15px;
+    font-size: 28;
+}
+
+.category {
+    padding: 5 60px;
+    display: flex;
+    align-items: center;
+}
+
+.category:hover {
+    cursor: pointer;
+    background-color: #f5f6f7;
+    border: 1px solid #f5f6f7;
+    border-radius: 24px;
+}
+
+.messages-icon {
+    padding-right: 15px;
+}
+
+#inbox {
+    background-color: #FFCDD2;
+    color: #D50000;
+    font-weight: bold;
+    border: 1px solid #FFCDD2;
+    border-radius: 24px;
+}
+
+#primary {
+    color: #D50000;
+}
+
+#topBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+}
+
+#searchMail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 80px;
+    padding: 5px 20px;
+    background-color: #f5f6f7;
+}
+
+.cursor-pointer-plus-background:hover {
+    cursor: pointer;
+    background-color: #f5f6f7;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.black-on-hover:hover {
+    color: black;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    padding: 20px 80px;
+}
+
+#refreshAndOptions {
+    display: flex;
+    align-items: center;
+}
+
+#arrowsAndSettings {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 25px;
+    text-align: center;
+}
+
+#gmailIconAndHeading {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+}
+
+#squareDropdown {
+    display: flex;
+    align-items: center;
+}
+
+#iconNextToGmail {
+    padding: 10px 10px;
+}
+
+.round-padding:hover {
+    cursor: pointer;
+    background-color: #f5f6f7;
+    border: 1px solid #f5f6f7;
+    border-radius: 50px;
+}
+
+.time {
+    font-size: 13px;
+    width: 7%;
+}
+
+.mail-content {
+    width: 100%;
+    margin-left: 150px;
+}
+
+.side-icon {
+    padding: 10px 5px;
+}
+
+#drafts {
+    color: #000000;
+    font-weight: bold;
+}
+
+.titles-icon {
+    padding-right: 10px;
+}
+
+.hover-buttons {
+    display: none;
+}

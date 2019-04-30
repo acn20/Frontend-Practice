@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#a {
+				width: 800px;
+				/*height: 700px;*/
+				margin: auto;
+				border: 20px groove gray
+			}
+			#a div.col {
+				float: left;
+				width: 380px;
+				height: 680px;
+				margin: 10px;
+				background: black
+			}
+			/*.clearfix {
+				clear: both
+			}*/
+			#a::after {
+				content: '';
+				display: block;
+				clear: both
+			}
+		</style>
+	</head>
+	<body>
+		<div id="a">
+			<div class="col"></div>
+			<div class="col"></div>
+			<!--<div class="clearfix"></div>-->
+		</div>
+	</body>
+</html>

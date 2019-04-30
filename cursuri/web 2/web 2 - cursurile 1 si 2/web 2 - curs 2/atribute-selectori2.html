@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			[class*="produs-"] {
+				width: 400px;
+				height: 200px;
+				border: 1px solid black;
+				float: left;
+				margin: 40px;
+				padding: 20px 0px;
+				text-align: center;
+				font-size: 30px
+			}
+			.produs-bio {
+				color: lime;
+				border: 1px solid lime
+			}
+			.produs-vandut {
+				background: #cccccc;
+				color: #777777
+			}
+			.produs-nou {
+				color: red;
+			}
+			.produs-nou::after {
+				content: url('images/new.png');
+				float: right;
+				margin: -30px -20px 0px 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="produs-bio">produs bio</div>
+		<div class="produs-bio">produs bio</div>
+		<div class="produs-nou">produs nou</div>
+		<div class="produs-nou">produs nou</div>
+		<div class="produs-nou">produs nou</div>
+		<div class="produs-vandut">produs vandut</div>
+		<div class="produs-vandut">produs vandut</div>
+		<div class="produs-bio">produs bio</div>	
+	</body>
+</html>

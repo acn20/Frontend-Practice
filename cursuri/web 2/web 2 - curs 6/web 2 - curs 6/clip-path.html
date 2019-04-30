@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			img {
+				width: 400px;
+				transition: all 1s;
+				-webkit-clip-path: polygon(50% 0%, 85% 25%, 85% 75%, 50% 100%, 15% 75%, 15% 25%);
+				clip-path: polygon(50% 0%, 85% 25%, 85% 75%, 50% 100%, 15% 75%, 15% 25%);
+				display: block;
+			}
+			img:nth-child(2) {
+				margin: -71px 0 0 141px;
+			}
+			img:nth-child(3) {
+				margin: -71px 0 0 0;	
+			}
+			img:hover {
+				-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 0);
+				clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 0);	
+			}
+			img:nth-child(3):hover {
+				-webkit-clip-path: polygon(50% 0%, 85% 25%, 85% 75%, 50% 100%, 15% 75%, 15% 25%);
+				clip-path: polygon(50% 0%, 85% 25%, 85% 75%, 50% 100%, 15% 75%, 15% 25%);
+				transform: rotate(180deg)	
+			}
+			
+		</style>
+	</head>
+	<body>
+		<img src="images/Penguins.jpg" />
+		<img src="images/Penguins.jpg" />
+		<img src="images/Penguins.jpg" />
+	</body>
+</html>

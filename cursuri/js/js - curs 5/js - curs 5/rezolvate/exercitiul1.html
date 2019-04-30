@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #catalog {
+            float: left
+        }
+        [id*=produs]{
+            width: 260px;
+            height: 160px;
+            box-shadow: #000  0 0 5px;
+            padding: 0 20px 20px;
+            margin: 10px 0
+        } 
+        h2 {
+            text-align: center
+        }
+        .img {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+            border: 1px solid black
+        }
+        .desc {
+            float: left;
+            padding-left: 10px;
+            font-size: 14px;
+            width: 145px
+        }
+        .desc button {
+            float: right;
+            margin-top: 20px
+        }
+        #cos {
+            float: left;
+            border: 1px solid #333;
+            min-width: 200px;
+            padding: 0 20px 20px;
+            margin: 20px 0 20px 50px;
+        }
+        #nr_prod {
+            font-size: 30px;
+            color: red
+        }
+        #cerinta {
+            float: left;
+            width: 550px;
+            margin-left: 50px
+        }
+    </style>
+</head>
+<body>
+<div id="catalog">
+    <div id="produs1">
+        <h2>Un produs frumos</h2>
+        <div class="img"></div>
+        <div class="desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in tellus at justo lacinia sodales.
+            <button onclick="adauga('Un produs frumos')">add to cart</button>
+        </div>
+    </div>
+    
+    <div id="produs2">
+        <h2>Un alt produs frumos</h2>
+        <div class="img"></div>
+        <div class="desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in tellus at justo lacinia sodales.
+            <button onclick="adauga('Un alt produs frumos')">add to cart</button>
+        </div>
+    </div>
+    
+    <div id="produs3">
+        <h2>Un produs urat</h2>
+        <div class="img"></div>
+        <div class="desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in tellus at justo lacinia sodales.
+            <button onclick="adauga('Un produs urat')">add to cart</button>
+        </div>
+    </div>
+</div>
+<div id="cos">
+    <p>Produse aflate in cos: <span id="nr_prod">0</span></p>
+    <button onclick="afiseaza()">afiseaza produsele</button>
+    <div id="lista"></div>
+</div>
+    
+    
+    
+    <p id="cerinta">
+ Creati o functie javascript (cu un argument) care, la click pe oricare dintre butoanele produselor, sa adauge acel produs intr-un cos de cumparaturi (un array) si totodata sa actualizeze numarul de produse din cos.<br /><br />
+ Apoi, creati o a doua functie javascript (fara argumente) care, la click pe butonul de afiseaza produsele, sa afiseze produsele (valorile din array) unul sub altul in interiorul div-ului cu #lista
+    </p>
+	
+	<script>
+		var listaProduse = [];
+		function adauga(x){
+			listaProduse.push(x);
+			document.getElementById('nr_prod').innerHTML = listaProduse.length;
+		}
+		function afiseaza(){
+			document.getElementById('lista').innerHTML = '<ul><li>' + listaProduse.join('</li><li>') + '</li></ul>';
+		}
+	</script>
+ 
+</body>
+</html>

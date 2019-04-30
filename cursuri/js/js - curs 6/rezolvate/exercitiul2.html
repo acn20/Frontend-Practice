@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div>Un div oarecare.</div>
+    <button>adauga continut</button>
+    <p>Creati o functie cu jQuery prin care la apasarea butonului adaugati "bold" la sfarsitul div-ului o singura data. (hint: pentru a realiza acest lucru puteti folositi if)</p>
+	<script src="../jquery-3.3.1.min.js"></script>
+	<script>
+		var x = $('div').html();
+		$('button').click(function(){
+			if($('div').html() == x){
+				$('div').append('bold')
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!--faci o fereastra de chat după
+Cum ai pe messenger.com-->
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="chat.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="chat.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <!--<section id="chat">
+        <input type="text" id="typeYourMessage" />
+        <button id="send">Send</button>
+    </section>
+
+    <div id="templates">
+        <div class="my-message message">
+            <p></p>
+        </div>
+        <div class="their-message message">
+            <p></p>
+        </div>
+    </div>-->
+
+    <div id="container">
+        <div id="peopleList">
+            <div id="peopleListHeadingContainer">
+                <span class="people-list-heading-icon cursor-pointer fas fa-cog"></span>
+                <h1 id="peopleListHeading">Messenger</h1>
+                <span class="people-list-heading-icon cursor-pointer far fa-edit"></span>
+            </div>
+            <div id="searchMessenger">
+                <div id="searchMessengerIcon" class="fas fa-search"></div>
+                <input text="type" placeholder="Search Messenger" />
+            </div>
+            <div class="contact">
+                <div class="person cursor-pointer">
+                    <div class="imageContainer">
+                        <img src="..\\resources\\starWars.jpg" width="48" height="48" />
+                    </div>
+                    <div class="name-and-last-mess">
+                        <p>Alex Mocanu</p>
+                        <p class="last-message">Bine</p>
+                    </div>
+                </div>
+                <div class="time">00:28</div>
+            </div>
+
+            <div class="contact">
+                    <div class="person cursor-pointer">
+                        <div class="imageContainer">
+                            <img src="..\\resources\\starWars.jpg" width="48" height="48" />
+                        </div>
+                        <div class="name-and-last-mess">
+                            <p>Alex Mocanu</p>
+                            <p class="last-message">Bine</p>
+                        </div>
+                    </div>
+                    <div class="time">00:28</div>
+                </div>
+
+        </div>
+
+        <main>
+            <div id="personName">
+                <div>Alex Mocanu</div>
+                <div class="contact-tools">
+                    <div class="contact-tools-icon cursor-pointer fas fa-phone"></div>
+                    <div class="contact-tools-icon cursor-pointer fas fa-video"></div>
+                    <div class="contact-tools-icon cursor-pointer fas fa-info-circle"></div>
+                </div>
+            </div>
+
+            <div id="mainContainer">
+                <div id="messages">
+                    <div id="messagesList">
+                        <p class="message my-message">No problem man I'm in a ghetto pub watching the game</p>
+                        <p class="message my-message">In East London</p>
+                        <p class="message my-message">OK</p>
+                        <p class="message contact-message">awesome</p>
+                        <p class="message contact-message">they do but from Deutschland</p>
+
+                        <div id="inputTools">
+                            <span class="fas fa-plus-circle input-tool primary-icon cursor-pointer"></span>
+                            <span class="fas fa-camera input-tool cursor-pointer"></span>
+                            <span class="fas fa-image input-tool cursor-pointer"></span>
+                            <span class="fas fa-microphone input-tool cursor-pointer"></span>
+                            <textarea id="messageInput"></textarea>
+                            <div>
+                                <img id="chatIcon" class= "cursor-pointer" src="resources/il.svg" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div id="optionsContainer">
+                    <div id="optionsPerson">
+                        <div class="imageContainer">
+                            <img src="..\\resources\\starWars.jpg" width="48" height="48" />
+                        </div>
+                        <div id="title3" class="cursor-pointer">Alex Mocanu</div>
+                        <span id="title3Settings" class="cursor-pointer fas fa-cog"></span>
+                    </div>
+                    <div id="options">
+                        <div id="optionsDropdown" class="cursor-pointer">
+                            <h3>Options</h3>
+                            <span class="dropdown-icon fas fa-angle-down"></span>
+                        </div>
+                        <div class="option cursor-pointer">
+                            <div class="options-icon-container">
+                                <div class="options-icon fas fa-search"></div>
+                            </div>
+                            <div>Search In Conversation</div>
+                        </div>
+                        <div class="option cursor-pointer">
+                            <div class="options-icon-container">
+                                <div class="options-icon far fa-edit"></div>
+                            </div>
+                            <div>Edit Nicknames</div>
+                        </div>
+                        <div class="option cursor-pointer">
+                            <div class="options-icon-container">
+                                <div class="options-icon fas fa-palette"></div>
+                            </div>
+                            <div>Change Color</div>
+                        </div>
+                        <div class="option cursor-pointer">
+                            <div class="options-icon-container">
+                                <div class="options-icon far fa-thumbs-up"></div>
+                            </div>
+                            <div>Change Emoji</div>
+                        </div>
+                        <div class="option cursor-pointer">
+                            <div class="options-icon-container">
+                                <div class="options-icon far fa-bell"></div>
+                            </div>
+                            <div>Notifications</div>
+                        </div>
+                    </div>
+                    <div id="sharedFiles" class="cursor-pointer">
+                        <div>Shared Files</div>
+                        <span class="dropdown-icon fas fa-angle-down"></span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!--Vei face un site cu filme
+In domready trimiți un GET request la o adresa pe care o primești diseară probabil
+Poti folosi o adresa fake deocamdată
+Si cand primești răspunsul trebuie sa faci o lista de filme pe ecran
+Sa afisezi
+Fiecare film are un titlu, o descriere un rating si o poza
+La fiecare film vei avea un dropdown pentru rating (de la 1 la 10)si un buton care trb sa salveze acel rating
+Cand dai click pe button trebuie sa trimiți un POST request la o adresa fictiva deocamdată
+In acel post trimiți un JSON care conține id-ul filmului si nota
+Am uitat sa spun ca in acel GET request de la inceput iti voi da si id-ul fiecărui film, dar pe asta nu îl afisezi pe ecran
+
+30% din ecran
+Coloana aia de filme
+Să fie pe centru
+-->
+
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="scripts/movies.services.js"></script>
+	<!--atentie la ordine. ele se incarca in ordinea in care le pui-->
+	<script src="scripts/movies.tools.js"></script>
+	<script src="scripts/movies.js"></script>
+
+	<link href="styles/movies.css" rel="stylesheet" />
+
+
+
+</head>
+
+<body>
+
+	<div id="movieDialog">
+		<h1 class="title"></h1>
+		<div>
+			<img class="cover" src="..\\resources\\imgNotAvailable.png" width="200"/>
+			<!---src = source; cu .. ies o data din folder si intri in alt folder (cu . sau nicin punct ramai in acelasi folder si intri intr-un folder de acolo)-->
+			<p class="description"></p>
+		</div>
+
+		<span class="rating"></span>
+	</div>
+
+	<div id="overlay">
+	</div>
+
+	<div id="container">
+		<div>
+			<input type="text" id="searchQuery" placeholder="search for a movie" />
+			<button id="search">Search</button>
+		</div>
+
+		<div id="movies">
+		</div>
+
+		<button id="loadMore">Load More</button>
+	</div>
+
+	<div id="templates">
+		<div id="movieTemplate" class="movie" data-movie-id="">
+			<!--prin data iti creezi propriile atribute-->
+			<h2 class="title"></h2>
+
+			<div>
+				<img class="cover" src="..\\resources\\imgNotAvailable.png" width="200"/>
+				<p class="description"></p>
+			</div>
+
+			<span class="rating"></span>
+		</div>
+	</div>
+
+</body>
+
+</html>

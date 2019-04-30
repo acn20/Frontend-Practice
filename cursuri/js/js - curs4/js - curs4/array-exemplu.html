@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<input type="text" id="produs" />
+		<button onclick="adauga()">+</button>
+		<button onclick="elimina()">-</button>
+		
+		<div id="rez"></div>
+		<p id="msg"></p>
+		
+		<script>
+			var lista = [];
+			function adauga(){
+				var prod = document.getElementById('produs').value;
+				var poz = lista.indexOf(prod);
+				if(poz == -1) {
+					lista.push(prod);
+					document.getElementById('msg').innerHTML = '';
+				} else {
+					document.getElementById('msg').innerHTML = '<b>' + prod + '</b> exista deja in lista la pozitia ' + (poz + 1);
+				}
+				
+				document.getElementById('rez').innerHTML = '<ol><li>' + lista.join('</li><li>') + '</li></ol>';
+			}
+			function elimina(){
+				var prod = document.getElementById('produs').value;
+				var poz = lista.indexOf(prod);
+				
+				if (poz != -1){
+					lista.splice(poz, 1);
+					document.getElementById('msg').innerHTML = '';
+				} else {
+					document.getElementById('msg').innerHTML = '<b>' + prod + '</b> nu exista in lista';
+				}
+				document.getElementById('rez').innerHTML = '<ol><li>' + lista.join('</li><li>') + '</li></ol>';
+			}
+		</script>
+	</body>
+</html>

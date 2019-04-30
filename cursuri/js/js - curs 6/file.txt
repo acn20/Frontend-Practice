@@ -1,0 +1,50 @@
+
+
+$(document).ready(function(){
+	
+	// cod doar pentru attr.html
+	if($('.attr-page').length) {
+		// adaugam atributul id
+		$('button:eq(0)').click(function(){
+			$('div:eq(0)').attr('id','patrat')	
+		});
+		
+		// returam valoarea atributului id
+		$('button:eq(1)').click(function(){
+			var x = $('div:eq(0)').attr('id');
+			if(x) {
+				$('div:eq(0)').html('un div cu id-ul <b>' + x + '</b>')
+			} else {
+				$('div:eq(0)').html('un div fara id')
+			}
+		});
+		
+		// eliminam atributul id
+		$('button:eq(2)').click(function(){
+			$('div:eq(0)').removeAttr('id')
+		});
+	}
+	
+	// cod doar pentru css.html
+	if($('.css-page').length) {
+		$('button:eq(0)').click(function(){
+			$('#patrat').css({
+				'background-color':'black',
+				'color':'white',
+				'border-radius':'50%',
+				'text-align':'center',
+				'line-height':'100px'
+			});
+		});
+		$('button:eq(1)').click(function(){
+			$('button:eq(1)').after(
+				$('#patrat').css('width') + 
+				' - ' + 
+				$('#patrat').css('color')
+			)
+		});
+	}
+	
+	
+	
+});

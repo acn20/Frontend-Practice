@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .patrat {
+            width: 200px;
+            height: 200px;
+            background: #ddd
+        }
+        .contur {
+            border: 3px double black
+        }
+        .rotund {
+            border-radius: 50%
+        }
+    </style>
+</head>
+<body>
+   <div class="patrat rotund">div</div>
+   <button onclick="adauga()">adauga class</button>
+   <button onclick="sterge()">elimina class</button>
+   
+    <script>
+        var el = document.getElementsByTagName('div')[0];
+        var claseInitiale = el.getAttribute('class');
+        
+        function adauga(){
+            //el.setAttribute('class','contur');
+            el.setAttribute('class', claseInitiale + ' contur');
+        }
+        function sterge(){
+            //el.removeAttribute('class');
+            
+            el.setAttribute('class', claseInitiale)
+        }
+    </script>
+</body>
+</html>

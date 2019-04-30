@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+</head>
+<body>
+    <input type="text" onblur="copiazaText(0)" onkeydown="copiazaText(1)" onkeyup="copiazaText(2)" />
+    <p>onblur: <strong></strong></p>
+    <p>keydown: <strong></strong></p>
+    <p>keyup: <strong></strong></p>
+    
+    <input type="checkbox" onchange="bifa()" />
+    <p>onchange: <strong></strong></p>
+    
+    <textarea onkeyup="copiazaTextArea()"></textarea>
+    <script>
+        var el = document.getElementsByTagName('input')[0];
+        var el3 = document.getElementsByTagName('textarea')[0];
+        var el2 = document.getElementsByTagName('input')[1];
+        function copiazaText(arg){
+            document.getElementsByTagName('strong')[arg].innerHTML = el.value;
+        }
+        function copiazaTextArea(){
+             document.getElementsByTagName('strong')[2].innerHTML = el3.value;
+        }
+        
+        function bifa(){
+            document.getElementsByTagName('strong')[3].innerHTML = el2.checked;
+            if (el2.checked == true){
+                document.getElementsByTagName('strong')[3].innerHTML += ' - Ai fost de acord cu termeni...';
+            } else {
+                document.getElementsByTagName('strong')[3].innerHTML += ' - TREBUIE sa fii de acord cu ...';
+            }
+        }
+    </script>
+</body>
+</html>

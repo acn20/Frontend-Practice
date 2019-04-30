@@ -1,0 +1,23 @@
+#unu {
+	width: 80%;
+	margin: auto;
+}
+#doi{
+	float: right;
+	width: 30%;
+	height: 400px;
+	background: darkred;
+}
+#trei{
+	float: right;
+	width: 70%;
+	height: 400px;
+	background: darkblue;
+}
+
+@media screen and (max-width:768px){
+	#doi, #trei{
+		float: none;
+		width: 100%;
+	}
+}

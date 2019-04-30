@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        textarea {
+            width: 45%;
+            height: 200px;
+            background: #eee;
+            margin: 0 2%;
+        }
+        #content {
+            margin: 0 20px;
+            border: 1px solid #aaa;
+            min-height: 200px
+        }
+        h1 {
+            text-align: center;
+            font-size: 20px
+        }
+        h2 {
+            font-size: 18px
+        }
+    </style>
+</head>
+<body>
+    <h1>Un simplu editor HTML / CSS</h1>
+    Creati o functie javascript care, la apasarea butonului, sa preia codul html si css inserat in cele 2 zone si sa il afiseze / aplice in div-ul de mai jos (#content).<br/>
+    Pentru a prelua textul din &lt;textarea&gt; puteti folosi .value (exact la fel ca la input)<br/><br/><br/>
+    <textarea id="html-ul" placeholder="Introduceti codul HTML"></textarea>
+    <textarea id="css-ul" placeholder="Introduceti codul CSS"></textarea>
+    <button  onclick="editor()">aplica html-ul si css-ul</button>
+    <h2>Aici se va afisa rezultatul</h2>
+    <div id="content">
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.galerie {
+				width: 400px;
+				height: 300px;
+				border: 1px solid black;
+				margin: auto;
+				position: relative;
+				overflow: hidden
+			}
+			.galerie img {
+				width: 400px;
+				position: absolute;
+				left: -400px;
+			}
+			
+			.galerie img:first-child {
+				left: 0
+			}
+		</style>
+	</head>
+	<body class="animate3">
+	
+	<div class="galerie">
+		<img src="images/Koala.jpg" />
+		<img src="images/Lighthouse.jpg" />
+		<img src="images/Desert.jpg" />
+	</div>
+	
+	<script>
+	/*var i = 0;
+		setInterval(function(){
+			console.log(i++);
+		}, 500)*/
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="custom.js"></script>
+	</body>
+</html>

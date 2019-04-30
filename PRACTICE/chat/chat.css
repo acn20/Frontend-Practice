@@ -1,0 +1,259 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#template {
+    display: none;
+}
+
+#container, #mainContainer {
+    display: flex;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#peopleList {
+    border-right: 1px solid rgba(153, 153, 153, 1);
+    height: 100%;
+    flex: 0 0 25%;
+    max-width: 420px;
+    min-width: 240px;
+    font-size: 19px;
+}
+
+h1 {
+    font-size: 19px;
+}
+
+#peopleListHeadingContainer {
+    margin: 30px;
+    padding: 20px;
+    border-bottom: 1px solid rgba(153, 153, 153, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact {
+    padding: 25px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;/*doar pentru orizontala - adauga spatiu intre elemente*/
+    align-items: center;
+}
+
+.contact:hover {
+    background-color: #f5f6f7;
+}
+
+#messages {
+    display: flex;
+    width: 100%;
+    border-right: 1px solid rgba(153, 153, 153, 1);
+}
+
+#personName {
+    margin: 30px;
+    padding: 20px;
+    border-bottom: 1px solid rgba(153, 153, 153, 1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.message {
+    padding: 8px;
+    margin: 2px;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    max-width: 55%;
+    clear: both;
+}
+
+.my-message {
+    color: white;
+    background-color: rgb(255, 92, 161);
+    float: right;
+}
+
+.contact-message {
+    background-color: #f5f6f7;
+    float: left;
+}
+
+#inputTools {
+    border-top: 1px solid rgba(153, 153, 153, 1);
+    clear: both;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    display: flex;
+}
+
+#messageInput {
+    border: 0;
+}
+
+#optionsContainer {
+    flex: 0 1 33.33%;
+    height: 100%;
+    padding: 0 20px;
+}
+
+#options {
+    border-top: 1px solid rgba(153, 153, 153, 1);
+    border-bottom: 1px solid rgba(153, 153, 153, 1);
+    padding-bottom: 16px;
+}
+
+#sharedFiles {
+    color: rgba(153, 153, 153, 1);
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#messagesList {
+    flex: 2 0 0%;
+    /*flex-grow, flex-shrink, flex-basis*/
+    height: 100%;
+}
+
+.option {
+    padding: 10px;
+    display: flex;
+    flex: 0 0 35px;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.person {
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.time {
+    padding-right: 10px;
+    font-size: 12px;
+}
+
+.name-and-last-mess>p {
+    /*puteam sa scriu si .person-name-and-mess p*/
+    margin: 0;
+    padding-left: 10px;
+}
+
+.name-and-last-mess>p:nth-of-type(2) {
+    font-size: 12px;
+}
+
+.last-message {
+    color: rgba(153, 153, 153, 1);
+}
+
+.time {
+    color: rgba(153, 153, 153, 1);
+}
+
+.imageContainer>img {
+    border-radius: 50%;
+}
+
+#chatIcon {
+    width: 24px;
+}
+
+.input-tool {
+    font-size: 24px;
+    color: #BDBDBD;
+}
+
+.primary-icon {
+    color: #1565C0;
+}
+
+.cursor-pointer:hover {
+    cursor: pointer;
+}
+
+#title3 {
+    color: #365899;
+}
+
+#title3:hover {
+    text-decoration: underline;
+}
+
+.options-icon {
+    color: #1565C0;
+    font-size: 24px;
+}
+
+.options-icon-container {
+    display: flex;
+    flex: 0 0 35px;
+    align-items: center;
+}
+
+.contact-tools-icon {
+    color: #1565C0;
+    font-size: 28px;
+    margin-right: 12px;
+}
+
+.people-list-heading-icon {
+    color: #1565C0;
+    font-size: 28px;
+}
+
+#optionsPerson {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+#title3Settings {
+    font-size: 20;
+    color: rgba(153, 153, 153, 1);
+}
+
+#optionsDropdown {
+    color: rgba(153, 153, 153, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-icon {
+    font-size: 28px;
+}
+
+#searchMessenger {
+    padding: 10px 28px;
+    background-color: #f5f6f7;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+input {
+    border: 0;
+    background-color: #f5f6f7;
+    font-size: 19px;
+}
+
+#searchMessengerIcon {
+    color: rgba(153, 153, 153, 1);
+    padding-right: 2px;
+}
+
+h3 {
+    font-weight: normal;
+}

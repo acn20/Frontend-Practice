@@ -1,0 +1,121 @@
+<!--cand scrii ceva 
+sa-ti apara sugestii sub input
+si memoreaza ce ai cautat
+ultimele 5 cautari de exemplu
+-salvez toate cautarile intr-un arrway
+-fac eu o lista de sugestii
+
+-cand inputul e gol si dau click pe el imi apare lista de history (numai atunci) (cand dau click fundalul se intuneca)
+-cand dau refresh sa se puna cursorul automat in input
+-cand scriu o litera ma uit la lista de sugestii si iau toate cuv care incep cu litera aia, cand scriu urmatoarea litera ma uit la lista pe care am creat-o adineaori si iau din lista AIA cuvintele care raman
+-o sa am nevoie de o functie cu 2 parametri (text si lista) si returneaza alta lista (sugestiile filtrate)
+-fac in searches cu clone fiecare element din history si din sugestii
+-pun iconita de bing pe tab
+-10 panorame denumite de la 0 la 9 (toate jpg); cand dau refresh aleg una din ele sa o pun ca background (fac cu random)
+-->
+<html>
+
+<head>
+    <link href="styles/bing.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div id="headerContainer">
+        <header>
+            <ul>
+                <a href="">
+                    <li class="menu-option">All</li>
+                </a>
+                <a href="">
+                    <li class="menu-option">Images</li>
+                </a>
+                <a href="">
+                    <li class="menu-option">Video</li>
+                </a>
+                <a href="">
+                    <li class="menu-option">News</li>
+                </a>
+                <a href="">
+                    <li class="menu-option">MSN</li>
+                </a>
+                <a href="" id="office">
+                    <li class="menu-option">Office Online</li>
+                </a>
+                <a href="">
+                    <li class="menu-option">Outlook.com</li>
+                </a>
+            </ul>
+
+            <div>
+                <a href="" class="option">Sign in</a>
+                <a href="" class="option"><i class="fas fa-user"></i></a>
+                <a href="" class="option"><i class="fas fa-bars"></i></a>
+            </div>
+        </header>
+    </div>
+
+    <div id="mainContainer">
+        <main>
+            <div id="upperMain">
+                <img src="img/BingLogo.png" id="logo" />
+                <span id="bing">Bing</span>
+                <div id="inputContainer">
+                    <input id="searchInput" />
+                    <div>
+                        <span id="cameraBtn"><i class="fas fa-camera"></i></span>
+                        <button id="searchButton"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <ul id="searches">
+
+                </ul>
+
+                <ul id="suggestions">
+
+                </ul>
+
+                <ul id="templates">
+                    <li id="searched"></li>
+                    <li id="filteredSuggestion"></li>
+                </ul>
+            </div>
+
+            <div id="lowerMain">
+                <a href="">
+                    <div class="info-buttons"><i class="fas fa-angle-left"></i></div>
+                </a>
+                <a href="">
+                    <div class="info-buttons"><i class="fas fa-angle-right"></i></div>
+                </a>
+                <a href="" id="infoLink">
+                    <div id="infoButton"><i class="fas fa-map-marker-alt"></i><span id="infoSpan">Info</span></div>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <div id="footerContainer">
+        <footer>
+            <ul>
+                <li class="footer-option"><a href="">Privacy and Cookies</a></li>
+                <li class="footer-option"><a href="">Legal</a></li>
+                <li class="footer-option"><a href="">Advertise</a></li>
+                <li class="footer-option"><a href="">Help</a></li>
+                <li class="footer-option"><a href="">Feedback</a></li>
+            </ul>
+
+            <a href="">&copy 2019 Microsoft</a>
+        </footer>
+    </div>
+
+    <div id="dark"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="scripts/bing.js"></script>
+    <script src="scripts/bingUtilities.js"></script>
+</body>
+
+</html>
