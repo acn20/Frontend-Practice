@@ -24,3 +24,21 @@ function extraElem(list1, list2) {
         return list2[list2.length - 1];
     }
 }
+
+function extraElem2(list1, list2) {
+    if (Math.abs(list1.length - list2.length) != 1) {
+        throw new Error("Please enter two lists that have the same elements except one of the list has an extra element");
+    }
+
+    var sum1 = 0;
+    var sum2 = 0;
+
+    for(let i = 0; i < list1.length; i++) {
+        sum1 += list1[i];
+    }
+    for(let i=0; i < list2.length; i++) {
+        sum2 += list2[i];
+    }
+
+    return Math.abs(sum1-sum2);
+}
