@@ -40,5 +40,5 @@ function extraElem2(list1, list2) {
         sum2 += list2[i];
     }
 
-    return Math.abs(sum1-sum2);
+    return sum1-sum2;
 }
