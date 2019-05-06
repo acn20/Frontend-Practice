@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-size: 14px;
+  box-sizing: border-box; }
+
+ul {
+  list-style: none; }
+
+#headerContainer {
+  background-color: #202124;
+  position: fixed;
+  color: #fff; }
+
+header {
+  width: 900px;
+  background-color: #202124;
+  margin: auto;
+  height: 100px; }
+
+#closeButton {
+  float: right; }
+
+#menu, #submenu {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  color: #eee;
+  align-items: flex-end; }
+  #menu li, #submenu li {
+    width: 20%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center; }
+
+#submenu {
+  background-color: purple; }
+
+#menu li:nth-child(3), #submenu li:nth-child(3) {
+  border-bottom: 3px solid #eee; }
+
+#mainContainer {
+  background-color: #eee; }
+
+main {
+  width: 900px;
+  margin: auto;
+  background-color: #eee; }
