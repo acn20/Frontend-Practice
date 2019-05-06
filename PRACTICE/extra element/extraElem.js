@@ -33,12 +33,18 @@ function extraElem2(list1, list2) {
     var sum1 = 0;
     var sum2 = 0;
 
-    for(let i = 0; i < list1.length; i++) {
+    for (let i = 0; i < list1.length; i++) {
         sum1 += list1[i];
     }
-    for(let i=0; i < list2.length; i++) {
+    for (let i = 0; i < list2.length; i++) {
         sum2 += list2[i];
     }
 
-    return sum1-sum2;
+    if (list1.length > list2.length) {
+        return sum1 - sum2;
+    }
+
+    else {
+        return sum2 - sum1;
+    }
 }
