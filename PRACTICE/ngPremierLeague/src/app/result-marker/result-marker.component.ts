@@ -12,5 +12,4 @@ export class ResultMarkerComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
