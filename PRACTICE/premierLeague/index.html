@@ -2,6 +2,8 @@
 
 <head>
     <link href="build/premierLeague.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+        integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 </head>
 
 <body>
@@ -22,16 +24,89 @@
     </div>
     <div id="mainContainer">
         <main>
-            <table>
+            <div>Season</div>
+            <select>
+                <option>2018-2019</option>
+                <option>2017-2018</option>
+                <option>2016-2017</option>
+                <option>2015-2016</option>
+                <option>2014-2015</option>
+            </select>
+
+            <table id="scoreTable">
+                <thead>
+                    <tr>
+                        <th>Club</th>
+                        <th>MP</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>GF</th>
+                        <th>GA</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                        <th>Last 5</th>
+                    </tr>
+                </thead>
+                   
+                <!--<tr>
+                    <td>1 Man. City</td>
+                    <td>37</td>
+                    <td>31</td>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>91</td>
+                    <td>22</td>
+                    <td>69</td>
+                    <td>95</td>
+                    <td>*****</td>
+                </tr>
+
                 <tr>
-                    <th></th>
+                    <td>2 Liverpool</td>
+                    <td>37</td>
+                    <td>29</td>
+                    <td>7</td>
+                    <td>1</td>
+                    <td>87</td>
+                    <td>22</td>
+                    <td>65</td>
+                    <td>94</td>
+                    <td>*****</td>
                 </tr>
                 <tr>
-                    <td></td>
-                </tr>
+                    <td>3 Chelsea</td>
+                    <td>37</td>
+                    <td>21</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>63</td>
+                    <td>69</td>
+                    <td>27</td>
+                    <td>71</td>
+                    <td>*****</td>
+                </tr>-->
             </table>
         </main>
     </div>
+
+    <template id="template">
+        <tr id="tableRowTemplate">
+            <td class="club"></td>
+            <td class="mp"></td>
+            <td class="w"></td>
+            <td class="d"></td>
+            <td class="l"></td>
+            <td class="gf"></td>
+            <td class="ga"></td>
+            <td class="gd"></td>
+            <td class="pts"></td>
+            <td class="last5"></td>
+        </tr>
+    </template>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="premierLeague.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,44 @@
-var teams = [{
+import { Component, OnInit } from '@angular/core';
+import { TeamResults } from '../models/team-results';
+
+@Component({
+  selector: 'app-standings',
+  templateUrl: './standings.component.html',
+  styleUrls: ['./standings.component.scss']
+})
+export class StandingsComponent implements OnInit {
+  items: Array<TeamResults> = [];
+
+  constructor() { }
+
+  ngOnInit() {//cand e creata componenta noastra e executata aceasta functie
+    let manCity = new TeamResults();
+    manCity.name = "Manchester City";
+    manCity.points = 95;
+    manCity.goalsFor = 100;
+    manCity.goalsAgainst = 19;
+    manCity.lastMatches = [1, 1, -1, 1, 0];
+    // etc
+
+    let liverpool: TeamResults = {
+      name: "Liverpool",
+      matches: 37,
+      wins: 31,
+      draws: 2,
+      losses: 4,
+      goalsFor: 91,
+      goalsAgainst: 22,
+      points: 95,
+      lastMatches: [1, 1, 1, 1, 1]
+    };
+
+    this.items.push(liverpool);
+    this.items.push(manCity);
+  }
+}
+
+/*
+{
     rank: "1",
     club: "Man. City",
     MP: "37",
@@ -76,32 +116,4 @@ var teams = [{
     Pts: "66",
     Last5: "*****"
 },
-]
-
-function createTableRow(team) {
-    // https://stackoverflow.com/questions/27311226/how-to-select-elements-from-template-with-jquery
-    // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
-    // elementul template nu exista pe pagina si d-aia nu este gasit
-    let templateContent = $('#template').prop('content');
-    let clone = $(templateContent).find("#tableRowTemplate").clone();
-    clone.attr("id", null);
-    clone.find(".club").html(team.club);
-    clone.find(".mp").html(team.MP);
-    clone.find(".w").html(team.W);
-    clone.find(".d").html(team.D);
-    clone.find(".l").html(team.L);
-    clone.find(".gf").html(team.GF);
-    clone.find(".ga").html(team.GA);
-    clone.find(".gd").html(team.GD);
-    clone.find(".pts").html(team.Pts);
-    clone.find(".last5").html(team.Last5);
-
-    return clone;
-}
-
-$(function () {
-    for(let i = 0; i < teams.length; i++) {
-        let tr = createTableRow(teams[i]);
-        $("#scoreTable").append(tr);
-    }
-})
+*/

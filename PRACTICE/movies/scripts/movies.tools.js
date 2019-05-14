@@ -10,7 +10,7 @@ function MovieTools() {
 	//toate aceste elemente/atribute le bag in template
 
 	this.createMovieElement = function (movie) {
-		var clone = $("#movieTemplate").clone();//nu trebuie scos id-ul la clone?
+		var clone = $("#movieTemplate").clone();
 		clone.attr("id", null);
 		clone.attr("data-movie-id", movie.id);
 		clone.find(".title").html(movie.title);

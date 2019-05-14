@@ -1,0 +1,21 @@
+tr {
+    background-color: #fff;
+    border: 0px;
+}
+
+td {
+    padding: 5px;
+}
+
+tr:nth-child(2) {
+    border-left: 2px solid #2196F3;
+}
+  
+tr:nth-child(3) {
+    border-left: 2px solid #FF9800;
+}
+  
+tr:nth-child(4) {
+    border-left: 2px solid #8BC34A;
+}
+  

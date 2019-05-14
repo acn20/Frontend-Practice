@@ -1,0 +1,14 @@
+<tr>
+  <td class="club">{{ teamResults.name }}</td>
+  <td class="mp">{{ teamResults.matches }} </td>
+  <td class="w">{{ teamResults.wins }}</td>
+  <td class="d">{{ teamResults.draws }}</td>
+  <td class="l">{{ teamResults.losses }}</td>
+  <td class="gf">{{ teamResults.goalsFor }}</td>
+  <td class="ga">{{ teamResults.goalsAgainst }}</td>
+  <td class="gd">{{ teamResults.goalsFor - teamResults.goalsAgainst }}</td> <!--goal difference-->
+  <td class="pts">{{ teamResults.points }}</td>
+  <td class="last5">
+    <app-result-marker *ngFor="let matchResult of teamResults.lastMatches" [result]="matchResult"></app-result-marker>
+  </td>
+</tr>

@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      <th>Club</th>
+      <th>MP</th>
+      <th>W</th>
+      <th>D</th>
+      <th>L</th>
+      <th>GF</th>
+      <th>GA</th>
+      <th>GD</th>
+      <th>Pts</th>
+      <th>Last 5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <app-standings-item *ngFor="let item of items" [teamResults]="item"></app-standings-item><!--teamResults e o proprietate pentru componenta, pe care o populam cu item-->
+  </tbody>
+</table>
+
+<!--
+  for(var i = 0; i < items.length; i++) {
+    let item = items[i];
+
+    // create StandingsItemComponent, setting the teamResults property to the value item
+  }
+
+-->

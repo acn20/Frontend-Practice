@@ -6,6 +6,7 @@ body {
     margin: 0;
     font-size: 14px;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 ul {
@@ -13,14 +14,13 @@ ul {
 }
 
 #headerContainer {
-    background-color: #202124;
-    position: fixed;
+    background-color: #4A148C;
     color: #fff;
 }
 
 header {
     width: 900px;
-    background-color: #202124;
+    background-color: #4A148C;
     margin: auto;
     height: 100px;
 }
@@ -63,4 +63,47 @@ main {
     width: 900px;
     margin: auto;
     background-color: $background;
+}
+
+table {
+    width: 100%;
+    color: #666;
+}
+
+table th {
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    padding: 10px;
+}
+
+select {
+    color: #2196F3;
+    font-weight: bold;
+}
+
+table tr {
+    background-color: #fff;
+    border: 0px;
+}
+
+table td {
+    padding: 5px;
+}
+
+table tr:nth-child(2) {
+    border-left: 2px solid #2196F3;
+}
+  
+table tr:nth-child(3) {
+    border-left: 2px solid #FF9800;
+}
+  
+table tr:nth-child(4) {
+    border-left: 2px solid #8BC34A;
+}
+  
+
+#tableRowTemplate {
+    display: none;
 }
