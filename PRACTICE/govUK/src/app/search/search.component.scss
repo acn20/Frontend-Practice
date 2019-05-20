@@ -1,0 +1,12 @@
+#search {
+    border: 0;
+}
+
+#submit {
+    background: #005ea5;
+    color: #fff;
+}
+
+#search:focus, #submit:focus {
+    outline: 3px solid #ffbf47;
+}

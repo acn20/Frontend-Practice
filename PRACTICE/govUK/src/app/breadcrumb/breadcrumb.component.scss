@@ -1,0 +1,11 @@
+:host {
+    display: flex;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+    color: #111;
+}
+
+a:hover {
+    cursor: pointer;
+}

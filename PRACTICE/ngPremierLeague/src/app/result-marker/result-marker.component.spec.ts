@@ -49,15 +49,70 @@ describe('ResultMarkerComponent', () => {
     });
 
     it('does not show win span', () => {
-
+      let componentHtml: HTMLElement = fixture.nativeElement;
+      let span = componentHtml.querySelector('span.draw');
+      expect(span).toBeFalsy();
+      expect(span.textContent).toBe('O');
     });
   });
 
   describe('when result is 0', () => {
+    beforeAll(() => {
+      component.result = 0;
+      fixture.detectChanges();
+    });
 
+    it('shows draw span', () => {
+      // fixture.nativeElement is an object represents the HTML of the component
+      let componentHtml: HTMLElement = fixture.nativeElement;
+      let span = componentHtml.querySelector('span.draw');
+      expect(span).toBeTruthy(); // expect this variable to exist / be not null
+      expect(span.textContent).toBe('O');
+    });
+
+    it('does not show loss span', () => {
+      // fixture.nativeElement is an object represents the HTML of the component
+      let componentHtml: HTMLElement = fixture.nativeElement;
+      let span = componentHtml.querySelector('span.loss');
+      expect(span).toBeFalsy(); // expect this variable to not exist / be null
+      expect(span.textContent).toBe('O');
+    });
+
+    it('does not show win span', () => {
+      let componentHtml: HTMLElement = fixture.nativeElement;
+      let span = componentHtml.querySelector('span.win');
+      expect(span).toBeFalsy();
+      expect(span.textContent).toBe('O');
+    });
   });
 
   describe('when result is 1', () => {
+    beforeAll(() => {
+      component.result = 1;
+      fixture.detectChanges();
+    });
 
+    it('shows win span', () => {
+      // fixture.nativeElement is an object represents the HTML of the component
+      let componentHtml: HTMLElement = fixture.nativeElement;
+      let span = componentHtml.querySelector('span.win');
+      expect(span).toBeTruthy(); // expect this variable to exist / be not null
+      expect(span.textContent).toBe('O');
+    });
+
+    it('does not show loss span', () => {
+      // fixture.nativeElement is an object represents the HTML of the component
+      let componentHtml: HTMLElement = fixture.nativeElement;
+      let span = componentHtml.querySelector('span.loss');
+      expect(span).toBeFalsy(); // expect this variable to not exist / be null
+      expect(span.textContent).toBe('O');
+    });
+
+    it('does not show draw span', () => {
+      let componentHtml: HTMLElement = fixture.nativeElement;
+      let span = componentHtml.querySelector('span.draw');
+      expect(span).toBeFalsy();
+      expect(span.textContent).toBe('O');
+    });
   });
 });
