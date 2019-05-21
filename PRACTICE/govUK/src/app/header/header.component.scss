@@ -2,8 +2,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #000;
+    color: #fff;
+    max-width: 900px;
+    margin: auto;
+    height: 45px;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+#logo {
+    width: 26px;
 }
 
 #logoLink {
     display: flex;
+    align-items: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+    border-bottom: 2px solid #000;
+}
+
+#logoLink:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #fff;
 }

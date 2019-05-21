@@ -1,23 +1,32 @@
 <app-cookies-notification></app-cookies-notification>
-<app-header></app-header>
-<app-feedback-notification></app-feedback-notification>
-<app-breadcrumb></app-breadcrumb>
 
-<app-page-title [countryName]="country"></app-page-title>
-<!--
+<div id="headerContainer">
+  <app-header></app-header>
+</div>
+
+<app-feedback-notification></app-feedback-notification>
+
+<div id="mainContainer">
+  <main>
+    <app-breadcrumb></app-breadcrumb>
+
+    <app-page-title [countryName]="country"></app-page-title>
+    <!--
   PageTitleComponent expects you to set the countryName property (marked with an @Input() annotation) when you use the component. This is how you set it.
   "country" is a property of the current component, AppComponent.
 -->
-<app-menu></app-menu>
-<app-subscriptions-links></app-subscriptions-links>
+    <app-menu></app-menu>
+    <app-subscriptions-links></app-subscriptions-links>
 
-<div>
-  <router-outlet></router-outlet>
-  <!-- this decides which component to render based on the route. for example it may render the SpainComponent
+    <div id="contentContainer">
+      <router-outlet></router-outlet>
+      <!-- this decides which component to render based on the route. for example it may render the SpainComponent
 or the ItalyComponent -->
-  <app-related></app-related>
+      <app-related></app-related>
+    </div>
+  </main>
 </div>
 
-<app-footer></app-footer>
-
-
+<div id="footerContainer">
+  <app-footer></app-footer>
+</div>

@@ -1,6 +1,15 @@
+:host {
+    font-size: 14px;
+    border-top: 2px solid #005ea5;
+}
+
 ul {
     display: flex;
     flex-direction: column;
+}
+
+li {
+    margin-bottom: 10px;
 }
 
 a, a:link, a:visited {
