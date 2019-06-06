@@ -1,0 +1,25 @@
+$primary-color: #0d63b8;
+
+:host {
+    color: $primary-color;
+    font-weight: bold;
+}
+
+.question-item-focus {
+    color: #fff;
+    background-color: $primary-color;
+}
+
+.ball {
+    padding: 5px;
+    border: 1px solid $primary-color;
+    border-radius: 50%;
+
+    &:hover {
+        @extend .question-item-focus;
+    }
+}
+
+.selected {
+    @extend .question-item-focus;
+}
