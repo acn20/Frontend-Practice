@@ -2,6 +2,8 @@
     font-size: 20px;
     display: flex;
     justify-content: center;
+    border-bottom: 2px dotted #ddd;
+    padding: 20px;
 }
 
 #inFavourOption {
@@ -14,4 +16,25 @@
 
 #againstOption {
     color: #d82740;
+}
+
+$primary-color: #0d63b8;
+
+.question-item-focus {
+    color: #fff;
+    background-color: $primary-color;
+}
+
+.ball {
+    padding: 5px;
+    border: 1px solid $primary-color;
+    border-radius: 50%;
+
+    &:hover {
+        @extend .question-item-focus;
+    }
+}
+
+.selected {
+    @extend .question-item-focus;
 }

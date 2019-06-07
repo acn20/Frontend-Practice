@@ -1,3 +1,7 @@
+:host {
+    padding: 20px;
+}
+
 #proAndConArguments {
     display: flex;
 }
@@ -8,4 +12,25 @@
 
 #againstArgument h3 {
     color: #d82740;
+}
+
+$primary-color: #0d63b8;
+
+.question-item-focus {
+    color: #fff;
+    background-color: $primary-color;
+}
+
+.ball {
+    padding: 5px;
+    border: 1px solid $primary-color;
+    border-radius: 50%;
+
+    &:hover {
+        @extend .question-item-focus;
+    }
+}
+
+.selected {
+    @extend .question-item-focus;
 }
