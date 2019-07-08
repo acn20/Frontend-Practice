@@ -1,0 +1,3 @@
+- dau click unde vreau sa incep sa aliniez, alt + shift si dau click pana la ce coloana vreau, ca sa scriem pe mai multe randuri deodata aliniat
+
+- fiecare componenta se ocupa de bucatica ei
