@@ -1,0 +1,15 @@
+<!--Name
+Age
+Driving/Drinking/Voting
+Button
+Message: Legal or Not-->
+
+<input type="text" [(ngModel)]="name" />
+<input type="number" [(ngModel)]="age" />
+<select [(ngModel)]="action">
+  <option value="driving">Driving</option>
+  <option value="drinking">Drinking</option>
+  <option value="voting">Voting</option>
+</select>
+<button (click)="showIfLegal()"> Check if legal</button>
+<p> {{ name }} {{ message }} </p>
