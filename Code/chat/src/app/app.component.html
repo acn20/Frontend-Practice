@@ -1,0 +1,12 @@
+<!--ecran de chat unde scrii ceva într-un input, dai click pe button și apoi apare mesajul pe ecran
+Și se șterge valoarea din input-->
+
+<div id="chatWindow">
+  <div id="windowMessages">
+    <div *ngFor="let sentMessage of sentMessages"> {{ sentMessage }} </div>
+  </div>
+  <div id="windowTyping">
+    <textarea [(ngModel)]="message"></textarea>
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

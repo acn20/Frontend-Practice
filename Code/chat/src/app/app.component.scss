@@ -1,0 +1,16 @@
+#chatWindow {
+    display: flex;
+    flex-direction: column;
+}
+
+#windowMessages {
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    overflow: auto;
+}
+
+#windowTyping {
+    height: 50px;
+    border-top: 1px solid #ddd;
+}

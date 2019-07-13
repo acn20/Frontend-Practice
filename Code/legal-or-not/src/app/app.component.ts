@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AgeCheckerService } from './services/age-checker.service';
 
 @Component({
   selector: 'app-root',
@@ -7,20 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'legal-or-not';
-  readonly votingAge = 16;//nu putem schimba valoarea acestor constante
-  readonly drivingAge = 17;
-  readonly drinkingAge = 18;
-
   age: number;
   action: string;
   message: string = '';
+
+  constructor(readonly ageCheckerService: AgeCheckerService) {//dependency injection
+  }
 
   showIfLegal() {
 
     switch (this.action) {
       case 'voting':
         {
-          if (this.age >= this.votingAge) {
+          if (this.ageCheckerService.canVote(this.age)) {
             this.message = "can vote";
           }
           else {
@@ -30,7 +30,7 @@ export class AppComponent {
         }
       case 'drinking':
         {
-          if (this.age >= this.drinkingAge) {
+          if (this.ageCheckerService.canDrink(this.age)) {
             this.message = "can drink";
           }
           else {
@@ -40,7 +40,7 @@ export class AppComponent {
         }
       case 'driving':
         {
-          if (this.age >= this.drivingAge) {
+          if (this.ageCheckerService.canDrive(this.age)) {
             this.message = "can drive";
           }
           else {
