@@ -3,10 +3,10 @@
 
 <div id="chatWindow">
   <div id="windowMessages">
-    <div *ngFor="let sentMessage of sentMessages"> {{ sentMessage }} </div>
+    <app-message-container *ngFor="let sentMessage of sentMessages" [message]="sentMessage"></app-message-container>
   </div>
   <div id="windowTyping">
     <textarea [(ngModel)]="message"></textarea>
-    <button (click)="sendMessage()">Send</button>
+    <app-button (buttonClicked)="sendMessage()"></app-button>
   </div>
 </div>

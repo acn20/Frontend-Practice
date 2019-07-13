@@ -13,6 +13,7 @@ export class AppComponent {
 
   sendMessage() {
     this.sentMessages.push(this.message);
+    this.message = '';
   }
 
 }
