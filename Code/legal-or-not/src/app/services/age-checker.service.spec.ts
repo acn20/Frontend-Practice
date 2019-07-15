@@ -14,33 +14,30 @@ describe('AgeCheckerService', () => {
 
   describe('canVote tests', () => {
     let service: AgeCheckerService;
-    beforeAll(() => { // lambda function
+    beforeAll(() => {
       service = TestBed.get(AgeCheckerService);
     });
 
     describe('when age is under 16', () => {
-      const age = 15;
-      const result = service.canVote(age);
-
       it('should be illegal to vote', () => {
+        const age = 15;
+        const result = service.canVote(age);
         expect(result).toBe(false);
       });
     });
 
     describe('when age is 16', () => {
-      const age = 16;
-      const result = service.canVote(age);
-
       it('should be legal to vote', () => {
+        const age = 16;
+        const result = service.canVote(age);
         expect(result).toBe(true);
       });
     });
 
     describe('when age is over 16', () => {
-      const age = 22;
-      const result = service.canVote(age);
-
       it('should be legal to vote', () => {
+        const age = 22;
+        const result = service.canVote(age);
         expect(result).toBe(true);
       });
     });
