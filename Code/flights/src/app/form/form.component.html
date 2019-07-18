@@ -1,0 +1,18 @@
+<div id="flightFormContainer">
+    <div *ngIf="show">
+        <div>
+            <label for="destination">Destination</label>
+            <input type="text" id="destination" [(ngModel)]="destination" />
+        </div>
+        <div>
+            <label for="time">Time</label>
+            <input type="text" id="time" [(ngModel)]="time"/>
+        </div>
+        <div>
+            <label for="flightNumber">Flight Number</label>
+            <input type="text" id="flightNumber" [(ngModel)]="flightNumber" />
+        </div>
+        <button (click)="createFlight()">Create flight</button>
+    </div>
+    <button (click)="addFlight()" *ngIf="!show">Add flight</button>
+</div>

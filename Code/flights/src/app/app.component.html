@@ -1,0 +1,10 @@
+<!--un ecran cu un formular al unui zbor
+o destinatie (un input)
+o ora
+flight number
+buton Create/submit (cand dau click dispare acest form si apare pe ecran un rand unde am aceste date ca pe panoul de la aeroport)
+
+buton add new flight (apare alt form , cand dau create apare inca un rand la acel tabel si tot asa)
+-->
+<app-form (flightCreated)="onFlightCreated($event)"></app-form>
+<app-table [flights]="flights"></app-table>

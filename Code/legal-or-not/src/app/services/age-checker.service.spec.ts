@@ -19,9 +19,12 @@ describe('AgeCheckerService', () => {
     });
 
     describe('when age is under 16', () => {
+
       it('should be illegal to vote', () => {
         const age = 15;
-        const result = service.canVote(age);
+        // the service or class that is being tested must be called from WITHIN IT
+        const result = service.canVote(age); 
+
         expect(result).toBe(false);
       });
     });
