@@ -1,0 +1,4 @@
+<div (mouseover)="showBtn()" (mouseout)="hideBtn()">
+    <span> {{ element }} </span>
+    <button *ngIf="shownBtn" (click)="deleteElem()">Delete</button>
+</div>

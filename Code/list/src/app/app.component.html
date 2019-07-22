@@ -1,0 +1,7 @@
+<input [(ngModel)]="elem" />
+<button (click)="addElem()">Add elem</button>
+<ul>
+  <li *ngFor="let element of elements; let i = index"><!--index e o proprietate ascunsa a lui ngFor-->
+    <app-element [element]="element" (deleteRequested)="deleteElem($event)" [index]="i"></app-element>
+  </li>
+</ul>
