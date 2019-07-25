@@ -1,0 +1,5 @@
+<div *ngFor="let song of songs"> {{ song }} </div>
+<button id="newSong" (click)="addSong()">Add new songs</button>
+<input *ngIf="writeSong" [(ngModel)]="addedSong"/>
+<button *ngIf="writeSong" (click)="added()">Add</button>
+<button id="delete" (click)="deleteSong()">Delete songs</button>

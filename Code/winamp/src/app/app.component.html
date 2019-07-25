@@ -1,0 +1,17 @@
+<!-- aplicatie gen winamp
+play back next
+playlist (4-5 melodii default)
+buton pentru adaugat elemente noi in lista, si pot si sa sterg
+cand apas pe play sa apara in loc de play pause si invers
+cand canta o melodie acea melodie din lista sa se faca cu bold si deasupra butoanelor de play next previous sa apara numele melodiei
+cand dau next sa se faca urmatoarea melodie cu bold si deasupra butoanelor sa se schimbe titlul melodiei si tot asa-->
+<app-current-song [currentSong]="currentSong"></app-current-song>
+<app-buttons (previous)="playPrevious()" (next)="playNext()"></app-buttons>
+<app-list (songChanged)="onSongChanged($event)"></app-list>
+<!--<div>Britney Spears - Oops!... I did it again</div>
+<div>Michael Jackson - In the closet</div>
+<div>Madonna - La isla bonita</div>
+<div>Christina Aguilera - Dirty</div>
+<div>No Doubt - Hella good</div>
+declar un array de strings in aceasta componenta si il pasez la list
+-->

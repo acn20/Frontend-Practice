@@ -1,0 +1,4 @@
+<button id="previous" (click)="playPrevious()">Previous</button>
+<button id="play" *ngIf="!playing" (click)="play()">Play</button>
+<button id="pause" *ngIf="playing" (click)="pause()">Pause</button>
+<button id="next" (click)="playNext()">Next</button>
