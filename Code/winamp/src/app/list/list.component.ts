@@ -14,6 +14,8 @@ export class ListComponent implements OnInit {
   songIndex: number = 0;
   @Input() songs: Array<string> = [];
   @Output() songChanged = new EventEmitter<string>();
+  @Output() songAdded = new EventEmitter<string>();
+  @Output() songDeleted = new EventEmitter<string>();
 
   constructor(private songNotification: SongNotificationService) { }
 
@@ -37,14 +39,16 @@ export class ListComponent implements OnInit {
 
   addSong() {
     this.writeSong = true;
-    this.songs.push(this.addedSong);
   }
 
   added() {
     this.writeSong = false;
+    this.songAdded.emit(this.addedSong);
+    this.addedSong = '';
   }
 
   deleteSong() {
+    this.songDeleted.emit();
   }
 
 }

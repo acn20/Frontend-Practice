@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DigitNotificationService } from './digit-notification.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'phone';
 
-  btnClicked(value) {
-    
+  constructor(private digitNotification: DigitNotificationService) { }
+
+  btnClicked(value: string) {
+    this.digitNotification.pressedDigit(value);
   }
 }

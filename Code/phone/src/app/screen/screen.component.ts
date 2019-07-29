@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { DigitNotificationService } from '../digit-notification.service';
 
 @Component({
   selector: 'app-screen',
@@ -6,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./screen.component.scss']
 })
 export class ScreenComponent implements OnInit {
-  numberDialed: Array<number>;
+  numberDialed: Array<string> = [];
 
-  constructor() { }
+  constructor(private digitNotification: DigitNotificationService) { }
 
   ngOnInit() {
+    const observable = this.digitNotification.onDigitClick();
+    observable.subscribe((text: string) => {
+      this.numberDialed.push(text);
+    });
   }
 
 }

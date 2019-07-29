@@ -7,7 +7,7 @@ cand canta o melodie acea melodie din lista sa se faca cu bold si deasupra butoa
 cand dau next sa se faca urmatoarea melodie cu bold si deasupra butoanelor sa se schimbe titlul melodiei si tot asa-->
 <app-current-song [currentSong]="currentSong"></app-current-song>
 <app-buttons (previous)="playPrevious()" (next)="playNext()"></app-buttons>
-<app-list (songChanged)="onSongChanged($event)"></app-list>
+<app-list (songChanged)="onSongChanged($event)" (songAdded)="onNewSong($event)" (songDeleted)="onDeleteSong()" [songs]="songs"></app-list>
 <!--<div>Britney Spears - Oops!... I did it again</div>
 <div>Michael Jackson - In the closet</div>
 <div>Madonna - La isla bonita</div>
