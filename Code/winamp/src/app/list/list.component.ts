@@ -7,7 +7,7 @@ import { SongNotificationService } from '../song-notification.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  playingSong = false;
+  @Input() playingSong = false;
   song: string;
   addedSong: string;
   writeSong = false;
@@ -22,16 +22,22 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     // here we want to create some sort of "event listener"
     // we want to be notified when the playNext() and playPrevious() functions are called
-    
+
     // inter component communication step 1:
     // register a listener for the events you are interested in
     this.songNotification.onNext().subscribe(() => {
       // inter component communication step 3: process the event
       // TODO verify array bounds (length)
+      if (this.songIndex >= this.songs.length) {
+        return;//ies din functie
+      }
       this.songIndex++;
       this.songChanged.emit(this.songs[this.songIndex]);
     });
     this.songNotification.onPrevious().subscribe(() => {
+      if (this.songIndex <= 0) {
+        return;
+      }
       this.songIndex--;
       this.songChanged.emit(this.songs[this.songIndex]);
     });
