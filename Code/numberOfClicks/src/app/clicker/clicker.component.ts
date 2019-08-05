@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-clicker',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clicker.component.scss']
 })
 export class ClickerComponent implements OnInit {
+  @Output() squareClicked = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  clickedOnce() {
+    this.squareClicked.emit();
   }
 
 }

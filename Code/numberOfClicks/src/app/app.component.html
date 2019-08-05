@@ -1,3 +1,4 @@
-<div (click)="clickedOnce()"></div>
-<app-clicker></app-clicker>
-<app-timer (timerStopped)="stoppedTimer()" *ngIf="startTimer"></app-timer><!--Cum pot face sa afiseze initial 10?-->
+<app-clicker (squareClicked)="clickedSquare()"></app-clicker>
+<app-counter [counter]="counter"></app-counter>
+<app-timer (timerStarted)="startedTimer()" (timerStopped)="stoppedTimer()" (timerTicked)="onTick()"></app-timer>
+<app-result *ngIf="timerStopped" [counter]="counter" [numberOfSeconds]="numberOfSeconds"></app-result>

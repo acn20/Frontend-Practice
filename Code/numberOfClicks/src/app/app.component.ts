@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +8,23 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'numberOfClicks';
   counter: number;
+  numberOfSeconds: number = 0;
   timerStopped = false;
-  startTimer = false;
+  timerStarted = false;
 
-  timerStarted() {
-    this.startTimer = true;
-  }
-
-  clickedOnce() {
-    this.counter++;
+  startedTimer() {
+    this.timerStarted = true;
   }
 
   stoppedTimer() {
     this.timerStopped = true;
+  }
+
+  clickedSquare() {
+    this.counter++;
+  }
+
+  onTick() {
+    this.numberOfSeconds++;
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { timer, Observable, Subscription } from 'rxjs';
+import { take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-timer',
@@ -6,32 +8,32 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit {
-  intervalHandler: any;
-  timer: number = 10;
-  @Output() timerStopped = new EventEmitter<any>();
+  count: number = 10;
   @Output() timerStarted = new EventEmitter<any>();
+  @Output() timerStopped = new EventEmitter<any>();
+  @Output() timerTicked = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
+    // let f = (i) => console.log;
+
+    // f(2); // console.log(2)
   }
 
   startTimer() {
-    this.start();
+    const timerObservable: Observable<number> = timer(1000, 1000);
+    const subscription: Subscription = timerObservable.subscribe(i => {
+      this.timerTicked.emit();
+      this.count--;
+
+      if (this.count == 0) {
+        // stop the timer
+        this.timerStopped.emit();
+        subscription.unsubscribe();
+      }
+    });
+
     this.timerStarted.emit();
   }
-
-  start() {
-    this.intervalHandler = setInterval(function () {
-      this.timer--;
-    }, 1000);//o data la 1000 de milisecunde
-  }
-
-  stop() {
-    if (this.timer == 0) {
-      clearInterval(this.intervalHandler);
-      this.timerStopped.emit();
-    }
-  }
-
 }
