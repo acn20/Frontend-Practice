@@ -1,0 +1,21 @@
+<ul id="tweetList" *ngIf="">
+    <li class="tweet" *ngFor="" *ngIf="validTweet">
+    
+      <div>
+        <p class="tweetContent"> {{ yourTweet }} </p>
+        <button class="deleteTweet" (click)="deleteTweet()">Delete</button>
+        <img src="..\\resources\\hollowheart.png" width="21" height="21" class="like" *ngIf="!likedTweet" (click)="likeTweet">
+        <img src="..\\resources\\fullheart.png" width="21" height="21" class="dislike" *ngIf="likedTweet" (click)="dislikeTweet">
+        <button class="comment" (click)="comment()">Comment</button>
+      </div>
+    
+      <div *ngIf="commented">
+        <textarea class="yourComment" [(ngModel)]="yourComment"></textarea>
+        <button class="submitComm" (click)="submitComm">Submit your comment</button>
+    
+        <ul class="tweetComments">
+            <li *ngFor="let comm of comments"> {{ yourComment }} </li>
+        </ul>
+      </div>
+    </li>
+  </ul>

@@ -1,0 +1,9 @@
+<div>
+  <textarea id="tweetText" placeholder="What's on your mind?" [(ngModel)]="yourTweet"></textarea>
+  <span id="counter" class="high">140</span>
+  <button id="tweet" click="tweet()">Tweet</button>
+</div>
+
+<app-tweet-list *ngIf="tweeted"></app-tweet-list>
+
+<router-outlet></router-outlet>

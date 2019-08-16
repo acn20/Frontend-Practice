@@ -1,0 +1,26 @@
+<div id="post">
+    <div id="iconAndName">
+        <div><img class="icon" src="../../assets/images/icon.jpg" width="28" /></div>
+        <div>BJDoll</div>
+    </div>
+    <div>
+        <img src="../../assets/images/movie.jpg" />
+    </div>
+    <div>
+        <div>
+            <img src="../../assets/images/hollowheart.png" (click)="liked()" *ngIf="!likedPic" width="18"/>
+            <img src="../../assets/images/fullheart.png" (click)="unliked()" *ngIf="likedPic" width="18"/>
+            <span class="like-or-comm-icons far fa-comment" (click)="commentSmth()"></span>
+            <span class="ribbon-icon"></span>
+            <div class="numberOfLikes bold">2000 likes</div>
+        </div>
+
+        <div>
+            <div class="comment"><span class="bold">quentintarantino</span> Coming Soon!</div>
+            <textarea *ngIf="commentArea" [(ngModel)]="comment">
+                {{ comment }}
+            </textarea>
+        </div>
+    </div>
+    <div class="post-time smaller-font">10 minutes ago</div>
+</div>

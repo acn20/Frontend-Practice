@@ -1,0 +1,63 @@
+#stories {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #efefef;
+}
+
+#storiesUp {
+    display: flex;
+    justify-content: space-between;
+    height: 43px;
+    align-items: center;
+    color: rgba(153, 153, 153, 1);
+}
+
+#storiesMain {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 190px;
+}
+
+#side {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 280px;
+    position: fixed;
+    z-index: 1;
+    right: 13%;
+    margin-top: 40px;
+}
+
+#mainIconAndName {
+    display: flex;
+    align-items: center;
+    padding: 23px 10px;
+    background: #fafafa;
+}
+
+.storyIconAndName {
+    display: flex;
+    align-items: center;
+    margin: 23px 10px;
+}
+
+.story-time {
+    text-transform: uppercase;
+}
+
+.post-time {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#watchAll {
+    color: #262626;
+    margin-right: 15px;
+}
+
+#storiesTitle {
+    margin-left: 15px;
+}

@@ -1,0 +1,24 @@
+:host {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #fafafa;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.small-font {
+    font-size: 12px;
+    color: rgba(153, 153, 153, 1);
+}
+
+.smaller-font {
+    font-size: 10px;
+    color: rgba(153, 153, 153, 1);
+}
+
+#mainContainer {
+    display: flex;
+    margin: auto;
+    width: 900px;
+    padding-top: 75px;
+}

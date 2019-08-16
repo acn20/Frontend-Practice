@@ -1,0 +1,56 @@
+.yourComment {
+    display: none;
+}
+
+.submitComm {
+    display: none;
+}
+
+
+.tweetContent {
+    color: #ee6bb7;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    
+}
+
+.tweet {
+    padding: 20px;
+    border: 15px solid rgb(19, 71, 114);
+}
+
+.high {
+    color: black;
+}
+
+.medium {
+    color: blue;
+}
+
+.low {
+    color: orange;
+}
+
+.negative {
+    color: red;
+}
+
+.dislike {
+    display: none;
+}
