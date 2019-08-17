@@ -9,9 +9,14 @@ export class AppComponent {
   title = 'ngTwitter';
   @Input() yourTweet: string;
   tweeted = false;
+  counter: number = 140;
 
   tweet() {
     this.tweeted = true;
+  }
+
+  typed() {
+    this.counter--;
   }
 
 }
