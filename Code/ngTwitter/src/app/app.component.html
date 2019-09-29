@@ -3,7 +3,8 @@
   <span id="counter" class="high"> {{ counter }} </span>
   <button id="tweet" click="tweet()">Tweet</button>
 </div>
-
-<app-tweet-list *ngIf="tweeted"></app-tweet-list>
+<ng-template *ngIf="tweeted">
+  <app-tweet-list></app-tweet-list>
+</ng-template>
 
 <router-outlet></router-outlet>

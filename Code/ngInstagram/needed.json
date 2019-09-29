@@ -1,0 +1,50 @@
+[
+    {
+        "user": {
+            "username": "alex",
+            "profilePictureUrl": "",
+            "profileUrl": ""
+        },
+        "picture": "",
+        "time": "2019-07-20 12:59:55",
+        "location": "London",
+        "likes": {
+            "count": 2,
+            "firstLikeProfilePic": "",
+            "people": [
+                "andreea",
+                "cristina"
+            ]
+        },
+        "topComment": {
+            "user": "andreea",
+            "text": "beautiful"
+        }
+    },
+
+    {
+        "pictures": "",
+        "propertyName": "Beach Villa",
+        "nameOfHoast": "Marina",
+        "hoastProfilePic": "",
+        "numberOfBedrooms": "2",
+        "guests": "4",
+        "beds": "1 double bed",
+        "bathrooms": [1, "private"],
+        "description": "Please read carefully all through this listing.\nRight in the center of the island, just four minutes drive from the village of San Rafael, nestled in nature, you find this gorgeously situated villa. Surrounded by little flowery fields, dirt roads and pine trees, you feel far away from it all, a peaceful space to relax after exploring Ibiza.",
+        "wifi": true,
+        "kitchen": true,
+        "freeParkingOnPremises": true,
+        "shampoo": true,
+        "smokeDetector": false,
+        "carbonMonoxideDetector": false,
+        "airConditioning": false
+
+    },
+
+    {
+        "likes": "4",
+        "comments": "2",
+        "retweets": "1"
+    }
+]

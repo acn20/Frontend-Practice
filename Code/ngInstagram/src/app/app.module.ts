@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { PostComponent } from './post/post.component';
 import { SideComponent } from './side/side.component';
+import { InstagramService } from './instagram.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { SideComponent } from './side/side.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [InstagramService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

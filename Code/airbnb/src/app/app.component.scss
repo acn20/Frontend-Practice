@@ -1,0 +1,19 @@
+:host {
+    font-family: sans-serif;
+    background: #000;
+}
+
+#container {
+    background-image: url("../assets/images/background.jpg");
+    background: #000;
+}
+
+#searchContainer {
+    width: 30%;
+    color: #444;
+    border: 1px solid #fff;
+    border-radius: 10%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}

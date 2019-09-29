@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class PostComponent implements OnInit {
   commentArea = false;
   likedPic = false;
+  likes: number = 0;
+  username: string = 'BJD';
 
   constructor() { }
 
@@ -20,6 +22,7 @@ export class PostComponent implements OnInit {
 
   liked() {
     this.likedPic = true;
+    this.likes++;
   }
 
   unliked() {
