@@ -1,7 +1,7 @@
 <div class="post">
     <div id="iconAndName">
         <div><img class="icon" src="../../assets/images/icon.jpg" width="28" /></div>
-        <div> {{ username }} </div>
+        <div> {{ post.user }} </div>
     </div>
     <div>
         <img src="../../assets/images/movie.jpg" width="550"/>
@@ -12,7 +12,7 @@
             <img src="../../assets/images/fullheart.png" (click)="unliked()" *ngIf="likedPic" width="18"/>
             <span class="like-or-comm-icons far fa-comment" (click)="commentSmth()"></span>
             <span class="ribbon-icon"></span>
-            <div class="numberOfLikes bold">{{ likes }} likes</div>
+            <div class="numberOfLikes bold">{{ post.likes }} </div>
         </div>
 
         <div>

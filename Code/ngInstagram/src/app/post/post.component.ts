@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../insta-common/post';
+import { InstagramService } from '../insta-common/instagram.service';
 
 @Component({
   selector: 'app-post',
@@ -10,10 +12,14 @@ export class PostComponent implements OnInit {
   likedPic = false;
   likes: number = 0;
   username: string = 'BJD';
+  post: Post;
 
-  constructor() { }
+  constructor(private dataService: InstagramService) { }
 
   ngOnInit() {
+    this.dataService.getPost('01').subscribe((data: Post) => {
+      this.post = data;
+    });
   }
 
   commentSmth () {
@@ -28,5 +34,4 @@ export class PostComponent implements OnInit {
   unliked() {
     this.likedPic = false;
   }
-
 }
