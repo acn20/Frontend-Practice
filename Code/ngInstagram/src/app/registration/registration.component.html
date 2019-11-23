@@ -1,0 +1,25 @@
+<div id="registrationContainer">
+    <div>
+        <img src="../../assets/images/registrationPic.jpg" />
+    </div>
+    <div id="signUpOrLogIn">
+        <div id="signUp">
+            <h1>Instagram</h1>
+            <p>Sign up to see photos and videos from your friends.</p>
+            <button>Log in with Facebook</button>
+            <span>or</span>
+            <input type="text" placeholder="Mobile Number or Email" [(ngModel)]="mobileEmail" />
+            <input type="text" placeholder="Full Name" [(ngModel)]="fullName" />
+            <input type="text" placeholder="Username" [(ngModel)]="username" />
+            <input type="password" placeholder="Password" [(ngModel)]="password" />
+            <button (click)="register()">Next</button>
+            <p>By signing up, you agree to our Terms . Learn how we collect, use and share your data in our Data Policy
+                and
+                how we use cookies and similar technology in our Cookies Policy .</p>
+            <p> {{ response }} </p>
+        </div>
+        <div id="logIn">
+            Have an account? <a href="">Log in</a>
+        </div>
+    </div>
+</div>

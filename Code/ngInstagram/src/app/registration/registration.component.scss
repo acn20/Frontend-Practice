@@ -1,0 +1,36 @@
+#registrationContainer {
+    display: flex;
+    color: #ddd;
+    background: #eee;
+}
+
+h1 {
+    color: #000;
+}
+
+#signUpOrLogIn {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    background-color: #fff;
+}
+
+span {
+    text-transform: capitalize;
+}
+
+input {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 10%;
+}
+
+button {
+    background-color: #3897f0;
+    border: 1px solid #3897f0;
+    border-radius: 10%;
+}
+
+#signUp, #logIn {
+    border: 1px solid #ddd;
+}

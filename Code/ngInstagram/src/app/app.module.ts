@@ -9,6 +9,7 @@ import { PostComponent } from './post/post.component';
 import { SideComponent } from './side/side.component';
 import { InstaCommonModule } from './insta-common/insta-common.module';
 import { FeedComponent } from './feed/feed.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FeedComponent } from './feed/feed.component';
     HeaderComponent,
     PostComponent,
     SideComponent,
-    FeedComponent
+    FeedComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,8 @@ import { Like } from './like';
 import { Observable } from 'rxjs';
 import { Post } from './post';
 import { Comment } from './comment';
+import { RegistrationResponse } from './responses/registration-response';
+import { Credentials } from './credentials';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +36,9 @@ export class InstagramService {
 
   getUserPosts(userId: string): Observable<Array<Post>> {
     return this.httpClient.get<Array<Post>>('http://localhost:3000/posts');
+  }
+
+  register(credentials: Credentials): Observable<RegistrationResponse> {
+    return this.httpClient.post<RegistrationResponse>('http://localhost:3000/registration', credentials);
   }
 }
