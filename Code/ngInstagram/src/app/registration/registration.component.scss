@@ -34,3 +34,18 @@ button {
 #signUp, #logIn {
     border: 1px solid #ddd;
 }
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+}
+
+ul {
+    display: flex;
+    color: #003569;
+}
+
+#copyright {
+    color: #ccc;
+}

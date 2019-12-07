@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InstagramService } from '../insta-common/instagram.service';
 import { Credentials } from '../insta-common/credentials';
 import { RegistrationResponse } from '../insta-common/responses/registration-response';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +16,7 @@ export class RegistrationComponent implements OnInit {
   fullName: string;
   response: string;
 
-  constructor(private dataService: InstagramService) { }
+  constructor(private dataService: InstagramService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -35,6 +36,8 @@ export class RegistrationComponent implements OnInit {
         // show success
         this.response = "Success";
         console.log('success');
+
+        this.router.navigate(['/home']); // or maybe /home
       }
     });
   }

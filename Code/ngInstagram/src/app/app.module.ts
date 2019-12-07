@@ -10,6 +10,7 @@ import { SideComponent } from './side/side.component';
 import { InstaCommonModule } from './insta-common/insta-common.module';
 import { FeedComponent } from './feed/feed.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RegistrationComponent } from './registration/registration.component';
     PostComponent,
     SideComponent,
     FeedComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
