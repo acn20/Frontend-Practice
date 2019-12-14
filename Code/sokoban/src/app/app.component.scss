@@ -1,0 +1,38 @@
+.game-container {
+    margin: auto;
+    width: 50%;
+}
+
+.square {
+    width: 400px;
+    height: 400px;
+    background-color: #999;
+}
+
+.navigation {
+    position: relative;
+}
+
+.up {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.down {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+}
+
+.left {
+    position: absolute;
+    top: 75%;
+    left: 25%;
+}
+
+.right {
+    position: absolute;
+    top: 75%;
+    right: 25%;
+}

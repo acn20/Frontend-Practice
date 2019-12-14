@@ -1,0 +1,16 @@
+<div class="game-container">
+  <section class="toolbox">
+    <button (click)="undo()">Undo</button>
+    <button (click)="redo()">Redo</button>
+    <button (click)="restart()">Restart</button>
+  </section>
+  <main>
+    <div class="square"></div>
+  </main>
+  <section class="navigation">
+    <button class="up" (click)="up()">Up</button>
+    <button class="down" (click)="down()">Down</button>
+    <button class="left" (click)="left()">Left</button>
+    <button class="right" (click)="right()">Right</button>
+  </section>
+</div>
