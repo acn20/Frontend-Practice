@@ -37,33 +37,29 @@ export class AppComponent {
   }
 
   /*
-  fac o matrice de numere
-  0 de ex reprezinta jucatorul
+  matrice de numere
+  0 reprezinta nimic
   1 perete
-  2 cubulet etc
-  -1 valoare pentru spatiile goale
+  -1 reprezinta jucatorul
   matricea o sa reprezinte harta
 
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-  }
+  play() {
+    var map = [
+    [-1, 0, 0, 1, 1, 0, 0],
+    [1, 0, 1, 0, 0, 1, 1]
+  ];
 
-  var M = [][];
-  var m;
-  var n;
-  for (let i = 0; i < n; i ++) {
-      for(let j = 0; j < n; j++) {
-        M[i][j] = getRandomInt(-1, 10);
-      }
-  }
+  var height = 7;
+  var width = 7;
 
   up() {
-    if(M[i][j][ == [i][-1]) {
-      M[i][j] = ;
-    }
-    console.log('Up');
+    if ( player.y - 1 < 0 ) { return; }
+    const nextY = player.y - 1;
+    if (map[player.x][nextY] === 1) { return; }
+    map[player.x][player.y] = 0;
+    player.y -= 1;
+    map[player.x][player.y] = -1;
+  }
   }
 
   */

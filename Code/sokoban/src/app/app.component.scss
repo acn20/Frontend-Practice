@@ -3,6 +3,15 @@
     width: 50%;
 }
 
+.toolbox {
+    width: 225px;
+    margin: auto;
+}
+
+.toolbox button {
+    width: 75px;
+}
+
 .square {
     width: 400px;
     height: 400px;
@@ -11,28 +20,37 @@
 
 .navigation {
     position: relative;
+    height: 45px;
+    width: 400px;
+    margin: 10px 0;
 }
 
 .up {
     position: absolute;
-    top: 50%;
+    top: 0%;
     left: 50%;
+    width: 50px;
+    transform: translateX(-50%);
 }
 
 .down {
     position: absolute;
-    top: 75%;
+    bottom: 00%;
     left: 50%;
+    width: 50px;
+    transform: translateX(-50%);;
 }
 
 .left {
     position: absolute;
-    top: 75%;
-    left: 25%;
+    bottom: 0%;
+    left: 30%;
+    width: 50px;
 }
 
 .right {
     position: absolute;
-    top: 75%;
-    right: 25%;
+    bottom: 0%;
+    right: 30%;
+    width: 50px;
 }
