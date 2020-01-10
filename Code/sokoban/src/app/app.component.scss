@@ -1,56 +1,72 @@
 .game-container {
-    margin: auto;
-    width: 50%;
+  margin: auto;
+  width: 50%;
 }
 
 .toolbox {
-    width: 225px;
-    margin: auto;
+  width: 225px;
+  margin: auto;
 }
 
 .toolbox button {
-    width: 75px;
+  width: 75px;
 }
 
-.square {
-    width: 400px;
-    height: 400px;
-    background-color: #999;
+.table {
+  width: 411px;
+
+  .row {
+    height: 40px;
+    border-bottom: 1px solid #bbb;
+
+    &:first-child {
+      border-top: 1px solid #bbb;
+    }
+
+    app-square {
+      display: inline-block;
+      border-right: 1px solid #bbb;
+
+      &:first-child {
+        border-left: 1px solid #bbb;
+      }
+    }
+  }
 }
 
 .navigation {
-    position: relative;
-    height: 45px;
-    width: 400px;
-    margin: 10px 0;
+  position: relative;
+  height: 45px;
+  width: 400px;
+  margin: 10px 0;
 }
 
 .up {
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    width: 50px;
-    transform: translateX(-50%);
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  width: 50px;
+  transform: translateX(-50%);
 }
 
 .down {
-    position: absolute;
-    bottom: 00%;
-    left: 50%;
-    width: 50px;
-    transform: translateX(-50%);;
+  position: absolute;
+  bottom: 00%;
+  left: 50%;
+  width: 50px;
+  transform: translateX(-50%);
 }
 
 .left {
-    position: absolute;
-    bottom: 0%;
-    left: 30%;
-    width: 50px;
+  position: absolute;
+  bottom: 0%;
+  left: 30%;
+  width: 50px;
 }
 
 .right {
-    position: absolute;
-    bottom: 0%;
-    right: 30%;
-    width: 50px;
+  position: absolute;
+  bottom: 0%;
+  right: 30%;
+  width: 50px;
 }
