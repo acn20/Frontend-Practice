@@ -7,9 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'notifications';
-  show = false;
-
-  showNotifications() {
-    this.show = true;
-  }
+  
 }

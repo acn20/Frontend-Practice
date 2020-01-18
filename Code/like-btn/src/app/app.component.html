@@ -1,2 +1,1 @@
-<button *ngIf="notLiked" (click)="like()">Like</button>
-<button *ngIf="liked" (click)="unlike()">Unlike</button>
+<app-like [count]="likeCount" [liked]="isLiked" (like)="liked()" (unlike)="unliked()"></app-like>

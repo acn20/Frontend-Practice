@@ -6,18 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  isLiked = false;
+  likeCount = 10;
   title = 'like-btn';
 
-  notLiked: boolean = true;
-  liked: boolean = false;
-
-  like() {
-    this.liked = true;
-    this.notLiked = false;
+  liked() {
+    console.log("liked");
   }
 
-  unlike() {
-    this.liked = false;
-    this.notLiked = true;
+  unliked() {
+    console.log("unliked");
   }
+
 }

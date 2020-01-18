@@ -1,0 +1,36 @@
+.notification-component {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #edf2fa;
+  width: 500px;
+  height: 60px;
+  border-top: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.textAndTime,
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.time {
+    color: #999;
+    font-size: 14px;
+}
+
+.notification-component:hover {
+  background-color: #385898;
+  cursor: pointer;
+}

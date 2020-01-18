@@ -1,0 +1,7 @@
+<div class="like-component">
+    <button (click)="toggleLike()" [ngClass]="{ 'liked': currentLiked }">
+        <span class="count"> {{ count }} </span>
+        <span class="label" *ngIf="!currentLiked">Like</span>
+        <span class="label" *ngIf="currentLiked" >Unlike</span>
+    </button>
+</div>
