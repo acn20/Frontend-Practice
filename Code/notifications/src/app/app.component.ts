@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'notifications';
+  show = false;
+  countNotifications: number = 0;
   
+  showNotifications() {
+    this.show = true;
+  }
 }

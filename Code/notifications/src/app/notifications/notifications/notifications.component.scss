@@ -1,7 +1,25 @@
+.notificationsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+    a {
+      display: flex;
+      align-items: center;
+    }
+}
+
+.notificationsHeader2 {
+  color: #90949c;
+}
+
 li {
-  width: 516px;
+  width: 525px;
+  border-top: 1px solid #90949c;
+  border-left: 1px solid #90949c;
+  border-right: 1px solid #90949c;
 }
 
 li:last-child {
-  border-bottom: 1px solid #bbb;
+  border-bottom: 1px solid #90949c;
 }

@@ -1,11 +1,17 @@
 <div class="notification-component">
-    <div class="thumbnail"><img [src]="notification.thumbnailUrl" /></div>
-    <div class="textAndTime">
-        <div class="text">Andrada invited you to join Fashion Dolls group</div>
-        <div class="time">Time</div>
+    <div class="imgAndText">
+        <div class="thumbnail"><img [src]="notification.thumbnailUrl" /></div>
+        <div class="textAndTime">
+            <div class="text"><span class="bold">Andrada</span> invited you to join <span class="bold">Fashion
+                    Dolls</span> group</div>
+            <div class="time">
+                <div class="timeIcon"><i class="fas fa-users"></i></div>
+                <div> {{ notification.timestamp }} </div>
+            </div>
+        </div>
     </div>
     <div class="buttons">
-        <button></button>
-        <button></button>
+        <button><i class="fas fa-ellipsis-h"></i></button>
+        <button><i class="fas fa-circle"></i></button>
     </div>
 </div>

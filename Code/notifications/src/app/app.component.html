@@ -1,1 +1,5 @@
-<app-notifications></app-notifications>
+<button (click)="showNotifications()"><i class="fas fa-bell"></i></button>
+<span> {{ countNotifications }} </span>
+<div class="notifications" *ngIf="show">
+    <app-notifications></app-notifications>
+</div>

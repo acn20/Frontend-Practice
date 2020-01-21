@@ -1,5 +1,13 @@
 <div class="notifications-component">
     <ul>
+        <li class="notificationsHeader">
+            <div>Notifications</div>
+            <div>
+                <a href="">Mark All as Read</a>
+                <a href="">Settings</a>
+            </div>
+        </li>
+        <li class="notificationsHeader2">NEW</li>
         <li *ngFor="let n of notifications">
             <app-notification [notification]="n"></app-notification>
         </li>
