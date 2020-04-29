@@ -121,7 +121,7 @@ describe("maps longitude tests", function () {
         it("Returns positive", function () {
             var lng = -173;
             var speed = -10;
-            var result = getLng(lat, speed);
+            var result = getLng(lng, speed);
 
             expect(result).toBe(177);
         })
