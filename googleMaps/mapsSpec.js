@@ -1,4 +1,4 @@
-describe("maps latitude tests", function () {
+describe("getLat tests", function () {
 
     describe("When lat + speed is between or equal -90 and 90", function () {
         describe("When lat is positive and speed is positive", function () {
@@ -63,7 +63,7 @@ describe("maps latitude tests", function () {
     });
 })
 
-describe("maps longitude tests", function () {
+describe("getLng tests", function () {
 
     describe("When lat + speed is between or equal -180 and 180", function () {
         describe("When lng is positive and speed is positive", function () {
