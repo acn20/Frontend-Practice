@@ -26,6 +26,11 @@
 .notification-component:hover {
   background-color: #e9ebee;
   cursor: pointer;
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 
 img {
@@ -41,9 +46,7 @@ img {
 }
 
 .buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: none;
 }
 
 button {
