@@ -60,8 +60,8 @@
 
             setInterval(function () {
                 //airplaneMarker.setMap(null);
-                airplanePosition.lat += 1;
-                airplanePosition.lng += 1;
+                airplanePosition.lat = getCoordinates.newLat;
+                airplanePosition.lng = getCoordinates.newLng;
                 airplaneMarker.setPosition(airplanePosition);
                 //airplaneMarker.setMap(map);
             }, 100);
