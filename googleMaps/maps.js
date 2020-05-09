@@ -3,6 +3,7 @@ var map;
 function initMap() {
 
     var airplanePositions = [{ lat: -27.467, lng: 153.027 }, { lat: -77.467, lng: 153.027 }, { lat: -27.467, lng: 103.027 }, { lat: -17.467, lng: 153.027 }, { lat: -87.467, lng: 173.027 }, { lat: -7.467, lng: 3.027 }, { lat: -15.467, lng: 53.027 }, { lat: -27.467, lng: 153.027 }, { lat: -7.467, lng: 113.027 }, { lat: 7.467, lng: 159.027 }];
+    var airplaneSpeeds = [[0.3, -0.4], [0.4, 0.1], [0.2, -0.25], [0.3, -0.1], [0.5, 0.8], [0.2, -0.2], [-0.1, -0.4], [0.7, 0.15], [0.2, 1], [-1, 0.2]]
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -27.467, lng: 153.027 },
@@ -41,7 +42,7 @@ function initMap() {
     setInterval(function () {
         //airplaneMarker.setMap(null);
         for (let i = 0; i < airplaneMarkers.length; i++) {
-            airplanePositions[i] = getCoordinates(airplanePositions[i].lat, airplanePositions[i].lng, 0.25, 0.75);
+            airplanePositions[i] = getCoordinates(airplanePositions[i].lat, airplanePositions[i].lng, airplaneSpeeds[i][0], airplaneSpeeds[i][1]);
             airplaneMarkers[i].setPosition(airplanePositions[i]);
         }
         //airplaneMarker.setMap(map);
