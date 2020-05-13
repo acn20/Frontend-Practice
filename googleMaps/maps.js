@@ -2,8 +2,17 @@ var map;
 
 function initMap() {
 
-    var airplanePositions = [{ lat: -27.467, lng: 153.027 }, { lat: -77.467, lng: 153.027 }, { lat: -27.467, lng: 103.027 }, { lat: -17.467, lng: 153.027 }, { lat: -87.467, lng: 173.027 }, { lat: -7.467, lng: 3.027 }, { lat: -15.467, lng: 53.027 }, { lat: -27.467, lng: 153.027 }, { lat: -7.467, lng: 113.027 }, { lat: 7.467, lng: 159.027 }];
-    var airplaneSpeeds = [[0.3, -0.4], [0.4, 0.1], [0.2, -0.25], [0.3, -0.1], [0.5, 0.8], [0.2, -0.2], [-0.1, -0.4], [0.7, 0.15], [0.2, 1], [-1, 0.2]]
+    var airplanePositions = [{ lat: -27.467, lng: 153.027 },
+    { lat: -77.467, lng: 153.027 },
+    { lat: 27.467, lng: 103.027 },
+    { lat: -17.467, lng: 153.027 },
+    { lat: 24, lng: 113.027 },
+    { lat: -7.467, lng: 3.027 },
+    { lat: -17.45, lng: 178 },
+    { lat: -57.467, lng: 103.027 },
+    { lat: 56.467, lng: -2 },
+    { lat: 7.467, lng: 159.5 }];
+    //var airplaneSpeeds = [[0.3, -0.4], [0.4, 0.1], [0.2, -0.25], [0.3, -0.1], [0.5, 0.8], [0.2, -0.2], [-0.1, -0.4], [0.7, 0.15], [0.2, 1], [-1, 0.2]]
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -27.467, lng: 153.027 },
@@ -22,22 +31,39 @@ function initMap() {
         }));
     }
 
-    var flightPlanCoordinates = [
+    var flightPlanCoordinates = [[
         { lat: -27.467, lng: 153.027 },
-        { lat: -18.142, lng: 178.431 },
-        { lat: 21.291, lng: -157.821 },
+        /*{ lat: -18.142, lng: 178.431 },
+        { lat: 21.291, lng: -157.821 },*/
         { lat: 37.772, lng: -122.214 }
+    ],
+    [{ lat: -77.467, lng: 153.027 }, { lat: 80, lng: -156.278 }],
+    [{ lat: 27.467, lng: 103.027 }, { lat: 55, lng: -178.9 }],
+    [{ lat: -17.467, lng: 153.027 }, { lat: 47, lng: -9.2 }],
+    [{ lat: 24, lng: 113.027 }, { lat: 77, lng: 5 }],
+    [{ lat: -7.467, lng: 3.027 }, { lat: 39.5, lng: -12 }],
+    [{ lat: -17.45, lng: 178 }, { lat: 32.7, lng: 67 }],
+    [{ lat: -57.467, lng: 103.027 }, { lat: 45.2, lng: 82 }],
+    [{ lat: 56.467, lng: -2 }, { lat: 85.25, lng: -172 }],
+    [{ lat: 7.467, lng: 159.5 }, { lat: 50, lng: -45 }],
     ];
 
-    var flightPath = new google.maps.Polyline({
-        path: flightPlanCoordinates,
-        geodesic: true,
-        strokeColor: '#FF0000',
-        strokeOpacity: 1.0,
-        strokeWeight: 1
-    });
+    var flightPaths = [];
+    for (let i = 0; i < airplanePositions.length; i++) {
+        flightPaths.push(new google.maps.Polyline({
+            path: flightPlanCoordinates[i],
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 1
+        }));
+        flightPaths[i].setMap(map);
+    }
 
-    flightPath.setMap(map);
+    var airplaneSpeeds = [];
+    for (let i = 0; i < airplanePositions.length; i++) {
+        airplaneSpeeds.push(getSpeed(flightPlanCoordinates[i][0].lat, flightPlanCoordinates[i][0].lng, flightPlanCoordinates[i][1].lat, flightPlanCoordinates[i][1].lng));
+    }
 
     setInterval(function () {
         //airplaneMarker.setMap(null);
@@ -127,8 +153,21 @@ function getCoordinates(lat, lng, latSpeed, lngSpeed) {
         };
     }
 
-    return { lat: newLat, lng: newLng }
+    return { lat: newLat, lng: newLng };
+
+    function getSpeed(startLat, startLng, destinationLat, destinationLng) {
+        const latAxis = destinationLat - startLat;
+        const lngAxis = destinationLng - startLng;
+        const divideFactor = Math.sqrt(Math.pow(latAxis, 2) + Math.pow(lngAxis, 2));//vector modulus
+        return [latAxis / divideFactor, lngAxis / divideFactor]
+    }
 }
 
 //if (latSpeed >= 180) { latSpeed = latSpeed%180 };
 //if (lngSpeed >= 360) { lngSpeed = lngSpeed%360 };
+/*function getSpeed(startLat, startLng, destinationLat, destinationLng) {
+    const latAxis = destinationLat - startLat;
+    const lngAxis = destinationLng - startLng;
+    const divideFactor = Math.sqrt(Math.pow(latAxis, 2) + Math.pow(lngAxis, 2));//vector modulus
+    return [latAxis / divideFactor, lngAxis / divideFactor]
+}*/

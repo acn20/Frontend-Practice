@@ -294,4 +294,18 @@ describe("getCoordinates tests", function () {
             expect(function() {getCoordinates(lat, lng, latSpeed, lngSpeed)}).toThrow();
         })
     });
+});
+
+describe("getSpeed tests", function() {
+    describe("", function () {
+        it("Returns", function () {
+            var startLat = 47;
+            var startLng = 96;
+            var destinationLat = 50;
+            var destinationLng = 100;
+            var result = getSpeed(startLat, startLng, destinationLat, destinationLng);
+
+            expect(result).toEqual([0.6, 0.8]);
+        });
+    })
 })
