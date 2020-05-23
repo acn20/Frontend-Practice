@@ -297,7 +297,7 @@ describe("getCoordinates tests", function () {
 });
 
 describe("getSpeed tests", function() {
-    describe("", function () {
+    describe("When all parameters are positive", function () {
         it("Returns", function () {
             var startLat = 47;
             var startLng = 96;
@@ -307,5 +307,89 @@ describe("getSpeed tests", function() {
 
             expect(result).toEqual([0.6, 0.8]);
         });
-    })
+    });
+
+    describe("When startLat and destinationLat are negative", function () {
+        it("Returns", function () {
+            var startLat = -47;
+            var startLng = 96;
+            var destinationLat = -50;
+            var destinationLng = 100;
+            var result = getSpeed(startLat, startLng, destinationLat, destinationLng);
+
+            expect(result).toEqual([-0.6, 0.8]);
+        });
+    });
+
+    describe("When the plane passes through the date change line", function () {
+        it("Returns", function () {
+            var startLat = 47;
+            var startLng = 179;
+            var destinationLat = 50;
+            var destinationLng = -177;
+            var result = getSpeed(startLat, startLng, destinationLat, destinationLng);
+
+            expect(result).toEqual([0.6, 0.8]);
+        });
+    });
+
+    describe("When the plane passes through the date change line", function () {
+        it("Returns", function () {
+            var startLat = 47;
+            var startLng = -179;
+            var destinationLat = 50;
+            var destinationLng = 177;
+            var result = getSpeed(startLat, startLng, destinationLat, destinationLng);
+
+            expect(result).toEqual([0.6, -0.8]);
+        });
+    });
+
+    describe("When the plane passes through the North Pole", function () {
+        it("should always return [1, 0] until the North Pole and than [-1, 0]", function () {
+            var startLat = 89;
+            var startLng = 1;
+            var destinationLat = 86;
+            var destinationLng = -179;
+            var result = getSpeed(startLat, startLng, destinationLat, destinationLng);
+
+            expect(result).toEqual([1, 0]);
+        });
+    });
+
+    describe("When the plane passes through the South Pole", function () {
+        it("should always return [-1, 0] until the South Pole and than [1, 0]", function () {
+            var startLat = -89;
+            var startLng = -1;
+            var destinationLat = -86;
+            var destinationLng = 179;
+            var result = getSpeed(startLat, startLng, destinationLat, destinationLng);
+
+            expect(result).toEqual([-1, 0]);
+        });
+    });
+
+    describe("When the plane passes through the Ecuator", function () {
+        it("Returns", function () {
+            var startLat = -2;
+            var startLng = 96;
+            var destinationLat = 1;
+            var destinationLng = 100;
+            var result = getSpeed(startLat, startLng, destinationLat, destinationLng);
+
+            expect(result).toEqual([0.6, 0.8]);
+        });
+    });
+
+    describe("When the plane passes through 0 meridian", function () {
+        it("Returns", function () {
+            var startLat = 47;
+            var startLng = -2;
+            var destinationLat = 50;
+            var destinationLng = 2;
+            var result = getSpeed(startLat, startLng, destinationLat, destinationLng);
+
+            expect(result).toEqual([0.6, 0.8]);
+        });
+    });
 })
