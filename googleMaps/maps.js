@@ -2,8 +2,8 @@ var map;
 
 function initMap() {
 
-    var airplanePositions = [{ lat: 89, lng: 155 },
-    { lat: -77.467, lng: 153.027 },
+    var airplanePositions = [{ lat: -27, lng: 155 },
+    /*{ lat: -77, lng: 153 },
     { lat: 27, lng: 103 },
     { lat: -17, lng: 153 },
     { lat: 24, lng: 113 },
@@ -11,7 +11,7 @@ function initMap() {
     { lat: -17.45, lng: 178 },
     { lat: -57, lng: 103 },
     { lat: 56, lng: -2 },
-    { lat: 7, lng: 159.5 }];
+    { lat: 7, lng: 159.5 }*/];
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -27.467, lng: 153.027 },
@@ -31,20 +31,18 @@ function initMap() {
     }
 
     var flightPlanCoordinates = [[
-        { lat: 89, lng: 155 },
-        /*{ lat: -18.142, lng: 178.431 },
-        { lat: 21.291, lng: -157.821 },*/
-        { lat: 87, lng: 155 }
+        { lat: -27, lng: 155 },
+        { lat: -49, lng: 155 }
     ],
-    [{ lat: -77.467, lng: 153.027 }, { lat: 80, lng: -156.278 }],
-    [{ lat: 27, lng: 103 }, { lat: 55, lng: -178.9 }],
-    [{ lat: -17, lng: 153 }, { lat: 47, lng: -9.2 }],
-    [{ lat: 24, lng: 113 }, { lat: 77, lng: 5 }],
-    [{ lat: -7, lng: 3 }, { lat: 39.5, lng: -12 }],
-    [{ lat: -17.45, lng: 178 }, { lat: 32.7, lng: 67 }],
-    [{ lat: -57, lng: 103 }, { lat: 45.2, lng: 82 }],
-    [{ lat: 56, lng: -2 }, { lat: 85.25, lng: -172 }],
-    [{ lat: 7, lng: 159.5 }, { lat: 50, lng: -45 }],
+        /*[{ lat: -77, lng: 153 }, { lat: 80, lng: -156.278 }],
+        [{ lat: 27, lng: 103 }, { lat: 55, lng: -178.9 }],
+        [{ lat: -17, lng: 153 }, { lat: 47, lng: -9.2 }],
+        [{ lat: 24, lng: 113 }, { lat: 77, lng: 5 }],
+        [{ lat: -7, lng: 3 }, { lat: 39.5, lng: -12 }],
+        [{ lat: -17.45, lng: 178 }, { lat: 32.7, lng: 67 }],
+        [{ lat: -57, lng: 103 }, { lat: 45.2, lng: 82 }],
+        [{ lat: 56, lng: -2 }, { lat: 85.25, lng: -172 }],
+        [{ lat: 7, lng: 159.5 }, { lat: 50, lng: -45 }],*/
     ];
 
     var flightPaths = [];
@@ -67,7 +65,8 @@ function initMap() {
     setInterval(function () {
         //airplaneMarker.setMap(null);
         for (let i = 0; i < airplaneMarkers.length; i++) {
-            airplanePositions[i] = getCoordinates(airplanePositions[i].lat, airplanePositions[i].lng, airplaneSpeeds[i][0], airplaneSpeeds[i][1]);
+            const newPosition = updatePosition(airplanePositions[i], airplaneSpeeds[i], flightPlanCoordinates[i]);
+            /*airplanePositions[i] = getCoordinates(airplanePositions[i].lat, airplanePositions[i].lng, airplaneSpeeds[i][0], airplaneSpeeds[i][1]);
             if (airplaneSpeeds[i][0] > 0 && airplaneSpeeds[i][1] > 0) {
                 if (airplanePositions[i].lat > flightPlanCoordinates[i][1].lat || airplanePositions[i].lng > flightPlanCoordinates[i][1].lng) {
                     airplanePositions[i] = flightPlanCoordinates[i][1];
@@ -87,43 +86,13 @@ function initMap() {
                 if (airplanePositions[i].lat < flightPlanCoordinates[i][1].lat || airplanePositions[i].lng < flightPlanCoordinates[i][1].lng) {
                     airplanePositions[i] = flightPlanCoordinates[i][1];
                 }
-            }
-            airplaneMarkers[i].setPosition(airplanePositions[i]);
+            }*/
+            airplaneMarkers[i].setPosition(newPosition);
         }
+
         //airplaneMarker.setMap(map);
     }, 100);
     //We update every position with the next coordinates on the flight path. If the computed position is beyond the destination, the position will be set to stop at the destination.
-}
-
-
-function getLat(lat, speed) {
-    let sum = lat + speed;
-    if (sum >= -90 && sum <= 90) {
-        return sum;
-    }
-    else {
-        if (lat > 0 && speed > 0) {
-            return (90 - speed) + (90 - lat);
-        }
-        if (lat < 0 && speed < 0) {
-            return (-90 - speed) + (-90 - lat);
-        }
-    }
-}
-
-function getLng(lng, speed) {
-    let sum = lng + speed;
-    if (sum >= -180 && sum <= 180) {
-        return sum;
-    }
-    else {
-        if (lng > 0 && speed > 0) {
-            return -((180 - speed) + (180 - lng));
-        }
-        if (lng < 0 && speed < 0) {
-            return (180 + speed) + (180 + lng);
-        }
-    }
 }
 
 function getCoordinates(lat, lng, latSpeed, lngSpeed) {
@@ -204,3 +173,30 @@ function getSpeed(startLat, startLng, destinationLat, destinationLng) {
 
 //if (latSpeed >= 180) { latSpeed = latSpeed%180 };
 //if (lngSpeed >= 360) { lngSpeed = lngSpeed%360 };
+
+function updatePosition(position, speed, path) {
+    const newPosition = getCoordinates(position.lat, position.lng, speed[0], speed[1]);
+
+    if (speed[0] >= 0 && speed[1] >= 0) {
+        if (position.lat > path[1].lat || position.lng > path[1].lng) {
+            return path[1];
+        }
+    }
+    if (speed[0] <= 0 && speed[1] >= 0) {
+        if (position.lat < path[1].lat || position.lng > path[1].lng) {
+            return path[1];
+        }
+    }
+    if (speed[0] >= 0 && speed[1] <= 0) {
+        if (position.lat > path[1].lat || position.lng < path[1].lng) {
+            return path[1];
+        }
+    }
+    if (speed[0] <= 0 && speed[1] <= 0) {
+        if (position.lat < path[1].lat || position.lng < path[1].lng) {
+            return path[1];
+        }
+    }
+
+    return newPosition;
+}
