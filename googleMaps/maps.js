@@ -92,7 +92,7 @@ function initMap() {
         }
         //airplaneMarker.setMap(map);
     }, 100);
-
+    //We update every position with the next coordinates on the flight path. If the computed position is beyond the destination, the position will be set to stop at the destination.
 }
 
 
