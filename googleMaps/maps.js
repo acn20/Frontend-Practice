@@ -2,7 +2,7 @@ var map;
 
 function initMap() {
 
-    var airplanePositions = [{ lat: -27, lng: 155 },
+    var airplanePositions = [{ lat: 51.47, lng: -0.4543 },
     /*{ lat: -77, lng: 153 },
     { lat: 27, lng: 103 },
     { lat: -17, lng: 153 },
@@ -31,8 +31,8 @@ function initMap() {
     }
 
     var flightPlanCoordinates = [[
-        { lat: -27, lng: 155 },
-        { lat: -49, lng: 155 }
+        { lat: 51.47, lng: -0.4543 },
+        { lat: 40.6413, lng: -73.7781 }
     ],
         /*[{ lat: -77, lng: 153 }, { lat: 80, lng: -156.278 }],
         [{ lat: 27, lng: 103 }, { lat: 55, lng: -178.9 }],
@@ -87,11 +87,12 @@ function initMap() {
                     airplanePositions[i] = flightPlanCoordinates[i][1];
                 }
             }*/
+            console.log(airplaneSpeeds);
+            console.log(newPosition);
             airplaneMarkers[i].setPosition(newPosition);
         }
-
         //airplaneMarker.setMap(map);
-    }, 100);
+    }, 1000);
     //We update every position with the next coordinates on the flight path. If the computed position is beyond the destination, the position will be set to stop at the destination.
 }
 
