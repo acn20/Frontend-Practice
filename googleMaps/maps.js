@@ -14,7 +14,7 @@ function initMap() {
     { lat: 7, lng: 159.5 }*/];
 
     map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -27.467, lng: 153.027 },
+        center: { lat: 51, lng: -1 },
         zoom: 4,
         mapTypeId: 'hybrid'
     });
@@ -65,8 +65,8 @@ function initMap() {
     setInterval(function () {
         //airplaneMarker.setMap(null);
         for (let i = 0; i < airplaneMarkers.length; i++) {
-            const newPosition = updatePosition(airplanePositions[i], airplaneSpeeds[i], flightPlanCoordinates[i]);
-            /*airplanePositions[i] = getCoordinates(airplanePositions[i].lat, airplanePositions[i].lng, airplaneSpeeds[i][0], airplaneSpeeds[i][1]);
+            newPosition = updatePosition(airplanePositions[i], airplaneSpeeds[i], flightPlanCoordinates[i]);
+            /*airplanePositions[i] = getNewCoordinates(airplanePositions[i].lat, airplanePositions[i].lng, airplaneSpeeds[i][0], airplaneSpeeds[i][1]);
             if (airplaneSpeeds[i][0] > 0 && airplaneSpeeds[i][1] > 0) {
                 if (airplanePositions[i].lat > flightPlanCoordinates[i][1].lat || airplanePositions[i].lng > flightPlanCoordinates[i][1].lng) {
                     airplanePositions[i] = flightPlanCoordinates[i][1];
@@ -89,14 +89,16 @@ function initMap() {
             }*/
             console.log(airplaneSpeeds);
             console.log(newPosition);
+
+            airplanePositions[i] = newPosition;
             airplaneMarkers[i].setPosition(newPosition);
         }
         //airplaneMarker.setMap(map);
-    }, 1000);
+    }, 100);
     //We update every position with the next coordinates on the flight path. If the computed position is beyond the destination, the position will be set to stop at the destination.
 }
 
-function getCoordinates(lat, lng, latSpeed, lngSpeed) {
+function getNewCoordinates(lat, lng, latSpeed, lngSpeed) {
 
     if (lat < -90 || lat > 90 || lng < -180 || lng > 180) {
         throw new Error("The latitude must be between -90 or 90 inclusive and the longitude must be between -180 and 180 inclusive");
@@ -176,25 +178,25 @@ function getSpeed(startLat, startLng, destinationLat, destinationLng) {
 //if (lngSpeed >= 360) { lngSpeed = lngSpeed%360 };
 
 function updatePosition(position, speed, path) {
-    const newPosition = getCoordinates(position.lat, position.lng, speed[0], speed[1]);
+    const newPosition = getNewCoordinates(position.lat, position.lng, speed[0], speed[1]);
 
     if (speed[0] >= 0 && speed[1] >= 0) {
-        if (position.lat > path[1].lat || position.lng > path[1].lng) {
+        if (position.lat > (path[1].lat - speed[0]) || position.lng > (path[1].lng - speed[1])) {
             return path[1];
         }
     }
     if (speed[0] <= 0 && speed[1] >= 0) {
-        if (position.lat < path[1].lat || position.lng > path[1].lng) {
+        if (position.lat < (path[1].lat - speed[0]) || position.lng > (path[1].lng - speed[1])) {
             return path[1];
         }
     }
     if (speed[0] >= 0 && speed[1] <= 0) {
-        if (position.lat > path[1].lat || position.lng < path[1].lng) {
+        if (position.lat > (path[1].lat - speed[0]) || position.lng < (path[1].lng - speed[1])) {
             return path[1];
         }
     }
     if (speed[0] <= 0 && speed[1] <= 0) {
-        if (position.lat < path[1].lat || position.lng < path[1].lng) {
+        if (position.lat < (path[1].lat - speed[0]) || position.lng < (path[1].lng - speed[1])) {
             return path[1];
         }
     }
