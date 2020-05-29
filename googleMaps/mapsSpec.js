@@ -128,7 +128,7 @@ describe("getNewCoordinates tests", function () {
             var latSpeed = 5;
             var lngSpeed = 0;
 
-            expect(function() {getNewCoordinates(lat, lng, latSpeed, lngSpeed)}).toThrow();
+            expect(function () { getNewCoordinates(lat, lng, latSpeed, lngSpeed) }).toThrow();
         })
     });
 
@@ -139,7 +139,7 @@ describe("getNewCoordinates tests", function () {
             var latSpeed = 5;
             var lngSpeed = 10;
 
-            expect(function() {getNewCoordinates(lat, lng, latSpeed, lngSpeed)}).toThrow();
+            expect(function () { getNewCoordinates(lat, lng, latSpeed, lngSpeed) }).toThrow();
         })
     });
 
@@ -150,7 +150,7 @@ describe("getNewCoordinates tests", function () {
             var latSpeed = 185;
             var lngSpeed = 0;
 
-            expect(function() {getNewCoordinates(lat, lng, latSpeed, lngSpeed)}).toThrow();
+            expect(function () { getNewCoordinates(lat, lng, latSpeed, lngSpeed) }).toThrow();
         })
     });
 
@@ -161,12 +161,12 @@ describe("getNewCoordinates tests", function () {
             var latSpeed = 5;
             var lngSpeed = -410;
 
-            expect(function() {getNewCoordinates(lat, lng, latSpeed, lngSpeed)}).toThrow();
+            expect(function () { getNewCoordinates(lat, lng, latSpeed, lngSpeed) }).toThrow();
         })
     });
 });
 
-describe("getSpeed tests", function() {
+describe("getSpeed tests", function () {
     describe("When all parameters are positive", function () {
         it("Returns", function () {
             var startLat = 47;
@@ -264,15 +264,114 @@ describe("getSpeed tests", function() {
     });
 });
 
-describe("updatePosition tests", function() {
-    describe("From London Heathrow to New York JFK", function () {
-        it("Returns", function () {
+describe("updatePosition tests", function () {
+    describe("When the current position is at the beginning of the path", function () {
+        const original = getNewCoordinates;
+
+        beforeEach(() => {
+            getNewCoordinates = function () {
+                return { lat: 1.1456, lng: 3.4678 };
+            };
+        });
+
+        afterEach(() => {
+            getNewCoordinates = original;
+        });
+
+        it("returns the coordinates computed by getNewCoordinates", function () {
             var position = { lat: 51.47, lng: -0.4543 };
             var speed = [-0.146098651846783, -0.9892700257910135];
             var path = [{ lat: 51.47, lng: -0.4543 }, { lat: 40.6413, lng: -73.7781 }];
             var result = updatePosition(position, speed, path);
 
-            expect(result).toEqual({ lat: 51.323901348153214, lng: -1.4435700257910136 });
+            expect(result).toEqual({ lat: 1.1456, lng: 3.4678 });
         });
     });
-})
+
+    describe("When lat speed >= 0 and lng speed >= 0", function () {
+        it("returns the destination coordinates", function () {
+            var position = { lat: 75, lng: -75.25 };
+            var speed = [0.5, 0.5];
+            var path = [{ lat: 50, lng: -125 }, { lat: 85, lng: -75 }];
+            var result = updatePosition(position, speed, path);
+
+            expect(result).toEqual({ lat: 85, lng: -75 });
+        });
+    });
+
+    describe("When lat speed <= 0 and lng speed >= 0", function () {
+        it("returns the destination coordinates", function () {
+            var position = { lat: 35.25, lng: -80.25 };
+            var speed = [-0.5, 0.5];
+            var path = [{ lat: 50, lng: -125 }, { lat: 35, lng: -75 }];
+            var result = updatePosition(position, speed, path);
+
+            expect(result).toEqual({ lat: 35, lng: -75 });
+        });
+    });
+
+    describe("When lat speed <= 0 and lng speed <= 0", function () {
+        it("returns the destination coordinates", function () {
+            var position = { lat: 35.25, lng: -60.25 };
+            var speed = [-0.5, -0.5];
+            var path = [{ lat: 50, lng: -25 }, { lat: 35, lng: -75 }];
+            var result = updatePosition(position, speed, path);
+
+            expect(result).toEqual({ lat: 35, lng: -75 });
+        });
+    });
+
+    describe("When lat speed >= 0 and lng speed <= 0", function () {
+        it("returns the destination coordinates", function () {
+            var position = { lat: 75.25, lng: -74.75 };
+            var speed = [0.5, -0.5];
+            var path = [{ lat: 50, lng: -25 }, { lat: 85, lng: -75 }];
+            var result = updatePosition(position, speed, path);
+
+            expect(result).toEqual({ lat: 85, lng: -75 });
+        });
+    });
+
+});
+
+describe("getAngleBetweenVectors tests", function () {
+    describe("When", function () {
+        it("returns", function () {
+            var vector1 = [1, 0];
+            var vector2 = [1, 0];
+            var result = getAngleBetweenVectors(vector1, vector2);
+
+            expect(result).toBe(0);
+        });
+    });
+
+    describe("When", function () {
+        it("returns", function () {
+            var vector1 = [1, 0];
+            var vector2 = [0, 1];
+            var result = getAngleBetweenVectors(vector1, vector2);
+
+            expect(result).toBe(90);
+        });
+    });
+
+    describe("When", function () {
+        it("returns", function () {
+            var vector1 = [1, 0];
+            var vector2 = [1, 1];
+            var result = getAngleBetweenVectors(vector1, vector2);
+
+            expect(result).toBeCloseTo(45, 5);
+        });
+    });
+
+    describe("When", function () {
+        it("returns", function () {
+            var vector1 = [1, 0];
+            var vector2 = [-1, 0];
+            var result = getAngleBetweenVectors(vector1, vector2);
+
+            expect(result).toBe(180);
+        });
+    });
+});

@@ -28,7 +28,13 @@ function initMap() {
             map: map,
             icon: image
         }));
-    }
+    };
+
+    /*const icon = marker.getIcon();
+    const angle = calculateAngle(unitSpeed, baseVector);
+    icon.rotation = angle;
+
+    marker.setIcon(icon);*/
 
     var flightPlanCoordinates = [[
         { lat: 51.47, lng: -0.4543 },
@@ -66,29 +72,9 @@ function initMap() {
         //airplaneMarker.setMap(null);
         for (let i = 0; i < airplaneMarkers.length; i++) {
             newPosition = updatePosition(airplanePositions[i], airplaneSpeeds[i], flightPlanCoordinates[i]);
-            /*airplanePositions[i] = getNewCoordinates(airplanePositions[i].lat, airplanePositions[i].lng, airplaneSpeeds[i][0], airplaneSpeeds[i][1]);
-            if (airplaneSpeeds[i][0] > 0 && airplaneSpeeds[i][1] > 0) {
-                if (airplanePositions[i].lat > flightPlanCoordinates[i][1].lat || airplanePositions[i].lng > flightPlanCoordinates[i][1].lng) {
-                    airplanePositions[i] = flightPlanCoordinates[i][1];
-                }
-            }
-            if (airplaneSpeeds[i][0] < 0 && airplaneSpeeds[i][1] > 0) {
-                if (airplanePositions[i].lat < flightPlanCoordinates[i][1].lat || airplanePositions[i].lng > flightPlanCoordinates[i][1].lng) {
-                    airplanePositions[i] = flightPlanCoordinates[i][1];
-                }
-            }
-            if (airplaneSpeeds[i][0] > 0 && airplaneSpeeds[i][1] < 0) {
-                if (airplanePositions[i].lat > flightPlanCoordinates[i][1].lat || airplanePositions[i].lng < flightPlanCoordinates[i][1].lng) {
-                    airplanePositions[i] = flightPlanCoordinates[i][1];
-                }
-            }
-            if (airplaneSpeeds[i][0] < 0 && airplaneSpeeds[i][1] < 0) {
-                if (airplanePositions[i].lat < flightPlanCoordinates[i][1].lat || airplanePositions[i].lng < flightPlanCoordinates[i][1].lng) {
-                    airplanePositions[i] = flightPlanCoordinates[i][1];
-                }
-            }*/
-            console.log(airplaneSpeeds);
-            console.log(newPosition);
+
+            //console.log(airplaneSpeeds);
+            //console.log(newPosition);
 
             airplanePositions[i] = newPosition;
             airplaneMarkers[i].setPosition(newPosition);
@@ -178,8 +164,6 @@ function getSpeed(startLat, startLng, destinationLat, destinationLng) {
 //if (lngSpeed >= 360) { lngSpeed = lngSpeed%360 };
 
 function updatePosition(position, speed, path) {
-    const newPosition = getNewCoordinates(position.lat, position.lng, speed[0], speed[1]);
-
     if (speed[0] >= 0 && speed[1] >= 0) {
         if (position.lat > (path[1].lat - speed[0]) || position.lng > (path[1].lng - speed[1])) {
             return path[1];
@@ -201,5 +185,15 @@ function updatePosition(position, speed, path) {
         }
     }
 
-    return newPosition;
+    return getNewCoordinates(position.lat, position.lng, speed[0], speed[1]);
+};
+
+function getAngleBetweenVectors(vector1, vector2) {
+    //a = acos ( (V * W) / (|V| * |W|) )//numitorul e 1
+    //vector1 = [1, 0];
+    //V = (v1, v2) si W = (w1, w2) ==> dot product = v1 * w1 + v2 * w2
+    //vector1 is the direction my plane is initially orientated ((1, 0)), and vector2 is the speed (a vector orientated towards the destination)
+    const angleInRadians = Math.acos(((vector1[0] * vector2[0]) + (vector1[1] * vector2[1])) / (Math.sqrt(Math.pow(vector1[0], 2) + Math.pow(vector1[1], 2)) * (Math.sqrt(Math.pow(vector2[0], 2) + Math.pow(vector2[1], 2)))));
+    return angleInRadians * 180 / Math.PI;//converting radians to degrees
 }
+
