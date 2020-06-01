@@ -19,22 +19,24 @@ function initMap() {
         mapTypeId: 'hybrid'
     });
 
-    var image = 'images/airplaneIcon.png';
+    //var image = 'images/airplaneIcon.png';
+
+    const baseVector = [1, 0];
 
     const airplaneMarkers = [];
     for (let i = 0; i < airplanePositions.length; i++) {
+        const image = {
+            path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+            scale: 4,
+            strokeColor: '#00F',
+            rotation: 0,
+        };
         airplaneMarkers.push(new google.maps.Marker({
             position: airplanePositions[i],
             map: map,
             icon: image
         }));
     };
-
-    /*const icon = marker.getIcon();
-    const angle = calculateAngle(unitSpeed, baseVector);
-    icon.rotation = angle;
-
-    marker.setIcon(icon);*/
 
     var flightPlanCoordinates = [[
         { lat: 51.47, lng: -0.4543 },
@@ -78,9 +80,23 @@ function initMap() {
 
             airplanePositions[i] = newPosition;
             airplaneMarkers[i].setPosition(newPosition);
+
+            const angle = getAngleBetweenVectors(baseVector, airplaneSpeeds[i]);
+            const icon = {
+                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                scale: 4,
+                strokeColor: '#00F',
+                rotation: angle,
+            };
+
+            airplaneMarkers[i].setIcon(icon);
+            console.log(angle);
+            console.log(baseVector);
+            console.log(airplaneSpeeds[i]);
+
         }
         //airplaneMarker.setMap(map);
-    }, 100);
+    }, 2000);
     //We update every position with the next coordinates on the flight path. If the computed position is beyond the destination, the position will be set to stop at the destination.
 }
 

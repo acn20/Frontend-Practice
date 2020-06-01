@@ -335,43 +335,17 @@ describe("updatePosition tests", function () {
 });
 
 describe("getAngleBetweenVectors tests", function () {
-    describe("When", function () {
-        it("returns", function () {
-            var vector1 = [1, 0];
-            var vector2 = [1, 0];
-            var result = getAngleBetweenVectors(vector1, vector2);
+    it("returns the angle between the given vectors", function () {
+        let result = getAngleBetweenVectors([1, 0], [-1, 0]);
+        expect(result).toBe(180);
 
-            expect(result).toBe(0);
-        });
-    });
+        result = getAngleBetweenVectors([1, 0], [1, 1]);
+        expect(result).toBeCloseTo(45, 5);
 
-    describe("When", function () {
-        it("returns", function () {
-            var vector1 = [1, 0];
-            var vector2 = [0, 1];
-            var result = getAngleBetweenVectors(vector1, vector2);
+        result = getAngleBetweenVectors([1, 0], [1, 0]);
+        expect(result).toBe(0);
 
-            expect(result).toBe(90);
-        });
-    });
-
-    describe("When", function () {
-        it("returns", function () {
-            var vector1 = [1, 0];
-            var vector2 = [1, 1];
-            var result = getAngleBetweenVectors(vector1, vector2);
-
-            expect(result).toBeCloseTo(45, 5);
-        });
-    });
-
-    describe("When", function () {
-        it("returns", function () {
-            var vector1 = [1, 0];
-            var vector2 = [-1, 0];
-            var result = getAngleBetweenVectors(vector1, vector2);
-
-            expect(result).toBe(180);
-        });
+        result = getAngleBetweenVectors([1, 0], [0, 1]);
+        expect(result).toBe(90);
     });
 });
