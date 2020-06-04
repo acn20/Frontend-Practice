@@ -2,16 +2,31 @@ var map;
 
 function initMap() {
 
-    var airplanePositions = [{ lat: 51.47, lng: -0.4543 },
-    /*{ lat: -77, lng: 153 },
-    { lat: 27, lng: 103 },
-    { lat: -17, lng: 153 },
-    { lat: 24, lng: 113 },
-    { lat: -7, lng: 3 },
-    { lat: -17.45, lng: 178 },
-    { lat: -57, lng: 103 },
-    { lat: 56, lng: -2 },
-    { lat: 7, lng: 159.5 }*/];
+    const London = { lat: 51.47, lng: -0.4543 };
+    const NY = { lat: 40.6413, lng: -73.7781 };
+    const Buc = { lat: 44.5707, lng: 26.0844 };
+    const Dubai = { lat: 25.2532, lng: 55.3657 };
+    const Rio = { lat: -22.8053, lng: -43.2395 };
+    const Melbourne = { lat: -37.8136, lng: 144.9631 };
+    const Tokyo = { lat: 35.6762, lng: 139.6503 };
+    const Beijing = { lat: 39.9042, lng: 116.4074 };
+    const Honolulu = { lat: 21.3069, lng: -157.8583 };
+    const LosAngeles = { lat: 34.0522, lng: -118.2437 };
+    const CapeTown = { lat: -33.9249, lng: 18.4241 };
+    const Johannesburg = { lat: -26.2041, lng: 28.0473 };
+    const SaoPaulo = { lat: -23.5505, lng: -46.6333 };
+
+
+    var airplanePositions = [London,
+        Buc,
+        NY,
+        Melbourne,
+        Dubai,
+        Honolulu,
+        London,
+        Dubai,
+        London,
+        CapeTown];
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 51, lng: -1 },
@@ -29,7 +44,7 @@ function initMap() {
             path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
             scale: 4,
             strokeColor: '#00F',
-            rotation: 0,
+            rotation: 90,
         };
         airplaneMarkers.push(new google.maps.Marker({
             position: airplanePositions[i],
@@ -39,18 +54,18 @@ function initMap() {
     };
 
     var flightPlanCoordinates = [[
-        { lat: 51.47, lng: -0.4543 },
-        { lat: 40.6413, lng: -73.7781 }
+        London,
+        NY
     ],
-        /*[{ lat: -77, lng: 153 }, { lat: 80, lng: -156.278 }],
-        [{ lat: 27, lng: 103 }, { lat: 55, lng: -178.9 }],
-        [{ lat: -17, lng: 153 }, { lat: 47, lng: -9.2 }],
-        [{ lat: 24, lng: 113 }, { lat: 77, lng: 5 }],
-        [{ lat: -7, lng: 3 }, { lat: 39.5, lng: -12 }],
-        [{ lat: -17.45, lng: 178 }, { lat: 32.7, lng: 67 }],
-        [{ lat: -57, lng: 103 }, { lat: 45.2, lng: 82 }],
-        [{ lat: 56, lng: -2 }, { lat: 85.25, lng: -172 }],
-        [{ lat: 7, lng: 159.5 }, { lat: 50, lng: -45 }],*/
+    [Buc, Dubai],
+    [NY, Rio],
+    [Melbourne, Tokyo],
+    [Dubai, Beijing],
+    [Honolulu, LosAngeles],
+    [London, CapeTown],
+    [Dubai, Johannesburg],
+    [London, SaoPaulo],
+    [CapeTown, SaoPaulo],
     ];
 
     var flightPaths = [];
@@ -86,8 +101,13 @@ function initMap() {
                 path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
                 scale: 4,
                 strokeColor: '#00F',
-                rotation: angle,
             };
+            if (airplaneSpeeds[i][1] < 0) {
+                icon.rotation = -angle;
+            }
+            else {
+                icon.rotation = angle;
+            }
 
             airplaneMarkers[i].setIcon(icon);
             console.log(angle);
@@ -96,7 +116,7 @@ function initMap() {
 
         }
         //airplaneMarker.setMap(map);
-    }, 2000);
+    }, 100);
     //We update every position with the next coordinates on the flight path. If the computed position is beyond the destination, the position will be set to stop at the destination.
 }
 
@@ -209,7 +229,9 @@ function getAngleBetweenVectors(vector1, vector2) {
     //vector1 = [1, 0];
     //V = (v1, v2) si W = (w1, w2) ==> dot product = v1 * w1 + v2 * w2
     //vector1 is the direction my plane is initially orientated ((1, 0)), and vector2 is the speed (a vector orientated towards the destination)
-    const angleInRadians = Math.acos(((vector1[0] * vector2[0]) + (vector1[1] * vector2[1])) / (Math.sqrt(Math.pow(vector1[0], 2) + Math.pow(vector1[1], 2)) * (Math.sqrt(Math.pow(vector2[0], 2) + Math.pow(vector2[1], 2)))));
+    const dotProduct = vector1[0] * vector2[0] + vector1[1] * vector2[1];
+    const productOfModuluses = Math.sqrt(vector1[0] * vector1[0] + vector1[1] * vector1[1]) * Math.sqrt(vector2[0] * vector2[0] + vector2[1] * vector2[1]);
+    const angleInRadians = Math.acos(dotProduct / productOfModuluses);
     return angleInRadians * 180 / Math.PI;//converting radians to degrees
 }
 
