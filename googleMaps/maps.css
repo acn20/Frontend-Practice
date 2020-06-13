@@ -7,4 +7,69 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+#newPlaneDialog {
+    padding: 15px 30px;
+    border: 1px solid #dadce0;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #dadce0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 400px;
+    margin: auto;
+}
+
+#path {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#return {
+    color: #dadce0;
+}
+
+button {
+    outline: none;
+    padding: 15px 30px;
+    margin: 5px 5px;
+    color: #fff;
+    background-color: #1a73e8;
+    border: 1px solid #1a73e8;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px #dadce0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#addPlaneButton {
+    margin: auto;
+}
+
+.button-text {
+    margin: 2px;
+}
+
+select {
+    font-size: 16px;
+    padding: 15px 35px;
+    margin: 5px 5px;
+    color: #3c4043;
+    border: 1px solid #dadce0;
+    border-radius: 5px;
+    outline: none;
+}
+
+select:focus {
+    padding: 14px 34px;
+    border: 2px solid #1a73e8;
 }

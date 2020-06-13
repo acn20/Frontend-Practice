@@ -5,9 +5,26 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link href="maps.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 
 <body>
+    <div id="newPlaneDialog" class="hide">
+        <div id="path">
+            <select name="start" id="start">
+                <option><i class="far fa-circle"></i>Choose city</option>
+            </select>
+            <div id="return"><i class="fas fa-exchange-alt"></i></div>
+            <select name="destination" id="destination">
+                <option><i class="fas fa-map-marker-alt"></i>Choose city</option>
+            </select>
+        </div>
+        
+        <button id="generatePath">OK</button><!--onclick="generateNewPath()"-->
+    </div>
+
+    <button id="addPlaneButton"><i class="fas fa-search"></i><div id="button-text">Add</div></button>
+
     <div id="map"></div>
     <script src="maps.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuyIvms-zJF1gaKrMLqOU9bFk9jWKXqTE&callback=initMap"
