@@ -16,53 +16,11 @@ const locations = [
 	{ city: "Medellin", lat: 6.2486, lng: -75.5742 }
 ];
 
-// const London = { lat: 51.47, lng: -0.4543 };
-// const NY = { lat: 40.6413, lng: -73.7781 };
-// const Bucharest = { lat: 44.5707, lng: 26.0844 };
-// const Dubai = { lat: 25.2532, lng: 55.3657 };
-// const Rio = { lat: -22.8053, lng: -43.2395 };
-// const Melbourne = { lat: -37.8136, lng: 144.9631 };
-// const Tokyo = { lat: 35.6762, lng: 139.6503 };
-// const Beijing = { lat: 39.9042, lng: 116.4074 };
-// const Honolulu = { lat: 21.3069, lng: -157.8583 };
-// const LosAngeles = { lat: 34.0522, lng: -118.2437 };
-// const CapeTown = { lat: -33.9249, lng: 18.4241 };
-// const Johannesburg = { lat: -26.2041, lng: 28.0473 };
-// const SaoPaulo = { lat: -23.5505, lng: -46.6333 };
-//const LasVegas = { lat: 36.1699, lng: -115.1398};
-//const Medellin = { lat: 6.2486, lng: -75.5742};
-
-// var airplanePositions = [London,
-// 	Bucharest,
-// 	NY,
-// 	Melbourne,
-// 	Dubai,
-// 	Honolulu,
-// 	London,
-// 	Dubai,
-// 	London,
-// 	CapeTown];
-
 const airplanePositions = [];
 const airplaneMarkers = [];
 const flightPlanCoordinates = [];
 const flightPaths = [];
 const airplaneSpeeds = [];
-
-// var flightPlanCoordinates = [[
-// 	London,
-// 	NY
-// ],
-// [Bucharest, Dubai],
-// [NY, Rio],
-// [Melbourne, Tokyo],
-// [Dubai, Beijing],
-// [Honolulu, LosAngeles],
-// [London, CapeTown],
-// [Dubai, Johannesburg],
-// [London, SaoPaulo],
-// [CapeTown, SaoPaulo],
-// ];
 
 function id(selector) {
 	return document.getElementById(selector);
@@ -127,7 +85,6 @@ function setupDialog() {
 		flightPaths.push(path);
 		
 		airplaneSpeeds.push(getSpeed(from.lat, from.lng, to.lat, to.lng));
-		// flightPaths[i].setMap(map);
 
 		document.getElementById('newPlaneDialog').classList.add('hide');
 	});
@@ -157,46 +114,11 @@ function initMap() {
 		mapTypeId: 'hybrid'
 	});
 
-	// var img = 'images/airplaneIcon.png';
-
-	// const airplaneMarkers = [];
-	// for (let i = 0; i < airplanePositions.length; i++) {
-		// const image = {
-		// 	path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-		// 	scale: 4,
-		// 	strokeColor: '#FFFF00',
-		// 	rotation: 90,
-		// };
-		// airplaneMarkers.push(new google.maps.Marker({
-		// 	position: airplanePositions[i],
-		// 	map: map,
-		// 	icon: image
-		// }));
-	// };
 	const baseVector = [1, 0];
 
-	// for (let i = 0; i < airplanePositions.length; i++) {
-	// 	flightPaths.push(new google.maps.Polyline({
-	// 		path: flightPlanCoordinates[i],
-	// 		geodesic: true,
-	// 		strokeColor: '#FF0000',
-	// 		strokeOpacity: 1.0,
-	// 		strokeWeight: 1
-	// 	}));
-	// 	flightPaths[i].setMap(map);
-	// }
-
-	// for (let i = 0; i < airplanePositions.length; i++) {
-	// 	airplaneSpeeds.push(getSpeed(flightPlanCoordinates[i][0].lat, flightPlanCoordinates[i][0].lng, flightPlanCoordinates[i][1].lat, flightPlanCoordinates[i][1].lng));
-	// }
-
 	setInterval(function () {
-		//airplaneMarker.setMap(null);
 		for (let i = 0; i < airplaneMarkers.length; i++) {
 			newPosition = updatePosition(airplanePositions[i], airplaneSpeeds[i], flightPlanCoordinates[i]);
-
-			//console.log(airplaneSpeeds);
-			//console.log(newPosition);
 
 			airplanePositions[i] = newPosition;
 			airplaneMarkers[i].setPosition(newPosition);
@@ -214,12 +136,7 @@ function initMap() {
 				icon.rotation = angle;
 			}
 			airplaneMarkers[i].setIcon(icon);
-			//console.log(angle);
-			//console.log(baseVector);
-			//console.log(airplaneSpeeds[i]);
-
 		}
-		//airplaneMarker.setMap(map);
 	}, 100);
 	//We update every position with the next coordinates on the flight path. If the computed position is beyond the destination, the position will be set to stop at the destination.
 }
@@ -299,9 +216,6 @@ function getSpeed(startLat, startLng, destinationLat, destinationLng) {
 	const divideFactor = Math.sqrt(Math.pow(latAxis, 2) + Math.pow(lngAxis, 2));//vector modulus
 	return [latAxis / divideFactor, lngAxis / divideFactor]
 }
-
-//if (latSpeed >= 180) { latSpeed = latSpeed%180 };
-//if (lngSpeed >= 360) { lngSpeed = lngSpeed%360 };
 
 function updatePosition(position, speed, path) {
 	if (speed[0] >= 0 && speed[1] >= 0) {
