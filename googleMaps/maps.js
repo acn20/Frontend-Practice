@@ -1,26 +1,46 @@
+class Position {
+	constructor(lat, lng) {
+		this.lat = lat;
+		this.lng = lng;
+	}
+}
+
+class Airport {
+	constructor(city, position) {
+		this.city = city;
+		this.position = position;
+	}
+}
+
+class Flight {
+	constructor(position, marker, plan, polyline, speed) {
+		this.position = position;
+		this.marker = marker;
+		this.plan = plan;
+		this.polyline = polyline;
+		this.speed = speed;
+	}
+}
+
 const locations = [
-	{ city: "London", lat: 51.47, lng: -0.4543 },
-	{ city: "New York", lat: 40.6413, lng: -73.7781 },
-	{ city: "Bucharest", lat: 44.5707, lng: 26.0844 },
-	{ city: "Dubai", lat: 25.2532, lng: 55.3657 },
-	{ city: "Rio", lat: -22.8053, lng: -43.2395 },
-	{ city: "Melbourne", lat: -37.8136, lng: 144.9631 },
-	{ city: "Tokyo", lat: 35.6762, lng: 139.6503 },
-	{ city: "Beijing", lat: 39.9042, lng: 116.4074 },
-	{ city: "Honolulu", lat: 21.3069, lng: -157.8583 },
-	{ city: "Los Angeles", lat: 34.0522, lng: -118.2437 },
-	{ city: "Cape Town", lat: -33.9249, lng: 18.4241 },
-	{ city: "Johannesburg", lat: -26.2041, lng: 28.0473 },
-	{ city: "Sao Paulo", lat: -23.5505, lng: -46.6333 },
-	{ city: "Las Vegas", lat: 36.1699, lng: -115.1398 },
-	{ city: "Medellin", lat: 6.2486, lng: -75.5742 }
+	new Airport('London', new Position(51.47, -0.4543)),
+	new Airport('New York', new Position(40.6413, -73.7781)),
+	new Airport('Bucharest', new Position(44.5707, 26.0844)),
+	new Airport('Dubai', new Position(25.2532, 55.3657)),
+	new Airport('Rio', new Position(-22.8053, -43.2395)),
+	new Airport('Melbourne', new Position(-37.8136, 144.9631)),
+	new Airport('Tokyo', new Position(35.6762, 139.6503)),
+	new Airport('Beijing', new Position(39.9042, 116.4074)),
+	new Airport('Honolulu', new Position(21.3069, -157.8583)),
+	new Airport('Los Angeles', new Position(34.0522, -118.2437)),
+	new Airport('Cape Town', new Position(-33.9249, 18.4241)),
+	new Airport('Johannesburg', new Position(-26.2041, 28.0473)),
+	new Airport('Sao Paulo', new Position(-23.5505, -46.6333)),
+	new Airport('Las Vegas', new Position(36.1699, -115.1398)),
+	new Airport('Medellin', new Position(6.2486, -75.5742))
 ];
 
-const airplanePositions = [];
-const airplaneMarkers = [];
-const flightPlanCoordinates = [];
-const flightPaths = [];
-const airplaneSpeeds = [];
+const flights = [];
 
 function id(selector) {
 	return document.getElementById(selector);
@@ -55,11 +75,10 @@ function setupDialog() {
 		const i = document.getElementById("start").value;
 		const j = document.getElementById("destination").value;
 
-		const from = { lat: locations[i].lat, lng: locations[i].lng };
-		const to = { lat: locations[j].lat, lng: locations[j].lng };
+		const from = { lat: locations[i].position.lat, lng: locations[i].position.lng };
+		const to = { lat: locations[j].position.lat, lng: locations[j].position.lng };
 
-		flightPlanCoordinates.push([from, to]);
-		airplanePositions.push(from);
+		const flightPlan = [from, to];
 
 		const image = {
 			path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
@@ -72,7 +91,6 @@ function setupDialog() {
 			map: map,
 			icon: image
 		});
-		airplaneMarkers.push(marker);
 
 		const path = new google.maps.Polyline({
 			path: [from, to],
@@ -82,9 +100,10 @@ function setupDialog() {
 			strokeWeight: 1
 		});
 		path.setMap(map);
-		flightPaths.push(path);
 		
-		airplaneSpeeds.push(getSpeed(from.lat, from.lng, to.lat, to.lng));
+		const speed = getSpeed(from.lat, from.lng, to.lat, to.lng);
+
+		flights.push(new Flight(from, marker, flightPlan, path, speed));
 
 		document.getElementById('newPlaneDialog').classList.add('hide');
 	});
@@ -104,10 +123,9 @@ function registerDomReadyFunctions() {
 registerDomReadyFunctions();
 
 
-var map;
+let map;
 
 function initMap() {
-
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: { lat: 51, lng: -1 },
 		zoom: 4,
@@ -117,25 +135,25 @@ function initMap() {
 	const baseVector = [1, 0];
 
 	setInterval(function () {
-		for (let i = 0; i < airplaneMarkers.length; i++) {
-			newPosition = updatePosition(airplanePositions[i], airplaneSpeeds[i], flightPlanCoordinates[i]);
+		for (let i = 0; i < flights.length; i++) {
+			newPosition = updatePosition(flights[i].position, flights[i].speed, flights[i].plan);
 
-			airplanePositions[i] = newPosition;
-			airplaneMarkers[i].setPosition(newPosition);
+			flights[i].position = newPosition;
+			flights[i].marker.setPosition(newPosition);
 
-			const angle = getAngleBetweenVectors(baseVector, airplaneSpeeds[i]);
+			const angle = getAngleBetweenVectors(baseVector, flights[i].speed);
 			const icon = {
 				path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
 				scale: 4,
 				strokeColor: '#FFFF00',
 			};
-			if (airplaneSpeeds[i][1] < 0) {
+			if (flights[i].speed[1] < 0) {
 				icon.rotation = -angle;
 			}
 			else {
 				icon.rotation = angle;
 			}
-			airplaneMarkers[i].setIcon(icon);
+			flights[i].marker.setIcon(icon);
 		}
 	}, 100);
 	//We update every position with the next coordinates on the flight path. If the computed position is beyond the destination, the position will be set to stop at the destination.
